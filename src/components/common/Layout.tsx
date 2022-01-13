@@ -9,15 +9,7 @@ function Layout({ children }: CommonProps) {
   return <Wrapper>{children}</Wrapper>;
 }
 
-function Header({ children }: CommonProps) {
-  return <HeaderStyled>{children}</HeaderStyled>;
-}
-
-function Footer({ children }: CommonProps) {
-  return <FooterStyled>{children}</FooterStyled>;
-}
-
-const HeaderStyled = styled.div`
+Layout.Header = styled.div`
   background-color: #c7fced;
   position: fixed;
   transform: translateX(-50%);
@@ -28,19 +20,6 @@ const HeaderStyled = styled.div`
   height: 52px;
   display: flex;
   margin-top: 24px;
-  justify-content: space-around;
-  align-items: center;
-`;
-
-const FooterStyled = styled.div`
-  background-color: #29d3c6;
-  position: fixed;
-  transform: translateX(-50%);
-  bottom: 0;
-  left: 50%;
-  width: 360px;
-  height: 67px;
-  display: flex;
   justify-content: space-around;
   align-items: center;
 `;
@@ -56,5 +35,3 @@ const Wrapper = styled.div`
 `;
 
 export { Layout };
-export { Header };
-export { Footer };

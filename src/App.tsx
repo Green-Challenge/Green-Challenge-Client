@@ -1,11 +1,11 @@
-import { Layout, Header, Footer } from "./components/common";
+import { Layout } from "./components/common";
 
 function App() {
   return (
     <div>
-      <Header>헤더</Header>
-      <Layout>hello</Layout>
-      <Footer>푸터</Footer>
+      <Layout>
+        <Layout.Header>헤더...</Layout.Header>
+      </Layout>
     </div>
   );
 }
