@@ -1,9 +1,5 @@
 function Record() {
-	return (
-		<div>
-			Record
-		</div>
-	)
+  return <div>Record</div>;
 }
 
-export {Record}
+export {Record};

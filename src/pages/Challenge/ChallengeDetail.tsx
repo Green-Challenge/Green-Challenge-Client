@@ -1,9 +1,5 @@
 function ChallengeDetail() {
-	return (
-		<div>
-			ChallengeDetail
-		</div>
-	)
+  return <div>ChallengeDetail</div>;
 }
 
-export {ChallengeDetail}
+export {ChallengeDetail};

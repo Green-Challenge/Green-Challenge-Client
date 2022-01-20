@@ -1,9 +1,5 @@
 function Challenging() {
-	return (
-		<div>
-			Challenging	
-		</div>
-	)
+  return <div>Challenging</div>;
 }
 
-export {Challenging}
+export {Challenging};

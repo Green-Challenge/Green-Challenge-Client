@@ -1,9 +1,5 @@
 function OnBoard() {
-	return (
-		<div>
-			OnBoard
-		</div>
-	)
+  return <div>OnBoard</div>;
 }
 
-export {OnBoard}
+export {OnBoard};

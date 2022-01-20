@@ -1,9 +1,5 @@
 function AddChallenge() {
-	return (
-		<div>
-			AddChallenge		
-		</div>
-	)
+  return <div>AddChallenge</div>;
 }
 
-export {AddChallenge}
+export {AddChallenge};

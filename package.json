@@ -28,13 +28,22 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "pretty": "prettier --write \"./**/*.{ts,tsx,json}\"",
+    "lint": "eslint ."
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "no-shadow": "error",
+      "@typescript-eslint/no-shadow": [
+        "error"
+      ]
+    }
   },
   "browserslist": {
     "production": [
@@ -51,6 +60,7 @@
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/styled-components": "^5.1.20",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.5.1"
   }

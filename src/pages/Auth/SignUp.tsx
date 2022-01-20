@@ -1,9 +1,5 @@
 function SignUp() {
-	return (
-		<div>
-			SignUp		
-		</div>
-	)
+  return <div>SignUp</div>;
 }
 
-export {SignUp}
+export {SignUp};

@@ -1,11 +1,11 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 interface CommonProps {
   children: React.ReactNode;
 }
 
-function Layout({ children }: CommonProps) {
+function Layout({children}: CommonProps) {
   return <Wrapper>{children}</Wrapper>;
 }
 
@@ -34,4 +34,4 @@ const Wrapper = styled.div`
   background-color: white;
 `;
 
-export { Layout };
+export {Layout};
