@@ -10,18 +10,29 @@ function Layout({children}: CommonProps) {
 }
 
 Layout.Header = styled.div`
-  background-color: #c7fced;
   position: fixed;
   transform: translateX(-50%);
   z-index: 1;
   top: 0;
   left: 50%;
-  width: 360px;
+  max-width: 360px;
   height: 52px;
   display: flex;
   margin-top: 24px;
   justify-content: space-around;
   align-items: center;
+`;
+
+Layout.Main = styled.main`
+  position: fixed;
+  transform: translateX(-50%);
+  z-index: 1;
+  top: 76px;
+  left: 50%;
+  width: 100%;
+  display: flex;
+  bottom: 0;
+  justify-content: space-around;
 `;
 
 const Wrapper = styled.div`
