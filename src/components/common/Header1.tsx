@@ -2,24 +2,11 @@ import color from 'color';
 import styled, {css} from 'styled-components';
 
 interface HeaderProps {
-  title: string;
   isBig?: boolean;
   isTitle?: boolean;
 }
 
-function Header1({isBig, title, isTitle}: HeaderProps) {
-  return (
-    <Wrapper isTitle={isTitle} isBig={isBig}>
-      {title}
-    </Wrapper>
-  );
-}
-
-interface WrapperProps {
-  isBig?: boolean;
-  isTitle?: boolean;
-}
-const Wrapper = styled.header<WrapperProps>`
+const Header1 = styled.h1<HeaderProps>`
   ${props =>
     props.isBig
       ? css`
