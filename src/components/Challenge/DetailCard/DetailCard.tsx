@@ -1,19 +1,24 @@
 import color from 'color';
 import styled from 'styled-components';
+import ChallengeImage from './ChallengeImage';
 import HashTag from './HashTag';
 
 interface DetailCardProps {
   imageSrc: string;
   tags: string[];
   description: string;
+  numberOfPersion: number;
 }
 
-function DetailCard({description, imageSrc, tags}: DetailCardProps) {
+function DetailCard({
+  description,
+  imageSrc,
+  tags,
+  numberOfPersion,
+}: DetailCardProps) {
   return (
     <Wrapper>
-      <ImageWrapper>
-        <img src={imageSrc} alt="챌린지 이미지" />
-      </ImageWrapper>
+      <ChallengeImage imageSrc={imageSrc} numberOfPersion={numberOfPersion} />
       <DescriptionWrapper>
         <TagsWrapper>
           {tags.map(tag => (
@@ -32,13 +37,6 @@ const Wrapper = styled.div`
   background-color: ${color.bgWhite};
   border-bottom-left-radius: 24px;
   border-bottom-right-radius: 24px;
-`;
-const ImageWrapper = styled.div`
-  border-radius: 10px;
-  overflow: hidden;
-  img {
-    display: block;
-  }
 `;
 const DescriptionWrapper = styled.div``;
 const TagsWrapper = styled.div`
