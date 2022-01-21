@@ -32,7 +32,6 @@ function DetailCard({
 }
 
 const Wrapper = styled.div`
-  position: absolute;
   padding: 16px 24px 28px;
   background-color: ${color.bgWhite};
   border-bottom-left-radius: 24px;
@@ -51,4 +50,4 @@ const Description = styled.div`
   font-weight: 400;
 `;
 
-export default DetailCard;
+export {DetailCard};
