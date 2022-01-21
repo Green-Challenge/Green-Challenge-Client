@@ -1,5 +1,7 @@
 import color from 'color';
-import DetailCard from 'components/Challenge/DetailCard';
+import {Section} from 'components/Challenge/common';
+import IntroduceCard from 'components/Challenge/common/IntroduceCard';
+import {DetailCard} from 'components/Challenge/DetailCard';
 import {Layout} from 'components/common';
 import Header1 from 'components/common/Header1';
 import styled from 'styled-components';
@@ -8,14 +10,25 @@ function ChallengeDetail() {
   return (
     <Layout>
       <Layout.Header>
-        <Header1 isTitle isBig title="뚜벅이 출퇴근" />
+        <Header1 isTitle isBig>
+          뚜벅이 출퇴근
+        </Header1>
       </Layout.Header>
       <Main>
-        <DetailCard
-          imageSrc="https://via.placeholder.com/312x320.jpg"
-          description="내 몸도 지구도 함께 건강해지는 뚜벅이 출퇴근 챌린지! 네이버스 이웃들과 함께 1,000km를 달성해 지구에게 나무 한 그루를 심는 것과 같은 효과를 선물해 주세요.."
-          tags={['환경지킴', '운동효과']}
-        />
+        <Wrapper>
+          <DetailCard
+            numberOfPersion={0}
+            imageSrc="https://via.placeholder.com/312x320.jpg"
+            description="내 몸도 지구도 함께 건강해지는 뚜벅이 출퇴근 챌린지! 네이버스 이웃들과 함께 1,000km를 달성해 지구에게 나무 한 그루를 심는 것과 같은 효과를 선물해 주세요.."
+            tags={['환경지킴', '운동효과']}
+          />
+          <Section title="리워드 토큰">
+            <IntroduceCard
+              description="30,000N"
+              imageSrc="https://via.placeholder.com/56x56.jpg"
+            />
+          </Section>
+        </Wrapper>
       </Main>
     </Layout>
   );
@@ -23,6 +36,10 @@ function ChallengeDetail() {
 
 const Main = styled(Layout.Main)`
   background-color: ${color.bgSurface};
+`;
+const Wrapper = styled.div`
+  position: absolute;
+  left: 0;
 `;
 
 export {ChallengeDetail};
