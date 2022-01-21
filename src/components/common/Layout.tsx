@@ -9,7 +9,7 @@ function Layout({children}: CommonProps) {
   return <Wrapper>{children}</Wrapper>;
 }
 
-Layout.Header = styled.div`
+Layout.Header = styled.header`
   position: fixed;
   transform: translateX(-50%);
   z-index: 1;
