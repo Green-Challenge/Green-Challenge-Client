@@ -4,9 +4,21 @@ import {DetailCard} from 'components/Challenge/DetailCard';
 import {Layout} from 'components/common';
 import Button from 'components/common/Button';
 import Header from 'components/common/Header';
+import {useCallback} from 'react';
+import {useHistory, useParams} from 'react-router-dom';
 import styled from 'styled-components';
 
+export interface AddState {
+  challengeId: string;
+}
+
 function ChallengeDetail() {
+  const history = useHistory();
+  const params = useParams<AddState>();
+
+  const onClick = useCallback(() => {
+    history.push({pathname: '/challenge/add', state: params});
+  }, [history, params]);
   return (
     <Layout>
       <Layout.Header>
@@ -59,7 +71,7 @@ function ChallengeDetail() {
               imageSrc="https://via.placeholder.com/200x200.jpg"
             />
           </Section>
-          <Button>참여하기</Button>
+          <Button onClick={onClick}>참여하기</Button>
         </Wrapper>
       </Main>
     </Layout>
