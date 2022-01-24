@@ -6,7 +6,7 @@ interface HeaderProps {
   isTitle?: boolean;
 }
 
-const Header1 = styled.h1<HeaderProps>`
+const Header = styled.h1<HeaderProps>`
   ${props =>
     props.isBig
       ? css`
@@ -20,4 +20,4 @@ const Header1 = styled.h1<HeaderProps>`
   color: ${props => (props.isTitle ? color.titleFont : color.bodyFont01)}
 `;
 
-export default Header1;
+export default Header;

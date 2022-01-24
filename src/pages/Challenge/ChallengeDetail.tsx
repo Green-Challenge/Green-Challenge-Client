@@ -3,17 +3,17 @@ import {Section} from 'components/Challenge/common';
 import IntroduceCard from 'components/Challenge/common/IntroduceCard';
 import {DetailCard} from 'components/Challenge/DetailCard';
 import {Layout} from 'components/common';
-import Button1 from 'components/common/Button1';
-import Header1 from 'components/common/Header1';
+import Button from 'components/common/Button';
+import Header from 'components/common/Header';
 import styled from 'styled-components';
 
 function ChallengeDetail() {
   return (
     <Layout>
       <Layout.Header>
-        <Header1 isTitle isBig>
+        <Header isTitle isBig>
           뚜벅이 출퇴근
-        </Header1>
+        </Header>
       </Layout.Header>
       <Main>
         <Wrapper>
@@ -79,10 +79,6 @@ const Main = styled(Layout.Main)`
 const Wrapper = styled.div`
   position: absolute;
   left: 0;
-`;
-const Button = styled(Button1)`
-  margin: 40px 24px;
-  border-radius: 10px;
 `;
 
 export {ChallengeDetail};
