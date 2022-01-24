@@ -1,3 +1,4 @@
+import color from 'color';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -43,6 +44,31 @@ const Wrapper = styled.div`
   transform: translateX(-50%);
   width: 360px;
   background-color: white;
+`;
+
+// scroll Main
+interface ScrollMainProps {
+  children: React.ReactNode;
+}
+Layout.ScrollMain = ({children}: ScrollMainProps) => {
+  return (
+    <ScrollMain>
+      <ScrollWrapper>{children}</ScrollWrapper>
+    </ScrollMain>
+  );
+};
+const ScrollWrapper = styled.div`
+  position: absolute;
+  left: 0;
+`;
+const ScrollMain = styled(Layout.Main)`
+  background-color: ${color.bgSurface};
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export {Layout};
