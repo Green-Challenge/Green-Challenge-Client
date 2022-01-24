@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import NumberOfPersion from './NumberOfPersion';
+import {NumberOfPersion} from '.';
 
 interface ChallengeImageProps {
   imageSrc: string;
@@ -24,4 +24,4 @@ const ImageWrapper = styled.div`
   }
 `;
 
-export default ChallengeImage;
+export {ChallengeImage};

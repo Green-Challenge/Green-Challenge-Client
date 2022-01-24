@@ -19,4 +19,4 @@ const NumberOfPersion = styled.div<NumberOfPersionProps>`
   font-weight: 400;
   font-size: 14px;
 `;
-export default NumberOfPersion;
+export {NumberOfPersion};
