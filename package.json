@@ -30,7 +30,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "pretty": "prettier --write \"./**/*.{ts,tsx,json}\"",
-    "lint": "eslint ."
+    "lint": "eslint .",
+		"docker" : "docker-compose -f docker-compose.dev.yml up"
   },
   "eslintConfig": {
     "extends": [
