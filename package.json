@@ -42,7 +42,14 @@
       "no-shadow": "error",
       "@typescript-eslint/no-shadow": [
         "error"
+      ],
+      "prettier/prettier": [
+        "error",
+        {
+          "endOfLine":"auto"
+        }
       ]
+      
     }
   },
   "browserslist": {

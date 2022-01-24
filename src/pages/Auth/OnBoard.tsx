@@ -1,5 +1,12 @@
+import OnBoardCard from 'components/Auth/OnBoard/OnBoardCard';
+
 function OnBoard() {
-  return <div>OnBoard</div>;
+  return (
+    <div>
+      OnBoard
+      <OnBoardCard />
+    </div>
+  );
 }
 
 export {OnBoard};
