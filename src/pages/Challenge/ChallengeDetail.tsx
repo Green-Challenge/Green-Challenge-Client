@@ -1,6 +1,5 @@
 import color from 'color';
-import {Section} from 'components/Challenge/common';
-import IntroduceCard from 'components/Challenge/common/IntroduceCard';
+import {IntroduceCard, Section} from 'components/Challenge/common';
 import {DetailCard} from 'components/Challenge/DetailCard';
 import {Layout} from 'components/common';
 import Button from 'components/common/Button';

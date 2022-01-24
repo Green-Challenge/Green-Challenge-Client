@@ -58,4 +58,4 @@ const DescriptionWrapper = styled.p<DescriptionWrapperProps>`
   font-size: 14px;
 `;
 
-export default IntroduceCard;
+export {IntroduceCard};

@@ -1,6 +1,6 @@
 import color from 'color';
 import styled from 'styled-components';
-import ChallengeImage from './ChallengeImage';
+import {ChallengeImage} from '../common';
 import HashTag from './HashTag';
 
 interface DetailCardProps {
