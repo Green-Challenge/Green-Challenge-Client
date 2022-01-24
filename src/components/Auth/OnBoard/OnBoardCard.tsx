@@ -1,9 +1,9 @@
 import React from 'react';
 import OnBoardImage from './OnBoardImage';
 import styled from 'styled-components';
-import CommonBtn from '../common/CommonBtn';
 import Headline from './Headline';
 import Description from './Description';
+import Button from 'components/common/Button';
 
 function OnBoardCard() {
   return (
@@ -11,7 +11,7 @@ function OnBoardCard() {
       <OnBoardImage />
       <Headline />
       <Description />
-      <CommonBtn />
+      <Button />
     </Wrapper>
   );
 }

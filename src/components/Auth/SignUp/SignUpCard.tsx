@@ -1,8 +1,8 @@
 import React from 'react';
-import CommonBtn from '../common/CommonBtn';
 import styled from 'styled-components';
 import SignUpForm from './SignUpForm';
 import Info from './Info';
+import Button from 'components/common/Button';
 
 function SignUpCard() {
   return (
@@ -10,7 +10,7 @@ function SignUpCard() {
       <Title>회원가입</Title>
       <SignUpForm />
       <Info />
-      <CommonBtn />
+      <Button />
     </Wrapper>
   );
 }
