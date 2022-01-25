@@ -1,0 +1,62 @@
+import color from 'color';
+import styled from 'styled-components';
+import Current from './Current';
+
+interface ProgressProps {
+  progress: number;
+  target: string;
+  currentDistance: string;
+}
+
+function Progress({progress, target, currentDistance}: ProgressProps) {
+  return (
+    <Wrapper>
+      <Current position={progress}>{currentDistance}</Current>
+      <Leaf />
+      <Background>
+        <Percent progress={progress}></Percent>
+      </Background>
+      <TargetSpan>{target}</TargetSpan>
+    </Wrapper>
+  );
+}
+
+const Wrapper = styled.div`
+  margin-top: 44px;
+  position: relative;
+`;
+const Background = styled.div`
+  width: 100%;
+  height: 12px;
+  background-color: #ebedf0;
+  border-radius: 10px;
+`;
+interface PercentProps {
+  progress: number;
+}
+const Percent = styled.div<PercentProps>`
+  height: 100%;
+  width: ${props => `${props.progress}%`};
+  background-color: ${color.primary};
+  border-radius: 10px;
+`;
+const Leaf = styled.div`
+  position: absolute;
+  right: 0;
+  top: -5px;
+  transform: translateY(-100%);
+  width: 20px;
+  height: 20px;
+  background-color: ${color.blue01};
+`;
+const TargetSpan = styled.span`
+  position: absolute;
+  right: 0;
+  transform: translateY(100%);
+  font-weight: 400;
+  font-size: 12px;
+  bottom: -4px;
+  color: ${color.line01};
+`;
+
+export default Progress;
