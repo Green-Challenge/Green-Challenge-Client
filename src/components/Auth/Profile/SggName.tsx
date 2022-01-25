@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SelectState() {
+function SggName() {
   return (
     <>
       <select>
@@ -18,4 +18,4 @@ function SelectState() {
   );
 }
 
-export default SelectState;
+export default SggName;

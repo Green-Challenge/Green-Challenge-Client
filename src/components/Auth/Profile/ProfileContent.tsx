@@ -1,29 +1,32 @@
 import React from 'react';
-import SelectCity from './SelectCity';
-import SelectState from './SelectState';
+import styled from 'styled-components';
+import SiName from './SiName';
+import SggName from './SggName';
 
 function ProfileContent() {
   return (
     <div>
-      <div className="form-group">
-        <label htmlFor="name">닉네임</label>
+      <div className="form-nickname">
+        <label htmlFor="nickname">닉네임</label>
         <br />
         <input
           type="text"
-          name="name"
-          id="name"
+          name="nickname"
+          id="nickname"
           // onChange={e => setDetails({...details, name: e.target.value})}
           // value={details.name}
         />
       </div>
-      <div className="form-group">
-        <label htmlFor="name">거주지</label>
+      <div className="form-location">
+        <label htmlFor="location">거주지</label>
         <br />
-        <SelectCity />
-        <SelectState />
+        <SiName />
+        <SggName />
       </div>
     </div>
   );
 }
+
+const FormWrapper = styled.div``;
 
 export default ProfileContent;

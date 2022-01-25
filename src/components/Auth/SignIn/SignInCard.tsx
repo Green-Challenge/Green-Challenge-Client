@@ -5,7 +5,7 @@ import styled from 'styled-components';
 function SignInCard() {
   return (
     <Wrapper>
-      회원가입
+      로그인
       <Button />
     </Wrapper>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
+import styled from 'styled-components';
 
-function SelectCity() {
+function SiName() {
   return (
     <>
       <select>
@@ -18,4 +19,6 @@ function SelectCity() {
   );
 }
 
-export default SelectCity;
+const Wrapper = styled.div``;
+
+export default SiName;
