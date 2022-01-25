@@ -1,4 +1,3 @@
-import color from 'color';
 import {IntroduceCard, Section} from 'components/Challenge/common';
 import {DetailCard} from 'components/Challenge/DetailCard';
 import {Layout} from 'components/common';
@@ -6,7 +5,6 @@ import Button from 'components/common/Button';
 import Header from 'components/common/Header';
 import {useCallback} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
-import styled from 'styled-components';
 
 export interface AddState {
   challengeId: string;
