@@ -1,11 +1,12 @@
 import color from 'color';
 import styled from 'styled-components';
 
-const SignButton = styled.button`
+const Circle = styled.button`
   width: 150px;
   height: 56px;
-  background-color: ${color.primary}
-  color:${color.bgWhite};
+  /* background-color: ${color.primary} */
+  background-color: ${props => props.color || 'white'};
+  color: ${color.bgWhite};
   border: none;
   font-size: 16px;
   font-weight: 500;
@@ -14,4 +15,4 @@ const SignButton = styled.button`
   border-radius: 10px;
 `;
 
-export default SignButton;
+export default Circle;

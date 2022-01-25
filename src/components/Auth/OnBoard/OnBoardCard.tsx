@@ -1,4 +1,5 @@
 import React from 'react';
+import color from 'color';
 import OnBoardImage from './OnBoardImage';
 import styled from 'styled-components';
 import Headline from './Headline';
@@ -7,22 +8,36 @@ import Button from 'components/common/Button';
 
 function OnBoardCard() {
   return (
-    <Wrapper>
+    <div>
       <OnBoardImage />
       <Headline />
       <Description />
-      <Button />
-    </Wrapper>
+      <BtnBox>
+        <Btn>로그인</Btn>
+        <Btn>회원가입</Btn>
+      </BtnBox>
+    </div>
   );
 }
-const Wrapper = styled.div`
-  position: fixed;
-  bottom: 0;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 360px;
-  background-color: white;
+
+const BtnBox = styled.div`
+  /* float: left; */
+  display: flex;
+  width: calc(100% - 24px);
+  margin: 0px 24px;
+`;
+
+const Btn = styled.button`
+  width: 150px;
+  height: 56px;
+  background-color: ${color.primary};
+  color: ${color.bgWhite};
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 12px;
+  border-radius: 10px;
 `;
 
 export default OnBoardCard;
