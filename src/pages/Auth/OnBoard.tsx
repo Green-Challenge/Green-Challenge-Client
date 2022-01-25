@@ -3,44 +3,58 @@ import Description from 'components/Auth/OnBoard/Description';
 import Headline from 'components/Auth/OnBoard/Headline';
 import OnBoardImage from 'components/Auth/OnBoard/OnBoardImage';
 import {Layout} from 'components/common';
-import Header from 'components/common/Header';
 import styled from 'styled-components';
-import Button from 'components/common/Button';
+import {useHistory} from 'react-router-dom';
 
 function OnBoard() {
+  let history = useHistory();
+
   return (
     <Layout>
-      <OnBoardImage />
-      <Headline />
-      <Description />
-      <BtnBox>
-        <Btn>로그인</Btn>
-        <Btn>회원가입</Btn>
-      </BtnBox>
+      <Main>
+        <OnBoardImage />
+        <Headline />
+        <Description />
+        <ButtonGroup>
+          <Button
+            color={color.bgWhite}
+            onClick={() => {
+              history.push('/auth/signin');
+            }}>
+            로그인
+          </Button>
+          <Button
+            onClick={() => {
+              history.push('/auth/signup');
+            }}>
+            회원가입
+          </Button>
+        </ButtonGroup>
+      </Main>
     </Layout>
   );
 }
 
-const BtnBox = styled.div`
-  display: flex;
-  width: calc(100% - 24px);
-  margin: 0px 24px;
+const Main = styled(Layout.Main)`
+  flex-direction: column;
+  justify-content: space-between;
 `;
 
-const Btn = styled.button`
-  width: 150px;
+const ButtonGroup = styled.div`
+  margin-left: 2.4rem;
+`;
+
+const Button = styled.button`
+  width: calc(50% - 30px);
   height: 56px;
-  background-color: ${color.primary};
-  color: ${color.bgWhite};
-  border: none;
+  background-color: ${props => props.color || color.primary};
+  color: ${props => (props.color ? color.primary : color.bgWhite)};
+  border: 1px solid ${color.primary};
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
-  margin-right: 12px;
+  margin: 40px 6px;
   border-radius: 10px;
 `;
 
-const SignInBtn = styled.button`
-  color: ${color.bgWhite};
-`;
 export {OnBoard};

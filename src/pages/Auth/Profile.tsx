@@ -25,26 +25,8 @@ function Profile() {
         <Button>확인</Button>
       </Main>
     </Layout>
-    //   <form>
-    //     <h2>프로필</h2>
-
-    //     <ProfileImage />
-    //
-    //     <Button type="submit">확인</Button>
-    //   </form>
-    // </Wrapper>
   );
 }
-
-// const Wrapper = styled.div`
-//   position: fixed;
-//   bottom: 0;
-//   top: 0;
-//   left: 50%;
-//   transform: translateX(-50%);
-//   width: 360px;
-//   background-color: white;
-// `;
 
 const Wrapper = styled.div`
   margin: auto 24px;
@@ -54,4 +36,5 @@ const Main = styled(Layout.Main)`
   flex-direction: column;
   justify-content: space-between;
 `;
+
 export {Profile};

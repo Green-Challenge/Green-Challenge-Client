@@ -8,9 +8,9 @@ const InfoTxt = styled.span`
   color: ${color.bodyFont03};
   width: 206px;
   height: 24px;
-  margin-top: 12px;
+  margin-top: 166px;
   margin-left: 23px;
-  margin-bottom: 51px;
+  margin-bottom: 18px;
 `;
 
 export default InfoTxt;
