@@ -1,4 +1,5 @@
 import color from 'color';
+import Icon from 'components/Icon/Icon';
 import styled from 'styled-components';
 import Current from './Current';
 
@@ -12,7 +13,9 @@ function Progress({progress, target, currentDistance}: ProgressProps) {
   return (
     <Wrapper>
       <Current position={progress}>{currentDistance}</Current>
-      <Leaf />
+      <LeafContainer>
+        <Leaf name="leaf" />
+      </LeafContainer>
       <Background>
         <Percent progress={progress}></Percent>
       </Background>
@@ -40,14 +43,15 @@ const Percent = styled.div<PercentProps>`
   background-color: ${color.primary};
   border-radius: 10px;
 `;
-const Leaf = styled.div`
-  position: absolute;
-  right: 0;
-  top: -5px;
-  transform: translateY(-100%);
+const Leaf = styled(Icon)`
   width: 20px;
   height: 20px;
-  background-color: ${color.blue01};
+`;
+const LeafContainer = styled.div`
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateY(-100%);
 `;
 const TargetSpan = styled.span`
   position: absolute;
