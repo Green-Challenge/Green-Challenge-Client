@@ -27,6 +27,4 @@ function ProfileContent() {
   );
 }
 
-const FormWrapper = styled.div``;
-
 export default ProfileContent;

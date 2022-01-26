@@ -1,5 +1,3 @@
-// import SignUpCard from 'components/Auth/SignUp/SignUpCard';
-import color from 'color';
 import {Layout} from 'components/common';
 import Button from 'components/common/Button';
 import Header from 'components/common/Header';
@@ -39,7 +37,6 @@ function SignUp() {
 const Wrapper = styled.div`
   margin-left: 24px;
   width: calc(100% - 48px);
-  /* margin-left: 24px; */
   /* left: 0; */
 `;
 
