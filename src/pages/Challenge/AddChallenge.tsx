@@ -2,14 +2,20 @@ import color from 'color';
 import {Layout} from 'components/common';
 import Button from 'components/common/Button';
 import Header from 'components/common/Header';
-import {useLocation} from 'react-router-dom';
+import {useCallback, useMemo} from 'react';
+import {useHistory, useLocation} from 'react-router-dom';
 import styled from 'styled-components';
 import {AddState} from '.';
 
 function AddChallenge() {
+  const history = useHistory();
   const location = useLocation<AddState>();
   const challengeId = location.state.challengeId;
-  console.log(challengeId);
+  const state: AddState = useMemo(() => ({challengeId}), [challengeId]);
+
+  const onClick = useCallback(() => {
+    history.push({pathname: '/challenge/challenging', state});
+  }, [history, state]);
 
   return (
     <Layout>
@@ -33,7 +39,7 @@ function AddChallenge() {
             지구에게 향나무를 선물해 주세요!
           </Description>
         </Wrapper>
-        <Button>확인</Button>
+        <Button onClick={onClick}>확인</Button>
       </Main>
     </Layout>
   );
