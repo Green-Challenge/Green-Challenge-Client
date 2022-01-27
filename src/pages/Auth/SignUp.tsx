@@ -4,8 +4,11 @@ import Header from 'components/common/Header';
 import styled from 'styled-components';
 import InputWithLabel from 'components/Auth/common/InputWithLabel';
 import InfoTxt from 'components/Auth/common/InfoTxt';
+import {useHistory} from 'react-router-dom';
 
 function SignUp() {
+  let history = useHistory();
+
   return (
     <Layout>
       <Layout.Header>
@@ -36,7 +39,12 @@ function SignUp() {
             </InfoTxt>
           </Info>
         </Wrapper>
-        <Button>가입</Button>
+        <Button
+          onClick={() => {
+            history.push('/auth/profile');
+          }}>
+          가입
+        </Button>
       </Main>
     </Layout>
   );
