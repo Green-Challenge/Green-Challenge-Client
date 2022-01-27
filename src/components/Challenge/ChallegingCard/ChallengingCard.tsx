@@ -57,6 +57,7 @@ const RoundButton = styled(Button)<RoundButtonProps>`
   background-color: ${color.primary};
   margin: 54px 0 40px;
   font-size: 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   ${props =>
     props.isStarting
       ? css`
