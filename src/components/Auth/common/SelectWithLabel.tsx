@@ -3,10 +3,19 @@ import styled from 'styled-components';
 import color from 'color';
 
 //타입스크립트 적용하기
-const SelectWithLabel = ({label, ...rest}) => (
+
+interface SelectWithLabelProps {
+  label: string;
+  [rest: string]: any;
+}
+
+const SelectWithLabel: React.FC<SelectWithLabelProps> = ({label, ...rest}) => (
   <Wrapper>
     <Label>{label}</Label>
-    <Select {...rest} />
+    <SelectWrapper>
+      <Select {...rest} />
+      <Select {...rest} />
+    </SelectWrapper>
   </Wrapper>
 );
 
@@ -25,8 +34,8 @@ const Label = styled.label`
 `;
 
 const Select = styled.select`
-  font-family: Noto Sans KR;
   width: calc(100% - 30px);
+  font-family: Noto Sans KR;
   border: 0.5px solid ${color.line03};
   outline: none;
   border-radius: 10px;
@@ -34,6 +43,12 @@ const Select = styled.select`
   font-size: 14px;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+`;
+
+const SelectWrapper = styled.div`
+  height: 2.5rem;
+  gap: 12px;
+  display: flex;
 `;
 
 export default SelectWithLabel;

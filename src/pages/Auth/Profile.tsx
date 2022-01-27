@@ -32,7 +32,11 @@ function Profile() {
                 />
               </div>
               <div className="form-location">
-                <SelectWithLabel label="거주지" name="selectbox" />
+                <SelectWithLabel
+                  value="서울시"
+                  label="거주지"
+                  name="selectbox"
+                />
               </div>
             </div>
           </>

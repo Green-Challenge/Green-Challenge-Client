@@ -30,7 +30,6 @@ const Label = styled.label`
 const Input = styled.input`
   font-family: Noto Sans KR;
   width: calc(100% - 17px);
-  /* width: 100%; */
   border: 0.5px solid ${color.line03};
   outline: none;
   border-radius: 10px;
