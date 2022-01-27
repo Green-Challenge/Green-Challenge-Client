@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@nivo/core": "^0.79.0",
+    "@nivo/line": "^0.79.1",
     "@reduxjs/toolkit": "^1.7.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
@@ -31,7 +33,8 @@
     "eject": "react-scripts eject",
     "pretty": "prettier --write \"./**/*.{ts,tsx,json}\"",
     "lint": "eslint .",
-		"docker" : "docker-compose -f docker-compose.dev.yml up"
+    "docker": "docker-compose -f docker-compose.dev.yml up",
+    "docker-build": "docker-compose -f docker-compose.dev.yml up --build"
   },
   "eslintConfig": {
     "extends": [

@@ -4,12 +4,16 @@ import styled from 'styled-components';
 interface SectionProps {
   title: string;
   children: React.ReactNode;
+  info?: number;
 }
 
-function Section({title, children}: SectionProps) {
+function Section({title, children, info}: SectionProps) {
   return (
     <Wrapper>
-      <Title>{title}</Title>
+      <Title>
+        {info && <Info>{info}</Info>}
+        {title}
+      </Title>
       {children}
     </Wrapper>
   );
@@ -24,6 +28,16 @@ const Title = styled.h3`
   font-weight: 700;
   font-size: 18px;
   margin-bottom: 12px;
+  position: relative;
+  display: inline-block;
+`;
+const Info = styled.span`
+  position: absolute;
+  right: -6px;
+  transform: translateX(100%);
+  font-size: 20px;
+  font-weight: 500;
+  color: ${color.primary};
 `;
 
 export {Section};
