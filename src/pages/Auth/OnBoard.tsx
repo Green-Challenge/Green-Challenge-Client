@@ -11,10 +11,12 @@ function OnBoard() {
 
   return (
     <Layout>
+      <OnBoardImage />
       <Main>
-        <OnBoardImage />
-        <Headline />
-        <Description />
+        <Wrapper>
+          <Headline />
+          <Description />
+        </Wrapper>
         <ButtonGroup>
           <Button
             color={color.bgWhite}
@@ -34,6 +36,10 @@ function OnBoard() {
     </Layout>
   );
 }
+
+const Wrapper = styled.div`
+  height: 86px;
+`;
 
 const Main = styled(Layout.Main)`
   flex-direction: column;

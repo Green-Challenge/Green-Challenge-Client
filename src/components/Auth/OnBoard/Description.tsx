@@ -13,11 +13,11 @@ function Description() {
 
 const Desc = styled.div`
   font-family: Noto Sans KR;
+  font-size: 14px;
   color: ${color.bodyFont03};
   width: 100%;
   height: 48px;
   line-height: 24px;
-  font-size: 14px;
   text-align: center;
 `;
 export default Description;
