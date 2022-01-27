@@ -24,7 +24,7 @@ function SignIn() {
             type="password"
           />
         </Wrapper>
-        <InfoTxt>
+        <InfoTxt textAlign>
           아직 네이버스 계정이 없으신가요?
           <SignUp
             onClick={() => {

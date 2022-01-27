@@ -2,8 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import color from 'color';
 
+interface InputWithLabelProps {
+  label: string;
+  [rest: string]: any;
+}
 //타입스크립트 적용하기
-const InputWithLabel = ({label, ...rest}) => (
+const InputWithLabel: React.FC<InputWithLabelProps> = ({label, ...rest}) => (
   <Wrapper>
     <Label>{label}</Label>
     <Input {...rest} />
@@ -25,7 +29,8 @@ const Label = styled.label`
 
 const Input = styled.input`
   font-family: Noto Sans KR;
-  width: calc(100% - 30px);
+  width: calc(100% - 17px);
+  /* width: 100%; */
   border: 0.5px solid ${color.line03};
   outline: none;
   border-radius: 10px;
