@@ -34,7 +34,7 @@
     "pretty": "prettier --write \"./**/*.{ts,tsx,json}\"",
     "lint": "eslint .",
     "docker": "docker-compose -f docker-compose.dev.yml up",
-		"docker-build": "docker-compose -f docker-compose.dev.yml up --build"
+    "docker-build": "docker-compose -f docker-compose.dev.yml up --build"
   },
   "eslintConfig": {
     "extends": [
