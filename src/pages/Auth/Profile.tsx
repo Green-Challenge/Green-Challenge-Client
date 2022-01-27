@@ -27,11 +27,10 @@ function Profile() {
                 />
               </div>
               <div className="form-location">
-                <SelectWithLabel
-                  value="서울시"
-                  label="거주지"
-                  name="selectbox"
-                />
+                <SelectWithLabel value="서울시" label="거주지" name="selectbox">
+                  <option value="1">입력</option>
+                  <option value="2">지역명</option>
+                </SelectWithLabel>
               </div>
             </div>
           </>
