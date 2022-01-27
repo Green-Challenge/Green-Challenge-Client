@@ -5,8 +5,10 @@ import {Layout} from 'components/common';
 import Button from 'components/common/Button';
 import Header from 'components/common/Header';
 import styled from 'styled-components';
+import {useHistory} from 'react-router-dom';
 
 function SignIn() {
+  let history = useHistory();
   return (
     <Layout>
       <Layout.Header>
@@ -21,10 +23,17 @@ function SignIn() {
             placeholder="비밀번호"
             type="password"
           />
-          <InfoTxt>
-            아직 네이버스 계정이 없으신가요?<SignUp> 회원가입</SignUp>
-          </InfoTxt>
         </Wrapper>
+        <InfoTxt>
+          아직 네이버스 계정이 없으신가요?
+          <SignUp
+            onClick={() => {
+              history.push('/auth/signup');
+            }}>
+            {' '}
+            회원가입
+          </SignUp>
+        </InfoTxt>
 
         <Button>로그인</Button>
       </Main>
@@ -44,6 +53,7 @@ const Main = styled(Layout.Main)`
 const SignUp = styled.span`
   font-size: 14px;
   color: ${color.primary};
+  cursor: pointer;
 `;
 
 export {SignIn};
