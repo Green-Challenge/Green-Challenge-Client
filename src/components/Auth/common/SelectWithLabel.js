@@ -3,27 +3,28 @@ import styled from 'styled-components';
 import color from 'color';
 
 //타입스크립트 적용하기
-const InputWithLabel = ({label, ...rest}) => (
+const SelectWithLabel = ({label, ...rest}) => (
   <Wrapper>
     <Label>{label}</Label>
-    <Input {...rest} />
+    <Select {...rest} />
   </Wrapper>
 );
 
 const Wrapper = styled.div`
-  & + & {
-    margin-top: 1.14rem;
-  }
+  /* & + & {
+    margin-top: 0.8rem;
+  } */
+  margin-top: 0.6rem;
 `;
 
 const Label = styled.label`
   font-family: Noto Sans KR;
   font-style: bold;
   font-size: 14px;
-  margin-bottom: 0.42rem;
+  margin-bottom: 0.3rem;
 `;
 
-const Input = styled.input`
+const Select = styled.select`
   font-family: Noto Sans KR;
   width: calc(100% - 30px);
   border: 0.5px solid ${color.line03};
@@ -35,4 +36,4 @@ const Input = styled.input`
   padding-right: 0.5rem;
 `;
 
-export default InputWithLabel;
+export default SelectWithLabel;

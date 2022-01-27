@@ -7,7 +7,6 @@ function Headline() {
 const H3 = styled.div`
   width: 74px;
   height: 32px;
-  font-family: Noto Sans KR;
   text-align: center;
   font-weight: bold;
   margin-top: 51px;

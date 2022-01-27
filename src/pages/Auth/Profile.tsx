@@ -2,10 +2,12 @@ import React, {useState} from 'react';
 import Button from 'components/common/Button';
 import color from 'color';
 import styled from 'styled-components';
-import ProfileContent from 'components/Auth/Profile/ProfileContent';
 import ProfileImage from 'components/Auth/Profile/ProfileImage';
 import {Layout} from 'components/common';
 import Header from 'components/common/Header';
+import InputWithLabel from 'components/Auth/common/InputWithLabel';
+import SelectWithLabel from 'components/Auth/common/SelectWithLabel';
+
 // interface ProfileProps {
 //   Login: any;
 //   error: any;
@@ -20,7 +22,20 @@ function Profile() {
       <Main>
         <Wrapper>
           <ProfileImage />
-          <ProfileContent />
+          <>
+            <div>
+              <div className="form-nickname">
+                <InputWithLabel
+                  label="닉네임"
+                  name="nickname"
+                  placeholder="닉네임"
+                />
+              </div>
+              <div className="form-location">
+                <SelectWithLabel label="거주지" name="selectbox" />
+              </div>
+            </div>
+          </>
         </Wrapper>
         <Button>확인</Button>
       </Main>
