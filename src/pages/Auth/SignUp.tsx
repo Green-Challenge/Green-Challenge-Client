@@ -31,8 +31,8 @@ function SignUp() {
           </InputWrapper>
           <Info>
             <InfoTxt>
-              개인정보 수집 및 이용에 동의합니다✅
-              {/* <input type="checkbox" /> */}
+              개인정보 수집 및 이용에 동의합니다
+              <input type="checkbox" />
             </InfoTxt>
           </Info>
         </Wrapper>
@@ -57,6 +57,7 @@ const Main = styled(Layout.Main)`
 
 const Info = styled.div`
   display: flex;
+  text-align: center;
 `;
 
 export {SignUp};

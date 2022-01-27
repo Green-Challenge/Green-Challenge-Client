@@ -8,11 +8,6 @@ import Header from 'components/common/Header';
 import InputWithLabel from 'components/Auth/common/InputWithLabel';
 import SelectWithLabel from 'components/Auth/common/SelectWithLabel';
 
-// interface ProfileProps {
-//   Login: any;
-//   error: any;
-// }
-
 function Profile() {
   return (
     <Layout>
