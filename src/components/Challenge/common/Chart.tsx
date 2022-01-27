@@ -1,6 +1,5 @@
-import React from 'react';
 import {ResponsiveLine} from '@nivo/line';
-import styled from 'styled-components';
+import {css} from 'styled-components/macro';
 import color from 'color';
 
 export type Data = {
@@ -14,10 +13,8 @@ interface ChartProps {
 }
 
 function Chart({data}: ChartProps) {
-  console.log(data);
-
   return (
-    <Wrapper>
+    <div css={divStyle}>
       <ResponsiveLine
         data={data}
         margin={{top: 50, right: 110, bottom: 50, left: 60}}
@@ -63,11 +60,11 @@ function Chart({data}: ChartProps) {
           },
         ]}
       />
-    </Wrapper>
+    </div>
   );
 }
 
-const Wrapper = styled.div`
+const divStyle = css`
   background-color: ${color.bgWhite};
   width: 312px;
   height: 352px;

@@ -1,3 +1,5 @@
+import {CSSProp} from 'styled-components/macro';
+
 declare module '*.svg' {
   import React = require('react');
   export const ReactComponent: React.FunctionComponent<
@@ -5,4 +7,10 @@ declare module '*.svg' {
   >;
   const src: string;
   export default src;
+}
+
+declare module 'react' {
+  interface Attributes {
+    css?: CSSProp | CSSObject;
+  }
 }
