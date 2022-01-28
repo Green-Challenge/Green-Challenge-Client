@@ -8,10 +8,20 @@ import {
   Challenging,
   Record,
 } from './pages/Challenge';
+import {createGlobalStyle} from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+	body {
+		font-size: 16px;
+		font-family: 'Noto Sanc KR';
+		line-height: 1.7;
+	}
+`;
 
 function App() {
   return (
     <BrowserRouter>
+      <GlobalStyle />
       <Switch>
         {/* auth */}
         <Route exact path="/auth" component={OnBoard} />
