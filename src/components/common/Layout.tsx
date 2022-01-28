@@ -22,6 +22,7 @@ Layout.Header = styled.header`
   margin-top: 24px;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
 `;
 
 Layout.Main = styled.main`

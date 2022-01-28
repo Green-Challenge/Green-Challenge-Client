@@ -1,6 +1,12 @@
 import {ReactComponent as leaf} from './leaf.svg';
 import {ReactComponent as leafGray} from './leaf_gray.svg';
 import {ReactComponent as question} from './question.svg';
+import {ReactComponent as my} from './my.svg';
+import {ReactComponent as close} from './close.svg';
+import {ReactComponent as logo} from './logo.svg';
 export {leaf};
 export {leafGray};
 export {question};
+export {my};
+export {close};
+export {logo};
