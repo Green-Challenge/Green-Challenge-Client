@@ -1,12 +1,53 @@
 import color from 'color';
-import styled, {css} from 'styled-components';
+import {css} from 'styled-components/macro';
+import styled from 'styled-components';
 
 interface HeaderProps {
   isBig?: boolean;
   isTitle?: boolean;
+  headerLeftItems?: React.ReactNode;
+  headerRgihtItems?: React.ReactNode;
+  children?: React.ReactNode;
 }
 
-const Header = styled.h1<HeaderProps>`
+function Header({
+  isBig,
+  isTitle,
+  headerLeftItems,
+  headerRgihtItems,
+  children,
+}: HeaderProps) {
+  return (
+    <div css={wrapperStyle}>
+      <Header.Left>{headerLeftItems}</Header.Left>
+      <HeaderStyled isBig={isBig} isTitle={isTitle}>
+        {children}
+      </HeaderStyled>
+      <Header.Right>{headerRgihtItems}</Header.Right>
+    </div>
+  );
+}
+
+export const wrapperStyle = css`
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 21px;
+`;
+
+Header.Left = styled.div`
+  width: 10%;
+  display: flex;
+`;
+Header.Right = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 10%;
+  display: flex;
+`;
+const HeaderStyled = styled.h1<HeaderProps>`
+  text-align: center;
+  width: 80%;
   ${props =>
     props.isBig
       ? css`
@@ -15,7 +56,7 @@ const Header = styled.h1<HeaderProps>`
         `
       : css`
           font-size: 16px;
-          font-weight: 700;
+          font-weight: 500;
         `}
   color: ${props => (props.isTitle ? color.titleFont : color.bodyFont01)}
 `;
