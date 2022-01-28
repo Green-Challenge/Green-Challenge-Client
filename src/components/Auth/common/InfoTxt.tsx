@@ -2,15 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import color from 'color';
 
-const InfoTxt = styled.span`
+const InfoTxt = styled.div<{textAlign?: boolean}>`
+  float: left;
   font-family: Noto Sans KR;
   font-size: 14px;
+  text-align: ${props => (props.textAlign ? 'center' : 'start')};
   color: ${color.bodyFont03};
-  width: 206px;
+  width: 100%;
   height: 24px;
-  margin-top: 166px;
-  margin-left: 23px;
-  margin-bottom: 18px;
 `;
 
 export default InfoTxt;

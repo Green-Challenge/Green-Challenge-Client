@@ -10,7 +10,8 @@ function OnBoardImage() {
 }
 
 const Img = styled.img`
+  margin: 24px 0;
   width: 100%;
-  height: 300px;
+  height: 320px;
 `;
 export default OnBoardImage;

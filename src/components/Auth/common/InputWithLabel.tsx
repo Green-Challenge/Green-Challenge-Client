@@ -2,31 +2,34 @@ import React from 'react';
 import styled from 'styled-components';
 import color from 'color';
 
+interface InputWithLabelProps {
+  label: string;
+  [rest: string]: any;
+}
 //타입스크립트 적용하기
-const SelectWithLabel = ({label, ...rest}) => (
+const InputWithLabel: React.FC<InputWithLabelProps> = ({label, ...rest}) => (
   <Wrapper>
     <Label>{label}</Label>
-    <Select {...rest} />
+    <Input {...rest} />
   </Wrapper>
 );
 
 const Wrapper = styled.div`
-  /* & + & {
-    margin-top: 0.8rem;
-  } */
-  margin-top: 0.6rem;
+  & + & {
+    margin-top: 1.14rem;
+  }
 `;
 
 const Label = styled.label`
   font-family: Noto Sans KR;
   font-style: bold;
   font-size: 14px;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.42rem;
 `;
 
-const Select = styled.select`
+const Input = styled.input`
   font-family: Noto Sans KR;
-  width: calc(100% - 30px);
+  width: calc(100% - 17px);
   border: 0.5px solid ${color.line03};
   outline: none;
   border-radius: 10px;
@@ -36,4 +39,4 @@ const Select = styled.select`
   padding-right: 0.5rem;
 `;
 
-export default SelectWithLabel;
+export default InputWithLabel;

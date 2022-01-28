@@ -8,11 +8,6 @@ import Header from 'components/common/Header';
 import InputWithLabel from 'components/Auth/common/InputWithLabel';
 import SelectWithLabel from 'components/Auth/common/SelectWithLabel';
 
-// interface ProfileProps {
-//   Login: any;
-//   error: any;
-// }
-
 function Profile() {
   return (
     <Layout>
@@ -32,7 +27,10 @@ function Profile() {
                 />
               </div>
               <div className="form-location">
-                <SelectWithLabel label="거주지" name="selectbox" />
+                <SelectWithLabel value="서울시" label="거주지" name="selectbox">
+                  <option value="1">입력</option>
+                  <option value="2">지역명</option>
+                </SelectWithLabel>
               </div>
             </div>
           </>
