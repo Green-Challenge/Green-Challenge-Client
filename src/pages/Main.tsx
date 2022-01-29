@@ -17,6 +17,7 @@ function Main() {
           headerRightItems={<Icon name="my" css={IconStyle} />}
         />
       </Layout.Header>
+
       <ChallengeCard>
         <NormalTree />
         <StatusTree />
@@ -35,7 +36,7 @@ const ChallengeCard = styled.div`
   display: flex;
   gap: 20px;
   position: fixed;
-  margin-top: 250px;
+  margin-top: 458px;
   margin-left: 24px;
   text-align: center;
 `;

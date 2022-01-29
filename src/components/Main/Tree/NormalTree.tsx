@@ -56,8 +56,7 @@ function NormalTree() {
           background: {
             fill: '#F2F2F2',
           },
-        }}
-      />
+        }}></CircularProgressbar>
     </div>
   );
 }

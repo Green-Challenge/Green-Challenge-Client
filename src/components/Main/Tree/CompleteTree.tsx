@@ -12,7 +12,7 @@ const percentage = 100;
 function CompleteTree() {
   return (
     <div style={{width: 86, height: 86}}>
-      <CircularProgressbar
+      <CircularProgressbarWithChildren
         value={percentage}
         text={`${percentage}%`}
         background={true}
@@ -53,10 +53,17 @@ function CompleteTree() {
           background: {
             fill: '#F2F2F2',
           },
-        }}
-      />
+        }}>
+        <CheckImg src="https://via.placeholder.com/20x20.jpg" alt="check" />
+      </CircularProgressbarWithChildren>
     </div>
   );
 }
+
+const CheckImg = styled.img`
+  position: absolute;
+  margin-left: 60px;
+  margin-bottom: 63px;
+`;
 
 export default CompleteTree;
