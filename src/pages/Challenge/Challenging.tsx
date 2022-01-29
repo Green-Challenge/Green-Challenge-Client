@@ -1,9 +1,10 @@
 import color from 'color';
 import {ChallengingCard} from 'components/Challenge/ChallegingCard';
 import CollectionLeafs from 'components/Challenge/CollectionLeafs';
-import {Chart, IntroduceCard, Section} from 'components/Challenge/common';
+import {Chart, IntroduceCard} from 'components/Challenge/common';
 import {Layout} from 'components/common';
 import Header from 'components/common/Header';
+import Section from 'components/common/Section';
 import Icon from 'components/Icon/Icon';
 import styled from 'styled-components';
 import {data} from './mock/data';
