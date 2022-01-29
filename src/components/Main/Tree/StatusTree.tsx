@@ -6,7 +6,7 @@ import {
 import 'react-circular-progressbar/dist/styles.css';
 import styled from 'styled-components';
 
-const percentage = 75;
+const percentage = 55;
 
 // 프로그래스바 (진행상황 보여주는) 있는 원형 차트
 function StatusTree() {

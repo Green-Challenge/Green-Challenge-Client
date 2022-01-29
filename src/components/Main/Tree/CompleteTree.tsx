@@ -6,7 +6,7 @@ import {
 import 'react-circular-progressbar/dist/styles.css';
 import styled from 'styled-components';
 
-const percentage = 80;
+const percentage = 100;
 
 // 프로그래스 바 + check 아이콘 추가된 완료 버전 원형 차트
 function CompleteTree() {
