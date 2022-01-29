@@ -1,4 +1,3 @@
-export * from './Section';
 export * from './IntroduceCard';
 export * from './ChallengeImage';
 export * from './NumberOfPersion';
