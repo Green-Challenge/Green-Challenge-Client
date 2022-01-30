@@ -57,6 +57,11 @@ function ChallengeCircle() {
           }}>
           {/* 100%일 때만 체크박스 이미지 적용* */
           /* <CheckImg src="https://via.placeholder.com/20x20.jpg" alt="check" /> */}
+          <img
+            style={{width: 70, marginTop: -5}}
+            src="https://i.imgur.com/b9NyUGm.png"
+            alt="doge"
+          />
         </CircularProgressbarWithChildren>
       </div>
     </Wrapper>
