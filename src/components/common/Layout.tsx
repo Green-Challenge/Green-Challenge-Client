@@ -61,6 +61,7 @@ Layout.ScrollMain = ({children}: ScrollMainProps) => {
 const ScrollWrapper = styled.div`
   position: absolute;
   left: 0;
+  width: 100%;
 `;
 const ScrollMain = styled(Layout.Main)`
   background-color: ${color.bgSurface};

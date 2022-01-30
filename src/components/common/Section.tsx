@@ -40,4 +40,4 @@ const Info = styled.span`
   color: ${color.primary};
 `;
 
-export {Section};
+export default Section;
