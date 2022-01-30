@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
 	body {
 		font-size: 16px;
 		font-family: 'Noto Sans KR';
+
 		line-height: 1.7;
 	}
 `;
