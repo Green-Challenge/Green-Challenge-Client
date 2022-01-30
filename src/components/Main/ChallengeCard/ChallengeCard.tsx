@@ -12,8 +12,9 @@ function ChallengeCard() {
 }
 
 const Card = styled.div`
+  padding-top: 24px;
   width: 100%;
-  height: 128px;
+  height: 107px;
   background-color: ${color.bgWhite};
   box-shadow: 4px 8px 24px rgba(173, 173, 173, 0.12);
   border-radius: 12px;
