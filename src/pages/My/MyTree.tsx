@@ -1,7 +1,32 @@
 import {Layout} from 'components/common';
 import Header from 'components/common/Header';
 import Icon from 'components/Icon/Icon';
+import {TreeSection, TreeType} from 'components/My/TreeSection';
 import {css} from 'styled-components/macro';
+
+const trees: TreeType[] = [
+  {
+    challengeId: 0,
+    challengeName: '뚜벅이 출퇴근',
+    numberOfCompletions: 5,
+    numberOfLeaf: 2,
+    treeId: 0,
+  },
+  {
+    challengeId: 1,
+    challengeName: '자전거 출퇴근',
+    numberOfCompletions: 5,
+    numberOfLeaf: 2,
+    treeId: 0,
+  },
+  {
+    challengeId: 2,
+    challengeName: '버스 출퇴근',
+    numberOfCompletions: 5,
+    numberOfLeaf: 2,
+    treeId: 0,
+  },
+];
 
 function MyTree() {
   return (
@@ -11,6 +36,9 @@ function MyTree() {
           함께 심은 나무
         </Header>
       </Layout.Header>
+      <Layout.ScrollMain>
+        <TreeSection trees={trees} />
+      </Layout.ScrollMain>
     </Layout>
   );
 }
