@@ -69,12 +69,12 @@ function ChallengeCircle() {
 }
 
 const Wrapper = styled.div`
-  margin-left: 24px;
+  margin-left: 1.5rem;
 `;
 const CheckImg = styled.img`
   position: absolute;
-  margin-left: 60px;
-  margin-bottom: 63px;
+  margin-left: 3.75rem;
+  margin-bottom: 3.938rem;
 `;
 
 export default ChallengeCircle;

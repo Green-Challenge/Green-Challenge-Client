@@ -2,33 +2,33 @@ import React from 'react';
 import color from 'color';
 import styled from 'styled-components';
 import ChallengeCircle from './ChallengeCircle';
-import ChallengeName from '../ChallengeInfo/ChallengeTitle';
-import InfoDetail from '../ChallengeInfo/InfoDetail';
 
 function ChallengeCard() {
   return (
     <Card>
-      <ChallengeCircle />
       <Wrapper>
-        <ChallengeName />
-        <InfoDetail />
+        <ChallengeCircle />
+
+        <p>뚜벅이 출퇴근</p>
+
+        <button>버튼</button>
       </Wrapper>
     </Card>
   );
 }
 
 const Card = styled.div`
-  position: fixed;
-  padding-top: 24px;
+  padding-top: 1.313rem;
   width: 100%;
-  height: 107px;
+  height: 6.688rem;
   background-color: ${color.bgWhite};
-  box-shadow: 4px 8px 24px rgba(173, 173, 173, 0.12);
-  border-radius: 12px;
+  box-shadow: 0.25rem 0.5rem 1.5rem rgba(173, 173, 173, 0.12);
+  border-radius: 0.75rem;
 `;
 
 const Wrapper = styled.div`
+  display: flex;
   height: 51px;
-  margin-bottom: 100px;
 `;
+
 export default ChallengeCard;
