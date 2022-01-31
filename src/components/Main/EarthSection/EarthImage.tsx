@@ -7,7 +7,7 @@ interface EarthImageProps {
 function EarthImage({imageSrc}: EarthImageProps) {
   return (
     <ImageWrapper>
-      <img src={imageSrc} alt="Earth" />
+      <Img src={imageSrc} alt="Earth" />
     </ImageWrapper>
   );
 }
@@ -15,6 +15,11 @@ function EarthImage({imageSrc}: EarthImageProps) {
 const ImageWrapper = styled.div`
   margin-top: 4.798rem;
   text-align: center;
+`;
+
+const Img = styled.img`
+  width: 10.318rem;
+  height: 10.318rem;
 `;
 
 export {EarthImage};
