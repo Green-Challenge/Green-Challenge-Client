@@ -1,7 +1,17 @@
-import React from 'react';
+import {EarthImage} from './EarthImage';
+import EarthShort from './EarthShort';
 
-function EarthSection() {
-  return <div></div>;
+interface EarthSectionProps {
+  imageSrc: string;
+}
+
+function EarthSection({imageSrc}: EarthSectionProps) {
+  return (
+    <div>
+      <EarthImage imageSrc={imageSrc} />
+      <EarthShort amountOfTree={35}></EarthShort>
+    </div>
+  );
 }
 
 export default EarthSection;

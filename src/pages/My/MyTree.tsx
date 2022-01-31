@@ -1,7 +1,7 @@
 import {Layout} from 'components/common';
 import Header from 'components/common/Header';
 import Icon from 'components/Icon/Icon';
-import {EarthImage} from 'components/Main/EarthSection/EarthImage';
+import EarthSection from 'components/Main/EarthSection/EarthSection';
 import {css} from 'styled-components/macro';
 
 interface MyTreeProps {
@@ -17,7 +17,7 @@ function MyTree({imageSrc}: MyTreeProps) {
         </Header>
       </Layout.Header>
       <Layout.ScrollMain>
-        <EarthImage imageSrc={imageSrc} />
+        <EarthSection imageSrc={imageSrc} />
       </Layout.ScrollMain>
     </Layout>
   );
