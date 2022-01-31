@@ -8,9 +8,7 @@ function ChallengeCard() {
     <Card>
       <Wrapper>
         <ChallengeCircle />
-
         <p>뚜벅이 출퇴근</p>
-
         <button>버튼</button>
       </Wrapper>
     </Card>
@@ -28,7 +26,7 @@ const Card = styled.div`
 
 const Wrapper = styled.div`
   display: flex;
-  height: 51px;
+  height: 3.188rem;
 `;
 
 export default ChallengeCard;
