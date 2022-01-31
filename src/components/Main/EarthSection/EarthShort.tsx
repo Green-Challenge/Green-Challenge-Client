@@ -19,7 +19,7 @@ function EarthShort({amountOfTree}: EarthShortProps) {
 
 const Wrapper = styled.div`
   font-size: 0.875rem;
-  padding: 1rem 1.5rem 0;
+  line-height: 1.5rem;
   width: 100%;
   text-align: center;
 `;
@@ -28,6 +28,7 @@ const Line = styled.div``;
 
 const Span = styled.span`
   font-size: 1.5rem;
+  line-height: 2.25rem;
   color: ${color.primary};
 `;
 

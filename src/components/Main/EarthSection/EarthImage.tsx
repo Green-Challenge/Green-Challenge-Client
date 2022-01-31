@@ -7,13 +7,14 @@ interface EarthImageProps {
 function EarthImage({imageSrc}: EarthImageProps) {
   return (
     <ImageWrapper>
-      <Img src={imageSrc} alt="Earth" />
+      <Img src={imageSrc} alt="지구 이미지" />
     </ImageWrapper>
   );
 }
 
 const ImageWrapper = styled.div`
   margin-top: 4.798rem;
+  margin-bottom: 0.86rem;
   text-align: center;
 `;
 
