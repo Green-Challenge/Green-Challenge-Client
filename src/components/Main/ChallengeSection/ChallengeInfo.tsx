@@ -12,35 +12,33 @@ function ChallengeInfo() {
           <Icon name="coin" css={IconStyle} />
           30,000
         </Token>
-        <Span>
+        <Participant>
           <Icon name="participant" css={IconStyle} /> 80
-        </Span>
+        </Participant>
       </ChallengeDesc>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-  /* float: left; */
-  /* display: inline-block; */
-  margin-top: 30px;
+  margin-top: 1.875rem;
   line-height: 1.5rem;
   width: 100%;
   text-align: center;
 `;
 
 const ChallengeName = styled.div`
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
-  margin-bottom: 7px;
+  margin-bottom: 0.438rem;
 `;
 
 const ChallengeDesc = styled.div`
-  font-size: 12px;
+  font-size: 0.75rem;
   //Q. margin-bottom이나 padding-bottom 적용해도 안 변하는 이유는?
 `;
 
-const Span = styled.span`
+const Participant = styled.span`
   line-height: 0.75rem;
   color: ${color.bodyFont02};
 `;
@@ -48,7 +46,7 @@ const Span = styled.span`
 const Token = styled.span`
   line-height: 0.75rem;
   color: ${color.bodyFont02};
-  margin-right: 12px;
+  margin-right: 0.75rem;
 `;
 
 const IconStyle = css`

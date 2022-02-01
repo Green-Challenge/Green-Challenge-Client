@@ -40,7 +40,7 @@ const Card = styled.div`
 
 const Wrapper = styled.div`
   float: left;
-  margin-left: 17px;
+  margin-left: 1.063rem;
   margin-right: ;
 `;
 
