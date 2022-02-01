@@ -1,6 +1,7 @@
 import {Layout} from 'components/common';
 import Header from 'components/common/Header';
 import Icon from 'components/Icon/Icon';
+import EarthSection from 'components/Main/EarthSection/EarthSection';
 import {TreeSection, TreeType} from 'components/My/TreeSection';
 import {css} from 'styled-components/macro';
 
@@ -28,7 +29,11 @@ const trees: TreeType[] = [
   },
 ];
 
-function MyTree() {
+interface MyTreeProps {
+  imageSrc: string;
+}
+
+function MyTree({imageSrc}: MyTreeProps) {
   return (
     <Layout>
       <Layout.Header>
@@ -37,6 +42,7 @@ function MyTree() {
         </Header>
       </Layout.Header>
       <Layout.ScrollMain>
+        <EarthSection imageSrc={imageSrc} />
         <TreeSection trees={trees} />
       </Layout.ScrollMain>
     </Layout>
