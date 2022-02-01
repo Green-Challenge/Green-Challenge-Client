@@ -69,7 +69,8 @@ function ChallengeCircle() {
 }
 
 const Wrapper = styled.div`
-  display: inline-block;
+  /* display: inline-block; */
+  float: left;
 `;
 
 const CheckImg = styled.img`

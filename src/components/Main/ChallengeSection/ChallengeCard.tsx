@@ -2,27 +2,34 @@ import ChallengeCircle from './ChallengeCircle';
 import styled from 'styled-components';
 import color from 'color';
 import ChallengeInfo from './ChallengeInfo';
+
+import {useHistory} from 'react-router-dom';
 import Icon from 'components/Icon/Icon';
 import {css} from 'styled-components/macro';
 
 function ChallengeCard() {
+  const history = useHistory();
+  const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    history.push({pathname: '/challenge/detail/:challengeId'});
+  };
+
   return (
     <Card>
-      {/* <Wrapper> */}
-
       <ChallengeCircle />
-
-      <ChallengeInfo />
-
-      <Icon name="arrow" css={IconStyle} />
-
-      {/* </Wrapper> */}
+      <Wrapper>
+        <ChallengeInfo />
+      </Wrapper>
+      <Button onClick={onClick}>
+        <Icon name="arrow" css={IconStyle} />
+      </Button>
     </Card>
   );
 }
 
 const Card = styled.div`
+  float: left;
   box-sizing: border-box;
+  margin-bottom: 0.75rem;
   width: 100%;
   padding: 1.5rem;
   height: 8rem;
@@ -32,7 +39,18 @@ const Card = styled.div`
 `;
 
 const Wrapper = styled.div`
-  display: inline-block;
+  float: left;
+  margin-left: 17px;
+  margin-right: ;
+`;
+
+const Button = styled.button`
+  width: 1rem;
+  height: 1rem;
+  margin-top: 2.188rem;
+  float: right;
+  background-color: #fff;
+  border: 0;
 `;
 
 const IconStyle = css`
