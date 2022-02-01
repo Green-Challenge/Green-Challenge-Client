@@ -2,18 +2,18 @@ import ChallengeCircle from './ChallengeCircle';
 import styled from 'styled-components';
 import color from 'color';
 import ChallengeInfo from './ChallengeInfo';
+import Icon from 'components/Icon/Icon';
+import {css} from 'styled-components/macro';
 
 function ChallengeCard() {
   return (
     <Card>
       <Wrapper>
         <ChallengeCircle />
-      </Wrapper>
-      <Wrapper>
+
         <ChallengeInfo />
-      </Wrapper>
-      <Wrapper>
-        <Button>☘</Button>
+
+        <Icon name="vector" css={IconStyle} />
       </Wrapper>
     </Card>
   );
@@ -33,13 +33,19 @@ const Wrapper = styled.div`
   display: inline-block;
 `;
 
-const Div = styled.div`
-  display: inline-block;
-  margin-left: 1.063rem;
-`;
+// const Div = styled.div`
+//   display: inline-block;
+//   margin-left: 1.063rem;
+// `;
 
 const Button = styled.div`
   width: 5px;
   height: 10px;
 `;
+
+const IconStyle = css`
+  width: 24px;
+  cursor: pointer;
+`;
+
 export default ChallengeCard;
