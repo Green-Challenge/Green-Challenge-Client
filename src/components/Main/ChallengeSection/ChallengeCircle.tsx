@@ -5,6 +5,7 @@ import {
 } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import styled from 'styled-components';
+import Icon from 'components/Icon/Icon';
 
 const percentage = 55;
 
@@ -62,6 +63,7 @@ function ChallengeCircle() {
             src="https://via.placeholder.com/40x40.jpg"
             alt="test"
           /> */}
+          <Icon name="testTree" />
         </CircularProgressbarWithChildren>
       </div>
     </Wrapper>
@@ -74,8 +76,8 @@ const Wrapper = styled.div`
 
 const CheckImg = styled.img`
   position: absolute;
-  margin-left: 60px;
-  margin-bottom: 63px;
+  margin-left: 3.75rem;
+  margin-bottom: 3.938rem;
 `;
 
 export default ChallengeCircle;
