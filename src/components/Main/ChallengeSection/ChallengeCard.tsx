@@ -19,9 +19,9 @@ function ChallengeCard() {
       <Wrapper>
         <ChallengeInfo />
       </Wrapper>
-      <Button onClick={onClick}>
+      <ArrowBtn onClick={onClick}>
         <Icon name="arrow" css={IconStyle} />
-      </Button>
+      </ArrowBtn>
     </Card>
   );
 }
@@ -41,10 +41,9 @@ const Card = styled.div`
 const Wrapper = styled.div`
   float: left;
   margin-left: 1.063rem;
-  margin-right: ;
 `;
 
-const Button = styled.button`
+const ArrowBtn = styled.button`
   width: 1rem;
   height: 1rem;
   margin-top: 2.188rem;
