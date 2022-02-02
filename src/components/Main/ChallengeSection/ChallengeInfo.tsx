@@ -39,9 +39,10 @@ const Wrapper = styled.div`
 
 const Title = styled.div`
   color: ${color.bodyFont01};
-  height: 28px;
+  height: 1.75rem;
   font-size: 1rem;
   font-weight: 500;
+  margin-top: -0.75rem;
 `;
 
 const Token = styled.div`
@@ -60,7 +61,7 @@ const IconStyle = css`
 `;
 
 const Participant = styled.div`
-  margin-left: 63px;
+  margin-left: 3.938rem;
   float: left;
   position: absolute;
   display: flex;

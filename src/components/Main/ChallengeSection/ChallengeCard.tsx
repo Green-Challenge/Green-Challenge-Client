@@ -11,7 +11,9 @@ interface ChallengeCardProps {
   challengeName: string;
   rewardToken: number;
   numberOfChallengers: number;
+  treeId: number;
   isComplete: boolean;
+  isParticipating: boolean;
 }
 
 function ChallengeCard({
@@ -19,7 +21,9 @@ function ChallengeCard({
   challengeName,
   rewardToken,
   numberOfChallengers,
+  treeId,
   isComplete,
+  isParticipating,
 }: ChallengeCardProps) {
   const history = useHistory();
   const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -28,7 +32,12 @@ function ChallengeCard({
 
   return (
     <Card>
-      <ChallengeCircle percentage={percentage} isComplete={isComplete} />
+      <ChallengeCircle
+        percentage={percentage}
+        isComplete={isComplete}
+        isParticipating={isParticipating}
+        treeId={treeId}
+      />
       <Wrapper>
         <ChallengeInfo
           challengeName={challengeName}

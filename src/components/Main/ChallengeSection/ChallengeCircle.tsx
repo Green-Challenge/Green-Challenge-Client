@@ -6,69 +6,64 @@ import Icon from 'components/Icon/Icon';
 import {css} from 'styled-components/macro';
 
 interface ChallengeCircleProps {
-  // treeId: number;
-  // isParticipating: boolean;
+  treeId: number;
+  isParticipating: boolean;
   percentage: number;
   isComplete: boolean;
 }
 
+function treeNameById(treeId: number) {
+  const treeNames = ['sonamu', 'chamnamu'];
+  return treeNames[treeId];
+}
+
 // 프로그래스 바 + check 아이콘 추가된 완료 버전 원형 차트
 function ChallengeCircle({
-  // treeId,
+  treeId,
+  isParticipating,
   percentage,
   isComplete,
 }: ChallengeCircleProps) {
+  const treeName = treeNameById(treeId);
   return (
     <Wrapper>
-      <div style={{width: 86, height: 86}}>
-        <CircularProgressbarWithChildren
-          counterClockwise
-          value={percentage}
-          text={`${percentage}%`}
-          background={true}
-          styles={{
-            // Customize the root svg element
-            root: {},
-            // Customize the path, i.e. the "completed progress"
-            path: {
-              // 프로그래스 바 색상
-              // stroke: `rgba(65, 152, 199, ${percentage / 100})`,
-              stroke: '#7FEADD',
-              // 프로그래스 바 끝처리 모양('butt' 또는 'round' 가능)
-              strokeLinecap: 'round',
-              // 트랜지션 애니메이션 커스터마이징하기
-              transition: 'stroke-dashoffset 0.5s ease 0s',
-              // path 회전시키기(rotate path)
-              transform: 'rotate(1turn)',
-              transformOrigin: 'center center',
-            },
-            // Customize the circle behind the path, i.e. the "total progress"
-            trail: {
-              //프로그래스바 지나가고 남는 부분 색상(Trail color)
-              stroke: '#F2F2F2',
-              // 끝부분 모양 처리
-              strokeLinecap: 'round',
-              // Rotate the trail
-              transform: 'rotate(0.5turn)',
-              transformOrigin: 'center center',
-            },
-            // 텍스트 커스터마이징
-            text: {
-              // Text color
-              fill: 'transparent',
-              // Text size
-              fontSize: '16px',
-            },
-            // 배경 커스터마이징(`background` props = true일 때만 적용)
-            background: {
-              fill: '#F2F2F2',
-            },
-          }}>
-          {/* 100%일 때만 체크박스 이미지 적용*/}
-          {isComplete ? <Icon name="success" css={Success} /> : null}
-          <Icon name="testTree" css={IconStyle} />
-        </CircularProgressbarWithChildren>
-      </div>
+      {isParticipating ? (
+        <div style={{width: 86, height: 86}}>
+          <CircularProgressbarWithChildren
+            counterClockwise
+            value={percentage}
+            text={`${treeName}`}
+            background={true}
+            styles={{
+              root: {},
+              path: {
+                stroke: '#7FEADD',
+                strokeLinecap: 'round',
+                transition: 'stroke-dashoffset 0.5s ease 0s',
+                transform: 'rotate(1turn)',
+                transformOrigin: 'center center',
+              },
+              trail: {
+                stroke: '#F2F2F2',
+                strokeLinecap: 'round',
+                transform: 'rotate(0.5turn)',
+                transformOrigin: 'center center',
+              },
+              text: {
+                // fill: 'transparent',
+                fill: '#000',
+                fontSize: '16px',
+              },
+              background: {
+                fill: '#F2F2F2',
+              },
+            }}>
+            {/* 100%일 때만 체크박스 이미지 적용*/}
+            {isComplete ? <Icon name="success" css={Success} /> : null}
+            <Icon name="testTree" css={IconStyle} />
+          </CircularProgressbarWithChildren>
+        </div>
+      ) : null}
     </Wrapper>
   );
 }
