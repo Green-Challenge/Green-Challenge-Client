@@ -2,14 +2,9 @@ import ChallengeCircle from './ChallengeCircle';
 import styled from 'styled-components';
 import color from 'color';
 import ChallengeInfo from './ChallengeInfo';
-
 import {useHistory} from 'react-router-dom';
 import Icon from 'components/Icon/Icon';
 import {css} from 'styled-components/macro';
-
-// interface ChallengeCardProps {
-//   ChallengeName: string;
-// }
 
 function ChallengeCard() {
   const history = useHistory();

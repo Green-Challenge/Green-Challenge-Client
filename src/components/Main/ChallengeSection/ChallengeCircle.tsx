@@ -1,13 +1,10 @@
 import React from 'react';
-import {
-  CircularProgressbar,
-  CircularProgressbarWithChildren,
-} from 'react-circular-progressbar';
+import {CircularProgressbarWithChildren} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import styled from 'styled-components';
 import Icon from 'components/Icon/Icon';
 
-const percentage = 60;
+const percentage = 70;
 
 // 프로그래스 바 + check 아이콘 추가된 완료 버전 원형 차트
 function ChallengeCircle() {
@@ -15,6 +12,7 @@ function ChallengeCircle() {
     <Wrapper>
       <div style={{width: 86, height: 86}}>
         <CircularProgressbarWithChildren
+          counterClockwise
           value={percentage}
           text={`${percentage}%`}
           background={true}
@@ -31,8 +29,8 @@ function ChallengeCircle() {
               // 트랜지션 애니메이션 커스터마이징하기
               transition: 'stroke-dashoffset 0.5s ease 0s',
               // path 회전시키기(rotate path)
-              transform: 'rotate(2turn)',
-              // transformOrigin: 'center center',
+              transform: 'rotate(1turn)',
+              transformOrigin: 'center center',
             },
             // Customize the circle behind the path, i.e. the "total progress"
             trail: {
