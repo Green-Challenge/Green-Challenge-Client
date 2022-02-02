@@ -7,10 +7,10 @@ import Icon from 'components/Icon/Icon';
 import {css} from 'styled-components/macro';
 
 interface ChallengeCardProps {
-  percentage: number;
+  progress: number;
 }
 
-function ChallengeCard({percentage}: ChallengeCardProps) {
+function ChallengeCard({progress}: ChallengeCardProps) {
   const history = useHistory();
   const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     history.push({pathname: '/challenge/challenging'});
@@ -18,7 +18,7 @@ function ChallengeCard({percentage}: ChallengeCardProps) {
 
   return (
     <Card>
-      <ChallengeCircle percentage={80} />
+      <ChallengeCircle progress={progress} />
       <Wrapper>
         <ChallengeInfo />
       </Wrapper>

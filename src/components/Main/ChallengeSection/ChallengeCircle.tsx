@@ -3,22 +3,21 @@ import {CircularProgressbarWithChildren} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import styled from 'styled-components';
 import Icon from 'components/Icon/Icon';
-
-// const percentage = 50;
+import {css} from 'styled-components/macro';
 
 interface ChallengeCircleProps {
-  percentage: number;
+  progress: number;
 }
 
 // 프로그래스 바 + check 아이콘 추가된 완료 버전 원형 차트
-function ChallengeCircle({percentage}: ChallengeCircleProps) {
+function ChallengeCircle({progress}: ChallengeCircleProps) {
   return (
     <Wrapper>
       <div style={{width: 86, height: 86}}>
         <CircularProgressbarWithChildren
           counterClockwise
-          value={percentage}
-          text={`${percentage}%`}
+          value={progress}
+          text={`${progress}%`}
           background={true}
           styles={{
             // Customize the root svg element
@@ -49,7 +48,7 @@ function ChallengeCircle({percentage}: ChallengeCircleProps) {
             // 텍스트 커스터마이징
             text: {
               // Text color
-              fill: '#f88',
+              fill: 'transparent',
               // Text size
               fontSize: '16px',
             },
@@ -58,14 +57,9 @@ function ChallengeCircle({percentage}: ChallengeCircleProps) {
               fill: '#F2F2F2',
             },
           }}>
-          {/* 100%일 때만 체크박스 이미지 적용* */
-          /* <CheckImg src="https://via.placeholder.com/20x20.jpg" alt="check" /> */}
-          {/* <img
-            style={{width: 50, marginTop: -5}}
-            src="https://via.placeholder.com/40x40.jpg"
-            alt="test"
-          /> */}
-          <Icon name="testTree" />
+          {/* 100%일 때만 체크박스 이미지 적용*/}
+          {progress === 100 ? <Icon name="success" css={Success} /> : null}
+          <Icon name="testTree" css={IconStyle} />
         </CircularProgressbarWithChildren>
       </div>
     </Wrapper>
@@ -76,10 +70,14 @@ const Wrapper = styled.div`
   float: left;
 `;
 
-const CheckImg = styled.img`
+const Success = css`
+  cursor: pointer;
   position: absolute;
   margin-left: 3.75rem;
-  margin-bottom: 3.938rem;
+  margin-bottom: 3.6rem;
+`;
+const IconStyle = css`
+  cursor: pointer;
 `;
 
 export default ChallengeCircle;
