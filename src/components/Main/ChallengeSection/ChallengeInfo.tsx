@@ -3,10 +3,14 @@ import styled from 'styled-components';
 import Icon from 'components/Icon/Icon';
 import {css} from 'styled-components/macro';
 
+// interface ChallengeInfoProps {
+//   ChallengeName: string;
+// }
+
 function ChallengeInfo() {
   return (
     <Wrapper>
-      <ChallengeName>뚜벅이 출퇴근</ChallengeName>
+      <ChallengeTitle>뚜벅이 챌린지</ChallengeTitle>
       <ChallengeDesc>
         <Token>
           <Icon name="coin" css={IconStyle} />
@@ -27,7 +31,7 @@ const Wrapper = styled.div`
   text-align: center;
 `;
 
-const ChallengeName = styled.div`
+const ChallengeTitle = styled.div`
   font-size: 1rem;
   font-weight: 500;
   margin-bottom: 0.438rem;
