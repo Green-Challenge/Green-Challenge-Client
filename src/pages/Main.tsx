@@ -18,9 +18,7 @@ function Main() {
       </Layout.Header>
       <Layout.ScrollMain>
         <InfoSection />
-        <ChallengeCircle />
-        {/* <ChallengeCard /> */}
-        {/* <ChallengeSection /> */}
+        <ChallengeSection />
       </Layout.ScrollMain>
     </Layout>
   );

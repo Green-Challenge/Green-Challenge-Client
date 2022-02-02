@@ -4,10 +4,14 @@ import 'react-circular-progressbar/dist/styles.css';
 import styled from 'styled-components';
 import Icon from 'components/Icon/Icon';
 
-const percentage = 70;
+// const percentage = 50;
+
+interface ChallengeCircleProps {
+  percentage: number;
+}
 
 // 프로그래스 바 + check 아이콘 추가된 완료 버전 원형 차트
-function ChallengeCircle() {
+function ChallengeCircle({percentage}: ChallengeCircleProps) {
   return (
     <Wrapper>
       <div style={{width: 86, height: 86}}>

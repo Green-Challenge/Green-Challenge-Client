@@ -6,7 +6,11 @@ import {useHistory} from 'react-router-dom';
 import Icon from 'components/Icon/Icon';
 import {css} from 'styled-components/macro';
 
-function ChallengeCard() {
+interface ChallengeCardProps {
+  percentage: number;
+}
+
+function ChallengeCard({percentage}: ChallengeCardProps) {
   const history = useHistory();
   const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     history.push({pathname: '/challenge/challenging'});
@@ -14,7 +18,7 @@ function ChallengeCard() {
 
   return (
     <Card>
-      <ChallengeCircle />
+      <ChallengeCircle percentage={80} />
       <Wrapper>
         <ChallengeInfo />
       </Wrapper>
