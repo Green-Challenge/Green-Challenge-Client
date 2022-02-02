@@ -3,21 +3,27 @@ import styled from 'styled-components';
 import Icon from 'components/Icon/Icon';
 import {css} from 'styled-components/macro';
 
-// interface ChallengeInfoProps {
-//   ChallengeName: string;
-// }
+interface ChallengeInfoProps {
+  challengeName: string;
+  rewardToken: number;
+  numberOfChallengers: number;
+}
 
-function ChallengeInfo() {
+function ChallengeInfo({
+  challengeName,
+  rewardToken,
+  numberOfChallengers,
+}: ChallengeInfoProps) {
   return (
     <Wrapper>
-      <ChallengeTitle>뚜벅이 챌린지</ChallengeTitle>
+      <ChallengeTitle>{challengeName}</ChallengeTitle>
       <ChallengeDesc>
         <Token>
           <Icon name="coin" css={IconStyle} />
-          30,000
+          {rewardToken}
         </Token>
         <Participant>
-          <Icon name="participant" css={IconStyle} /> 80
+          <Icon name="participant" css={IconStyle} /> {numberOfChallengers}
         </Participant>
       </ChallengeDesc>
     </Wrapper>

@@ -4,9 +4,24 @@ import ChallengeCard from './ChallengeCard';
 function ChallengeSection() {
   return (
     <Section title="챌린지 참여">
-      <ChallengeCard progress={25} />
-      <ChallengeCard progress={50} />
-      <ChallengeCard progress={100} />
+      <ChallengeCard
+        percentage={0}
+        challengeName="뚜벅이 챌린지1"
+        rewardToken={30000}
+        numberOfChallengers={80}
+      />
+      <ChallengeCard
+        percentage={50}
+        challengeName="뚜벅이 챌린지2"
+        rewardToken={30000}
+        numberOfChallengers={80}
+      />
+      <ChallengeCard
+        percentage={100}
+        challengeName="뚜벅이 챌린지3"
+        rewardToken={30000}
+        numberOfChallengers={80}
+      />
     </Section>
   );
 }

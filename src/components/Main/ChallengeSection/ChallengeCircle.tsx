@@ -6,18 +6,21 @@ import Icon from 'components/Icon/Icon';
 import {css} from 'styled-components/macro';
 
 interface ChallengeCircleProps {
-  progress: number;
+  // treeId: number;
+  // isParticipating: boolean;
+  percentage: number;
+  // isComplete: boolean;
 }
 
 // 프로그래스 바 + check 아이콘 추가된 완료 버전 원형 차트
-function ChallengeCircle({progress}: ChallengeCircleProps) {
+function ChallengeCircle({percentage}: ChallengeCircleProps) {
   return (
     <Wrapper>
       <div style={{width: 86, height: 86}}>
         <CircularProgressbarWithChildren
           counterClockwise
-          value={progress}
-          text={`${progress}%`}
+          value={percentage}
+          text={`${percentage}%`}
           background={true}
           styles={{
             // Customize the root svg element
@@ -58,7 +61,7 @@ function ChallengeCircle({progress}: ChallengeCircleProps) {
             },
           }}>
           {/* 100%일 때만 체크박스 이미지 적용*/}
-          {progress === 100 ? <Icon name="success" css={Success} /> : null}
+          {percentage === 100 ? <Icon name="success" css={Success} /> : null}
           <Icon name="testTree" css={IconStyle} />
         </CircularProgressbarWithChildren>
       </div>

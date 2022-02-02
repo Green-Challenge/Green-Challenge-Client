@@ -7,10 +7,18 @@ import Icon from 'components/Icon/Icon';
 import {css} from 'styled-components/macro';
 
 interface ChallengeCardProps {
-  progress: number;
+  percentage: number;
+  challengeName: string;
+  rewardToken: number;
+  numberOfChallengers: number;
 }
 
-function ChallengeCard({progress}: ChallengeCardProps) {
+function ChallengeCard({
+  percentage,
+  challengeName,
+  rewardToken,
+  numberOfChallengers,
+}: ChallengeCardProps) {
   const history = useHistory();
   const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     history.push({pathname: '/challenge/challenging'});
@@ -18,9 +26,13 @@ function ChallengeCard({progress}: ChallengeCardProps) {
 
   return (
     <Card>
-      <ChallengeCircle progress={progress} />
+      <ChallengeCircle percentage={percentage} />
       <Wrapper>
-        <ChallengeInfo />
+        <ChallengeInfo
+          challengeName={challengeName}
+          rewardToken={rewardToken}
+          numberOfChallengers={numberOfChallengers}
+        />
       </Wrapper>
       <ArrowBtn onClick={onClick}>
         <Icon name="arrow" css={IconStyle} />
