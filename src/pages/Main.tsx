@@ -2,8 +2,6 @@ import {Layout} from 'components/common';
 import LogoHeader from 'components/common/LogoHeader';
 import Icon from 'components/Icon/Icon';
 import {ChallengeSection} from 'components/Main/ChallengeSection';
-import ChallengeCard from 'components/Main/ChallengeSection/ChallengeCard';
-import ChallengeCircle from 'components/Main/ChallengeSection/ChallengeCircle';
 import {InfoSection} from 'components/Main/InfoSection';
 import {css} from 'styled-components/macro';
 

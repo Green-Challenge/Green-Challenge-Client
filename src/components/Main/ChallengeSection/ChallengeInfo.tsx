@@ -16,16 +16,17 @@ function ChallengeInfo({
 }: ChallengeInfoProps) {
   return (
     <Wrapper>
-      <ChallengeTitle>{challengeName}</ChallengeTitle>
-      <ChallengeDesc>
-        <Token>
-          <Icon name="coin" css={IconStyle} />
-          {rewardToken}
-        </Token>
-        <Participant>
-          <Icon name="participant" css={IconStyle} /> {numberOfChallengers}
-        </Participant>
-      </ChallengeDesc>
+      <Title>{challengeName}</Title>
+
+      <Token>
+        <Icon name="token" css={IconStyle} />
+        <span>{rewardToken}</span>
+      </Token>
+
+      <Participant>
+        <Icon name="participant" css={IconStyle} />
+        <span>{numberOfChallengers}</span>
+      </Participant>
     </Wrapper>
   );
 }
@@ -34,33 +35,39 @@ const Wrapper = styled.div`
   margin-top: 1.875rem;
   line-height: 1.5rem;
   width: 100%;
-  text-align: center;
 `;
 
-const ChallengeTitle = styled.div`
+const Title = styled.div`
+  color: ${color.bodyFont01};
+  height: 28px;
   font-size: 1rem;
   font-weight: 500;
-  margin-bottom: 0.438rem;
 `;
 
-const ChallengeDesc = styled.div`
-  font-size: 0.75rem;
-  //Q. margin-bottom이나 padding-bottom 적용해도 안 변하는 이유는?
-`;
-
-const Participant = styled.span`
-  line-height: 0.75rem;
+const Token = styled.div`
+  float: left;
+  position: absolute;
+  display: flex;
   color: ${color.bodyFont02};
-`;
-
-const Token = styled.span`
-  line-height: 0.75rem;
-  color: ${color.bodyFont02};
-  margin-right: 0.75rem;
+  span {
+    font-size: 0.75rem;
+  }
 `;
 
 const IconStyle = css`
-  cursor: pointer;
+  height: 1.375rem;
+  margin-right: 0.18rem;
+`;
+
+const Participant = styled.div`
+  margin-left: 63px;
+  float: left;
+  position: absolute;
+  display: flex;
+  color: ${color.bodyFont02};
+  span {
+    font-size: 0.75rem;
+  }
 `;
 
 export default ChallengeInfo;

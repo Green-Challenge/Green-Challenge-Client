@@ -11,6 +11,7 @@ interface ChallengeCardProps {
   challengeName: string;
   rewardToken: number;
   numberOfChallengers: number;
+  isComplete: boolean;
 }
 
 function ChallengeCard({
@@ -18,6 +19,7 @@ function ChallengeCard({
   challengeName,
   rewardToken,
   numberOfChallengers,
+  isComplete,
 }: ChallengeCardProps) {
   const history = useHistory();
   const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -26,7 +28,7 @@ function ChallengeCard({
 
   return (
     <Card>
-      <ChallengeCircle percentage={percentage} />
+      <ChallengeCircle percentage={percentage} isComplete={isComplete} />
       <Wrapper>
         <ChallengeInfo
           challengeName={challengeName}
@@ -40,7 +42,6 @@ function ChallengeCard({
     </Card>
   );
 }
-
 const Card = styled.div`
   float: left;
   box-sizing: border-box;
@@ -52,12 +53,10 @@ const Card = styled.div`
   box-shadow: 0.25rem 0.5rem 1.5rem rgba(173, 173, 173, 0.12);
   border-radius: 0.75rem;
 `;
-
 const Wrapper = styled.div`
   float: left;
   margin-left: 1.063rem;
 `;
-
 const ArrowBtn = styled.button`
   width: 1rem;
   height: 1rem;
@@ -66,9 +65,7 @@ const ArrowBtn = styled.button`
   background-color: #fff;
   border: 0;
 `;
-
 const IconStyle = css`
   cursor: pointer;
 `;
-
 export default ChallengeCard;

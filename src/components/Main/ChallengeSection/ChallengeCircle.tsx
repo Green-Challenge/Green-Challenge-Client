@@ -9,11 +9,15 @@ interface ChallengeCircleProps {
   // treeId: number;
   // isParticipating: boolean;
   percentage: number;
-  // isComplete: boolean;
+  isComplete: boolean;
 }
 
 // 프로그래스 바 + check 아이콘 추가된 완료 버전 원형 차트
-function ChallengeCircle({percentage}: ChallengeCircleProps) {
+function ChallengeCircle({
+  // treeId,
+  percentage,
+  isComplete,
+}: ChallengeCircleProps) {
   return (
     <Wrapper>
       <div style={{width: 86, height: 86}}>
@@ -61,7 +65,7 @@ function ChallengeCircle({percentage}: ChallengeCircleProps) {
             },
           }}>
           {/* 100%일 때만 체크박스 이미지 적용*/}
-          {percentage === 100 ? <Icon name="success" css={Success} /> : null}
+          {isComplete ? <Icon name="success" css={Success} /> : null}
           <Icon name="testTree" css={IconStyle} />
         </CircularProgressbarWithChildren>
       </div>
