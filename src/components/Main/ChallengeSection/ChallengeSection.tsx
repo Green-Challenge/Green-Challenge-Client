@@ -1,27 +1,22 @@
 import Section from 'components/common/Section';
 import ChallengeCard from './ChallengeCard';
+import Challenges from './Challenges';
+
 function ChallengeSection() {
-  return (
-    <Section title="챌린지 참여">
+  const renderChallenges = Challenges.map(challenge => {
+    return (
       <ChallengeCard
-        percentage={50}
-        challengeName="뚜벅이 챌린지"
-        rewardToken={30000}
-        numberOfChallengers={80}
-        isComplete={false}
-        isParticipating
-        treeId={0}
+        percentage={challenge.percentage}
+        challengeName={challenge.ChallengeName}
+        rewardToken={challenge.rewardToken}
+        numberOfChallengers={challenge.numberOfChallengers}
+        isComplete={challenge.isComplete}
+        isParticipating={challenge.isParticipating}
+        treeId={challenge.treeId}
+        key={challenge.treeId}
       />
-      <ChallengeCard
-        percentage={100}
-        challengeName="자전거 출퇴근"
-        rewardToken={10000}
-        numberOfChallengers={75}
-        isComplete
-        isParticipating
-        treeId={1}
-      />
-    </Section>
-  );
+    );
+  });
+  return <Section title="챌린지 참여">{renderChallenges}</Section>;
 }
 export {ChallengeSection};

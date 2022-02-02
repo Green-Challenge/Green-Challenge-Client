@@ -13,11 +13,18 @@ interface ChallengeCircleProps {
 }
 
 function treeNameById(treeId: number) {
-  const treeNames = ['sonamu', 'chamnamu'];
+  const treeNames = [
+    '1번째나무',
+    '2번째나무',
+    '3번째나무',
+    '4번째나무',
+    '5번째나무',
+    '6번째나무',
+    '7번째나무',
+  ];
   return treeNames[treeId];
 }
 
-// 프로그래스 바 + check 아이콘 추가된 완료 버전 원형 차트
 function ChallengeCircle({
   treeId,
   isParticipating,
@@ -58,7 +65,6 @@ function ChallengeCircle({
                 fill: '#F2F2F2',
               },
             }}>
-            {/* 100%일 때만 체크박스 이미지 적용*/}
             {isComplete ? <Icon name="success" css={Success} /> : null}
             <Icon name="testTree" css={IconStyle} />
           </CircularProgressbarWithChildren>
