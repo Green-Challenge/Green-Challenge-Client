@@ -6,7 +6,6 @@ interface InputWithLabelProps {
   label: string;
   [rest: string]: any;
 }
-//타입스크립트 적용하기
 const InputWithLabel: React.FC<InputWithLabelProps> = ({label, ...rest}) => (
   <Wrapper>
     <Label>{label}</Label>
