@@ -20,22 +20,20 @@ const Wrapper = styled.div`
 `;
 
 const Label = styled.label`
-  font-family: Noto Sans KR;
-  font-style: bold;
-  font-size: 14px;
   margin-bottom: 0.42rem;
+  font-style: bold;
+  font-size: 0.875rem;
 `;
 
 const Input = styled.input`
-  font-family: Noto Sans KR;
   width: calc(100% - 17px);
-  border: 0.5px solid ${color.line03};
   outline: none;
-  border-radius: 10px;
   line-height: 2.5rem;
-  font-size: 14px;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+  border: 0.031rem solid ${color.line03};
+  border-radius: 10px;
+  font-size: 0.875rem;
 `;
 
 export default InputWithLabel;

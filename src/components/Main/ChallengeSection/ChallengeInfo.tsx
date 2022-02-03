@@ -32,23 +32,23 @@ function ChallengeInfo({
 }
 
 const Wrapper = styled.div`
+  width: 100%;
   margin-top: 1.875rem;
   line-height: 1.5rem;
-  width: 100%;
 `;
 
 const Title = styled.div`
-  color: ${color.bodyFont01};
   height: 1.75rem;
+  margin-top: -0.75rem;
+  color: ${color.bodyFont01};
   font-size: 1rem;
   font-weight: 500;
-  margin-top: -0.75rem;
 `;
 
 const Token = styled.div`
+  display: flex;
   float: left;
   position: absolute;
-  display: flex;
   color: ${color.bodyFont02};
   span {
     font-size: 0.75rem;
@@ -61,10 +61,10 @@ const IconStyle = css`
 `;
 
 const Participant = styled.div`
-  margin-left: 3.938rem;
-  float: left;
-  position: absolute;
   display: flex;
+  float: left;
+  margin-left: 3.938rem;
+  position: absolute;
   color: ${color.bodyFont02};
   span {
     font-size: 0.75rem;
