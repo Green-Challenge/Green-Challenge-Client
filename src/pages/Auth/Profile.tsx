@@ -1,6 +1,4 @@
-import React, {useState} from 'react';
 import Button from 'components/common/Button';
-import color from 'color';
 import styled from 'styled-components';
 import ProfileImage from 'components/Auth/Profile/ProfileImage';
 import {Layout} from 'components/common';

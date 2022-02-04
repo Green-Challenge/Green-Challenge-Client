@@ -21,6 +21,8 @@ function TreeCard({
   treeId,
 }: TreeCardProps) {
   const treeName = treeNameById(treeId);
+  console.log(treeName);
+
   return (
     <CardDiv>
       <CompeletionsDiv>{numberOfCompletions}</CompeletionsDiv>
@@ -61,8 +63,6 @@ const CompeletionsDiv = styled.div`
   font-weight: 500;
   font-size: 0.75rem;
 `;
-
-const TreeImgSvg = styled(Icon)``;
 
 const ChallengeNameSpan = styled.span`
   color: ${color.bodyFont01};
