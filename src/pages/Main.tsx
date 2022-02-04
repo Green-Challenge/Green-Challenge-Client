@@ -16,7 +16,7 @@ function Main() {
       </Layout.Header>
       <Layout.ScrollMain>
         <InfoSection />
-        <ChallengeSection />
+        <ChallengeSection userId="123123" />
       </Layout.ScrollMain>
     </Layout>
   );

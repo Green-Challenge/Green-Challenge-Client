@@ -7,6 +7,7 @@ import Icon from 'components/Icon/Icon';
 import {css} from 'styled-components/macro';
 
 interface ChallengeCardProps {
+  challengeId: number;
   percentage: number;
   challengeName: string;
   rewardToken: number;
@@ -17,6 +18,7 @@ interface ChallengeCardProps {
 }
 
 function ChallengeCard({
+  challengeId,
   percentage,
   challengeName,
   rewardToken,
@@ -26,12 +28,18 @@ function ChallengeCard({
   isParticipating,
 }: ChallengeCardProps) {
   const history = useHistory();
-  const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    history.push({pathname: '/challenge/challenging'});
+  const onClick = () => {
+    if (isParticipating === true) {
+      return history.push({
+        pathname: '/challenge/challenging',
+        state: {challengeId},
+      });
+    }
+    return history.push({pathname: `/challenge/detail/${challengeId}`});
   };
 
   return (
-    <Card>
+    <Card onClick={onClick}>
       <ChallengeCircle
         percentage={percentage}
         isComplete={isComplete}
@@ -45,7 +53,7 @@ function ChallengeCard({
           numberOfChallengers={numberOfChallengers}
         />
       </Wrapper>
-      <ArrowBtn onClick={onClick}>
+      <ArrowBtn>
         <Icon name="arrow" css={IconStyle} />
       </ArrowBtn>
     </Card>
@@ -61,6 +69,7 @@ const Card = styled.div`
   background-color: ${color.bgWhite};
   box-shadow: 0.25rem 0.5rem 1.5rem rgba(173, 173, 173, 0.12);
   border-radius: 0.75rem;
+  cursor: pointer;
 `;
 const Wrapper = styled.div`
   float: left;
