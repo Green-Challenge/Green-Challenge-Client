@@ -5,19 +5,18 @@ import color from 'color';
 function Description() {
   return (
     <Desc>
-      텍스트를 이곳에 입력합니다. <br /> 한 줄이 될 수도 있고 두 줄이 될 수도
-      있습니다.
+      <div> 텍스트를 이곳에 입력합니다. </div>
+      <div>한 줄이 될 수도 있고 두 줄이 될 수도 있습니다.</div>
     </Desc>
   );
 }
 
 const Desc = styled.div`
-  font-family: Noto Sans KR;
-  font-size: 14px;
-  color: ${color.bodyFont03};
   width: 100%;
-  height: 48px;
-  line-height: 24px;
+  height: 3rem;
+  line-height: 1.5rem;
+  color: ${color.bodyFont03};
   text-align: center;
+  font-size: 0.875rem;
 `;
 export default Description;
