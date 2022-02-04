@@ -1,6 +1,6 @@
 import {useMemo} from 'react';
 import {bindActionCreators} from 'redux';
-import {useAppDispatch} from '../reduxWrapHook';
+import {useAppDispatch} from '../storeHooks';
 import {signUp} from 'redux/slice/auth/auth';
 
 export default function useAuthActions() {
