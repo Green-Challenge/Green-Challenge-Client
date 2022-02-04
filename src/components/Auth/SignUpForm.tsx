@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import color from 'color';
 import InputWithLabel from 'components/Auth/common/InputWithLabel';
 import InfoTxt from 'components/Auth/common/InfoTxt';
 import axios from 'axios';
@@ -9,7 +10,34 @@ function SignUpForm() {
   const [Name, SetName] = useState('');
   const [Email, SetEmail] = useState('');
   const [Password, SetPassword] = useState('');
-  const [PasswordCheck, SetPasswordCheck] = useState('');
+  const [PasswordCheck, setPasswordCheck] = useState('');
+  const [PasswordError, setPasswordError] = useState(false);
+  const [term, setTerm] = useState(false);
+  const [termError, setTermError] = useState(false);
+
+  const submitHandler = (e: any) => {
+    e.preventDefault();
+    // state에 저장한 값 가져오기
+    console.log(Name);
+    console.log(Email);
+    console.log(Password);
+
+    if (Password !== PasswordCheck) {
+      return setPasswordError(true);
+    }
+
+    if (!term) {
+      return setTermError(true);
+    }
+
+    let body = {
+      name: Name,
+      email: Email,
+      password: Password,
+    };
+
+    axios.post('/api/auth', body).then(res => console.log(res));
+  };
 
   const nameHandler = (e: any) => {
     e.preventDefault();
@@ -28,23 +56,16 @@ function SignUpForm() {
 
   const passwordCheckHandler = (e: any) => {
     e.preventDefault();
-    SetPasswordCheck(e.target.value);
+    setPasswordError(e.target.value !== Password);
+    setPasswordCheck(e.target.value);
   };
 
-  const submitHandler = (e: any) => {
-    e.preventDefault();
-    // state에 저장한 값 가져오기
-    console.log(Email);
-    console.log(Password);
-
-    let body = {
-      name: Name,
-      email: Email,
-      password: Password,
-    };
-
-    axios.post('/api/auth', body).then(res => console.log(res));
+  const onChangeTerm = (e: any) => {
+    //체크박스 초기화
+    setTermError(false);
+    setTerm(e.target.checked);
   };
+
   return (
     <div>
       <form onSubmit={submitHandler}>
@@ -80,11 +101,13 @@ function SignUpForm() {
               value={PasswordCheck}
               onChange={passwordCheckHandler}
             />
+            {PasswordError && <Alert>비밀번호가 일치하지 않습니다.</Alert>}
           </InputWrapper>
           <Info>
             <InfoTxt>
               개인정보 수집 및 이용에 동의합니다
-              <input type="checkbox" />
+              <input type="checkbox" onChange={onChangeTerm} />
+              {termError && <Alert>약관 동의가 필요합니다.</Alert>}
             </InfoTxt>
           </Info>
         </Wrapper>
@@ -95,12 +118,12 @@ function SignUpForm() {
 }
 
 const Wrapper = styled.div`
-  margin-left: 24px;
-  width: calc(100% - 48px);
+  margin-left: 1.5rem;
+  width: calc(100% - 3rem);
 `;
 
 const InputWrapper = styled.div`
-  height: 367px;
+  height: 22.5rem;
 `;
 
 const Info = styled.div`
@@ -108,4 +131,8 @@ const Info = styled.div`
   text-align: center;
 `;
 
+const Alert = styled.div`
+  color: ${color.red};
+  font-size: 0.875rem;
+`;
 export default SignUpForm;
