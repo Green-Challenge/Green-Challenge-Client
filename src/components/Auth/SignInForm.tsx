@@ -14,6 +14,13 @@ function SignInForm() {
   const [Email, SetEmail] = useState('');
   const [Password, SetPassword] = useState('');
 
+  const [isActive, setIsActive] = useState(false);
+  const isPassedLogin = () => {
+    return Email.includes('@') && Password.length > 3
+      ? setIsActive(true)
+      : setIsActive(false);
+  };
+
   const submitHandler = (e: any) => {
     e.preventDefault();
     // state에 저장한 값 가져오기
@@ -49,6 +56,7 @@ function SignInForm() {
             placeholder="이메일"
             value={Email}
             onChange={emailHandler}
+            onKeyUp={isPassedLogin}
           />
           <InputWithLabel
             label="비밀번호"
@@ -57,6 +65,7 @@ function SignInForm() {
             type="password"
             value={Password}
             onChange={passwordHandler}
+            onKeyUp={isPassedLogin}
           />
         </Wrapper>
         <InfoTxt textAlign>
@@ -65,11 +74,16 @@ function SignInForm() {
             onClick={() => {
               history.push('/auth/signup');
             }}>
-            {' '}
             회원가입
           </SignUp>
         </InfoTxt>
-        <Button type="submit">로그인</Button>
+        {isActive ? (
+          <Btn type="submit">로그인</Btn>
+        ) : (
+          <Btn type="submit" color={color.line01}>
+            로그인
+          </Btn>
+        )}
       </form>
     </div>
   );
@@ -83,6 +97,11 @@ const SignUp = styled.span`
   font-size: 0.875rem;
   color: ${color.primary};
   cursor: pointer;
+`;
+
+const Btn = styled(Button)`
+  background-color: ${props => (props.color ? color.line03 : color.primary)};
+  color: ${props => props.color || color.bgWhite};
 `;
 
 export default SignInForm;
