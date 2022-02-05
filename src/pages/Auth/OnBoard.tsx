@@ -4,6 +4,7 @@ import Headline from 'components/Auth/OnBoard/Headline';
 import OnBoardImage from 'components/Auth/OnBoard/OnBoardImage';
 import {Layout} from 'components/common';
 import styled from 'styled-components';
+import Button from 'components/common/Button';
 import {useHistory} from 'react-router-dom';
 
 function OnBoard() {
@@ -17,28 +18,28 @@ function OnBoard() {
           <Headline />
           <Description />
         </Wrapper>
-        <ButtonGroup>
-          <Button
+        <BtnGroup>
+          <Btn
             color={color.bgWhite}
             onClick={() => {
               history.push('/auth/signin');
             }}>
             로그인
-          </Button>
-          <Button
+          </Btn>
+          <Btn
             onClick={() => {
               history.push('/auth/signup');
             }}>
             회원가입
-          </Button>
-        </ButtonGroup>
+          </Btn>
+        </BtnGroup>
       </Main>
     </Layout>
   );
 }
 
 const Wrapper = styled.div`
-  height: 86px;
+  height: 5.375rem;
 `;
 
 const Main = styled(Layout.Main)`
@@ -46,21 +47,16 @@ const Main = styled(Layout.Main)`
   justify-content: space-between;
 `;
 
-const ButtonGroup = styled.div`
+const BtnGroup = styled.div`
   margin-left: 2.4rem;
 `;
 
-const Button = styled.button`
-  width: calc(50% - 30px);
-  height: 56px;
+const Btn = styled(Button)`
+  width: calc(50% - 1.875rem);
   background-color: ${props => props.color || color.primary};
   color: ${props => (props.color ? color.primary : color.bgWhite)};
-  border: 1px solid ${color.primary};
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  margin: 40px 6px;
-  border-radius: 10px;
+  border: 0.063rem solid ${color.primary};
+  margin: 2.5rem 0.375rem;
 `;
 
 export {OnBoard};
