@@ -7,7 +7,6 @@ import {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import Button from 'components/common/Button';
 
-//로그인 가입 버튼 활성화 기능 추가하기
 function SignInForm() {
   let history = useHistory();
 
