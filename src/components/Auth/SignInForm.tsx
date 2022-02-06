@@ -45,27 +45,30 @@ function SignInForm() {
     SetPassword(e.target.value);
   };
 
+  // InputWithLabel: onChange, onKeyup 둘다 필요한지 다시 생각해보기
   return (
     <div>
       <form onSubmit={submitHandler}>
         <Wrapper>
-          <InputWithLabel
-            label="이메일"
-            name="email"
-            placeholder="이메일"
-            value={Email}
-            onChange={emailHandler}
-            onKeyUp={isPassedLogin}
-          />
-          <InputWithLabel
-            label="비밀번호"
-            name="password"
-            placeholder="비밀번호"
-            type="password"
-            value={Password}
-            onChange={passwordHandler}
-            onKeyUp={isPassedLogin}
-          />
+          <InputWrapper>
+            <InputWithLabel
+              label="이메일"
+              name="email"
+              placeholder="이메일"
+              value={Email}
+              onChange={emailHandler}
+              onKeyUp={isPassedLogin}
+            />
+            <InputWithLabel
+              label="비밀번호"
+              name="password"
+              placeholder="비밀번호"
+              type="password"
+              value={Password}
+              onChange={passwordHandler}
+              onKeyUp={isPassedLogin}
+            />
+          </InputWrapper>
         </Wrapper>
         <InfoTxt textAlign>
           아직 네이버스 계정이 없으신가요?
@@ -90,6 +93,10 @@ function SignInForm() {
 
 const Wrapper = styled.div`
   margin: auto 1.5rem;
+`;
+
+const InputWrapper = styled.div`
+  height: 22.5rem;
 `;
 
 const SignUp = styled.span`

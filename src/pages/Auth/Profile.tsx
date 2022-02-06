@@ -29,6 +29,14 @@ function Profile() {
                   <option value="1">입력</option>
                   <option value="2">지역명</option>
                 </SelectWithLabel>
+                <input
+                  type="text"
+                  name="address"
+                  id="address"
+                  placeholder="주소 입력"
+                  required
+                  readOnly
+                />
               </div>
             </div>
           </>
