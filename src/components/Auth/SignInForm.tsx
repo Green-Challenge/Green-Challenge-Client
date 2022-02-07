@@ -77,7 +77,13 @@ function SignInForm() {
           </SignUp>
         </InfoTxt>
         {isActive ? (
-          <Btn type="submit">로그인</Btn>
+          <Btn
+            type="submit"
+            onClick={() => {
+              history.push('/');
+            }}>
+            로그인
+          </Btn>
         ) : (
           <Btn type="submit" color={color.line01}>
             로그인
