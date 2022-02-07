@@ -39,7 +39,7 @@ function OnBoard() {
 }
 
 const Wrapper = styled.div`
-  height: 5.375rem;
+  /* height: 5.375rem; */
 `;
 
 const Main = styled(Layout.Main)`
@@ -48,6 +48,7 @@ const Main = styled(Layout.Main)`
 `;
 
 const BtnGroup = styled.div`
+  margin-top: 0.4rem;
   margin-left: 2.4rem;
 `;
 

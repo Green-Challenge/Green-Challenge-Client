@@ -97,6 +97,7 @@ const Wrapper = styled.div`
 
 const InputWrapper = styled.div`
   height: 22.5rem;
+  /* height: 30rem; */
 `;
 
 const SignUp = styled.span`
