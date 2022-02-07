@@ -29,12 +29,10 @@ function SignInForm() {
   };
 
   const emailHandler = (e: any) => {
-    e.preventDefault();
     SetEmail(e.target.value);
   };
 
   const passwordHandler = (e: any) => {
-    e.preventDefault();
     SetPassword(e.target.value);
   };
 
