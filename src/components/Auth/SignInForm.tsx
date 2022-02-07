@@ -13,13 +13,6 @@ function SignInForm() {
   const [Email, SetEmail] = useState('');
   const [Password, SetPassword] = useState('');
 
-  const [isActive, setIsActive] = useState(false);
-  const isPassedLogin = () => {
-    return Email.includes('@') && Password.length > 3
-      ? setIsActive(true)
-      : setIsActive(false);
-  };
-
   const submitHandler = (e: any) => {
     e.preventDefault();
     // state에 저장한 값 가져오기
@@ -55,7 +48,6 @@ function SignInForm() {
             placeholder="이메일"
             value={Email}
             onChange={emailHandler}
-            onKeyUp={isPassedLogin}
           />
           <InputWithLabel
             label="비밀번호"
@@ -64,7 +56,6 @@ function SignInForm() {
             type="password"
             value={Password}
             onChange={passwordHandler}
-            onKeyUp={isPassedLogin}
           />
         </Wrapper>
         <InfoTxt textAlign>
@@ -76,19 +67,13 @@ function SignInForm() {
             회원가입
           </SignUp>
         </InfoTxt>
-        {isActive ? (
-          <Btn
-            type="submit"
-            onClick={() => {
-              history.push('/');
-            }}>
-            로그인
-          </Btn>
-        ) : (
-          <Btn type="submit" color={color.line01}>
-            로그인
-          </Btn>
-        )}
+        <Btn
+          type="submit"
+          onClick={() => {
+            history.push('/');
+          }}>
+          로그인
+        </Btn>
       </form>
     </div>
   );
