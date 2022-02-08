@@ -9,13 +9,13 @@ interface EarthSectionProps {
 function EarthSection({imageSrc}: EarthSectionProps) {
   return (
     <Div>
-      <EarthImage imageSrc={imageSrc} />
+      <EarthImage imageSrc="/Icon/earth.svg" />
       <EarthShort amountOfTree={35}></EarthShort>
     </Div>
   );
 }
 
 const Div = styled.div`
-  margin-bottom: 35px;
+  margin-bottom: 2.188rem;
 `;
 export default EarthSection;

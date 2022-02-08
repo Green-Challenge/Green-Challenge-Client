@@ -1,17 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
+import Icon from 'components/Icon/Icon';
+import {css} from 'styled-components/macro';
 
 function OnBoardImage() {
   return (
     <div>
-      <Img src="http://placehold.it/300x300/" alt="img" />
+      <Icon name="onBoard_1" css={IconStyle} />
     </div>
   );
 }
 
-const Img = styled.img`
+const IconStyle = css`
+  width: 24px;
+  cursor: pointer;
   margin: 24px 0;
   width: 100%;
   height: 320px;
 `;
+
 export default OnBoardImage;

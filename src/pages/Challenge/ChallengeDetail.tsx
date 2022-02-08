@@ -60,26 +60,27 @@ function ChallengeDetail() {
             <Section title="챌린지 소개">
               <IntroduceCard
                 isSquare
-                description="1,000km 이동 시 실제 나무 한 그루를 심는 것과 같은 효과를 가지고 있어요."
-                imageSrc="https://via.placeholder.com/200x200.jpg"
+                description="챌린지를 완료할 때마다 실제로 나무 한 그루를
+                심는 것과 같은 효과가 있어요."
+                imageSrc="/Icon/intro_1.svg"
               />
               <IntroduceCard
                 isMarginTop
                 isSquare
-                description="1,000km 이동 시 실제 나무 한 그루를 심는 것과 같은 효과를 가지고 있어요."
-                imageSrc="https://via.placeholder.com/200x200.jpg"
+                description="지정된 거리 만큼 이동해 게이지를 채우면 나뭇잎 1장을 지급해드려요."
+                imageSrc="/Icon/intro_2.svg"
               />
               <IntroduceCard
                 isMarginTop
                 isSquare
-                description="1,000km 이동 시 실제 나무 한 그루를 심는 것과 같은 효과를 가지고 있어요."
-                imageSrc="https://via.placeholder.com/200x200.jpg"
+                description="참여자들과 함께 나뭇잎 100장을 모아 어른 나무가 완성되면 챌린지 성공!"
+                imageSrc="/Icon/intro_3.svg"
               />
               <IntroduceCard
                 isMarginTop
                 isSquare
-                description="1,000km 이동 시 실제 나무 한 그루를 심는 것과 같은 효과를 가지고 있어요."
-                imageSrc="https://via.placeholder.com/200x200.jpg"
+                description="개인별로 기여한 나뭇잎 개수에 따라 네이토큰을 분배해 드려요."
+                imageSrc="/Icon/intro_4.svg"
               />
             </Section>
           </>
