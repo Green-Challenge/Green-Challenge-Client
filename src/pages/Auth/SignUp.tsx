@@ -2,8 +2,10 @@ import {Layout} from 'components/common';
 import styled from 'styled-components';
 import Header from 'components/common/Header';
 import SignUpForm from 'components/Auth/SignUpForm';
+import {useIsAuthMain} from 'hooks/auth/useIsAuth';
 
 function SignUp() {
+  useIsAuthMain();
   return (
     <Layout>
       <Layout.Header>

@@ -5,8 +5,12 @@ import {Layout} from 'components/common';
 import Header from 'components/common/Header';
 import InputWithLabel from 'components/Auth/common/InputWithLabel';
 import SelectWithLabel from 'components/Auth/common/SelectWithLabel';
+import useRegister from 'hooks/auth/useRegister';
 
 function Profile() {
+  const {data} = useRegister();
+  console.log(data);
+
   return (
     <Layout>
       <Layout.Header>
