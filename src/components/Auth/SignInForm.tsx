@@ -45,7 +45,6 @@ function SignInForm() {
     SetPassword(e.target.value);
   };
 
-  // InputWithLabel: onChange, onKeyup 둘다 필요한지 다시 생각해보기
   return (
     <div>
       <form onSubmit={submitHandler}>
@@ -97,7 +96,6 @@ const Wrapper = styled.div`
 
 const InputWrapper = styled.div`
   height: 22.5rem;
-  /* height: 30rem; */
 `;
 
 const SignUp = styled.span`

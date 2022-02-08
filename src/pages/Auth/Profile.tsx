@@ -5,8 +5,11 @@ import {Layout} from 'components/common';
 import Header from 'components/common/Header';
 import InputWithLabel from 'components/Auth/common/InputWithLabel';
 import SelectWithLabel from 'components/Auth/common/SelectWithLabel';
+import {useHistory} from 'react-router-dom';
 
 function Profile() {
+  let history = useHistory();
+
   return (
     <Layout>
       <Layout.Header>
@@ -33,14 +36,19 @@ function Profile() {
             </div>
           </>
         </Wrapper>
-        <Button>확인</Button>
+        <Button
+          onClick={() => {
+            history.push('/auth/signin');
+          }}>
+          확인
+        </Button>
       </Main>
     </Layout>
   );
 }
 
 const Wrapper = styled.div`
-  margin: auto 24px;
+  margin: auto 1.5rem;
 `;
 
 const Main = styled(Layout.Main)`

@@ -1,6 +1,7 @@
 import {useRef, useState, useEffect} from 'react';
 import styled from 'styled-components';
 import color from 'color';
+import Button from 'components/common/Button';
 
 function ProfileImage() {
   const [image, setImage] = useState<File>();
@@ -13,7 +14,7 @@ function ProfileImage() {
       reader.onloadend = () => {
         setPreview(reader.result as string);
       };
-      reader.readAsDataURL(image);
+      reader.readAsDataURL(image); // base64
     } else {
       setPreview(null as any);
     }
@@ -22,7 +23,7 @@ function ProfileImage() {
     <Div>
       <form>
         {preview ? (
-          <Button>
+          <ImgBtn>
             <Img
               src={preview}
               style={{objectFit: 'cover'}}
@@ -31,15 +32,15 @@ function ProfileImage() {
               }}
               alt="img"
             />
-          </Button>
+          </ImgBtn>
         ) : (
-          <Button
+          <ImgBtn
             onClick={event => {
               event.preventDefault();
               fileInputRef.current.click();
             }}>
             Add Image
-          </Button>
+          </ImgBtn>
         )}
         <input
           type="file"
@@ -50,11 +51,13 @@ function ProfileImage() {
             const file = event.target.files[0];
             if (file && file.type.substring(0, 5) === 'image') {
               setImage(file);
+              console.log(file);
             } else {
               setImage(null as any);
             }
           }}
         />
+        <Button>이미지 전송</Button>
       </form>
     </Div>
   );
@@ -72,7 +75,7 @@ const Div = styled.div`
   align-items: center;
 `;
 
-const Button = styled.button`
+const ImgBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
