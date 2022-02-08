@@ -60,7 +60,8 @@ function ChallengeDetail() {
             <Section title="챌린지 소개">
               <IntroduceCard
                 isSquare
-                description="챌린지를 완료할 때마다 실제로 나무 한 그루를  심는 것과 같은 효과가 있어요."
+                description="챌린지를 완료할 때마다 실제로 나무 한 그루를
+                심는 것과 같은 효과가 있어요."
                 imageSrc="/Icon/intro_1.svg"
               />
               <IntroduceCard

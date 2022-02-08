@@ -14,7 +14,7 @@ function EarthImage({imageSrc}: EarthImageProps) {
 
 const Wrapper = styled.div`
   text-align: center;
-  padding-top: 28px;
+  padding-top: 1.75rem;
 `;
 
 export {EarthImage};
