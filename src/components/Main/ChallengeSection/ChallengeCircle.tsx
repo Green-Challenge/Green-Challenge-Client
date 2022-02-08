@@ -67,6 +67,7 @@ function ChallengeCircle({
             }}>
             {isComplete ? <Icon name="success" css={Success} /> : null}
             <Icon name="testTree" css={IconStyle} />
+            {/* <img src={`t${treeId}`} alt="test" /> */}
           </CircularProgressbarWithChildren>
         </div>
       ) : null}
