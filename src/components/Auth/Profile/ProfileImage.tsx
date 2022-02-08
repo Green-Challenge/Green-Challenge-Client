@@ -19,13 +19,4 @@ const Img = styled.img`
   height: 10rem;
 `;
 
-// const ImgInput = styled.input`
-//   z-index: 30;
-//   margin-bottom: 1.563rem;
-//   width: 10rem;
-//   height: 10rem;
-//   background-color: gray;
-//   border-radius: 0.5rem;
-// `;
-
 export default ProfileImage;
