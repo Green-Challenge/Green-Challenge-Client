@@ -2,13 +2,16 @@ import styled from 'styled-components';
 import color from 'color';
 import InputWithLabel from 'components/Auth/common/InputWithLabel';
 import InfoTxt from 'components/Auth/common/InfoTxt';
-import axios from 'axios';
-import {useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import {useRef, useState} from 'react';
 import Button from 'components/common/Button';
+import useAuthActions from 'hooks/auth/useAuthAction';
+import {SignUpReq} from 'service/auth/type';
+import useRegister from 'hooks/auth/useRegister';
+import {useHistory} from 'react-router-dom';
 
 function SignUpForm() {
-  let history = useHistory();
+  const isActing = useRef<boolean>(false);
+  const history = useHistory();
   const [Name, SetName] = useState('');
   const [Email, SetEmail] = useState('');
   const [Password, SetPassword] = useState('');
@@ -16,21 +19,20 @@ function SignUpForm() {
   const [PasswordError, setPasswordError] = useState(false);
   const [term, setTerm] = useState(false);
   const [termError, setTermError] = useState(false);
-
   const [isActive, setIsActive] = useState(false);
+
+  const {signUp} = useAuthActions();
+  const {data, loading, error} = useRegister();
+
   const isPassedLogin = () => {
     return Email.includes('@') && Password.length > 3
       ? setIsActive(true)
       : setIsActive(false);
   };
 
-  const submitHandler = (e: any) => {
+  const submitHandler = async (e: any) => {
     e.preventDefault();
     // state에 저장한 값 가져오기
-    console.log(Name);
-    console.log(Email);
-    console.log(Password);
-    history.push('/auth/profile');
     if (Password !== PasswordCheck) {
       return setPasswordError(true);
     }
@@ -39,13 +41,14 @@ function SignUpForm() {
       return setTermError(true);
     }
 
-    let body = {
+    let body: SignUpReq = {
       name: Name,
       email: Email,
       password: Password,
     };
 
-    axios.post('/api/auth', body).then(res => console.log(res));
+    isActing.current = true;
+    signUp(body);
   };
 
   const nameHandler = (e: any) => {
@@ -74,6 +77,19 @@ function SignUpForm() {
     setTermError(false);
     setTerm(e.target.checked);
   };
+
+  if (data) {
+    history.push({pathname: '/auth/profile'});
+  }
+
+  if (!data && loading) {
+    return <div>로딩중</div>;
+  }
+
+  if (error && isActing.current) {
+    alert(error.message);
+    isActing.current = false;
+  }
 
   return (
     <div>

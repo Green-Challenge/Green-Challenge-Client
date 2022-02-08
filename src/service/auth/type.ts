@@ -1,11 +1,10 @@
-export type SignUpParams = {
+export type SignUpReq = {
   name: string;
-  userName: string;
   email: string;
   password: string;
 };
 
-export type SignUpResponse = {
-  token: string;
-  username: string;
+export type SignUpRes = {
+  userId: number;
+  name: string;
 };

@@ -30,7 +30,7 @@ const fetchChallengeKeepDataNoHandler = new FetchThunkData({
   key: 'challenges',
 });
 
-const fetchChallengeDetailKeepDataWithHandler = new FetchThunkData({
+const fetchChallengeDetailKeepDataNoHandler = new FetchThunkData({
   fetch: fetchChallengeDetail,
   keep: true,
   key: 'challengeDetail',
@@ -42,7 +42,7 @@ const challengesSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     fetchChallengeKeepDataNoHandler.getFetchThunkReducer(builder);
-    fetchChallengeDetailKeepDataWithHandler.getFetchThunkReducerById(builder);
+    fetchChallengeDetailKeepDataNoHandler.getFetchThunkReducerById(builder);
   },
 });
 
