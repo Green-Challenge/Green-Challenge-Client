@@ -1,9 +1,24 @@
-import axios from 'axios';
-import {SignUpParams, SignUpResponse} from './type';
+import apiClient from 'service/apiClient';
+import {SignUpReq, SignUpRes} from './type';
 
-const client = axios.create({baseURL: '/api/auth'});
+const baseEndPoint = '/api/auth';
 
-export const signUp = async (params: SignUpParams) => {
-  const {data} = await client.post<SignUpResponse>('signup', params);
-  return data;
-};
+export class AuthService {
+  public static me = async () => {
+    try {
+      const {data} = await apiClient.get(`${baseEndPoint}/me`);
+      return data;
+    } catch (err) {
+      throw err;
+    }
+  };
+
+  public static signUp = async (req: SignUpReq) => {
+    try {
+      const {data} = await apiClient.post<SignUpRes>(`${baseEndPoint}`, req);
+      return data;
+    } catch (err) {
+      throw err;
+    }
+  };
+}
