@@ -4,9 +4,11 @@ import InputWithLabel from 'components/Auth/common/InputWithLabel';
 import InfoTxt from 'components/Auth/common/InfoTxt';
 import axios from 'axios';
 import {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import Button from 'components/common/Button';
 
 function SignUpForm() {
+  let history = useHistory();
   const [Name, SetName] = useState('');
   const [Email, SetEmail] = useState('');
   const [Password, SetPassword] = useState('');
@@ -15,13 +17,20 @@ function SignUpForm() {
   const [term, setTerm] = useState(false);
   const [termError, setTermError] = useState(false);
 
+  const [isActive, setIsActive] = useState(false);
+  const isPassedLogin = () => {
+    return Email.includes('@') && Password.length > 3
+      ? setIsActive(true)
+      : setIsActive(false);
+  };
+
   const submitHandler = (e: any) => {
     e.preventDefault();
     // state에 저장한 값 가져오기
     console.log(Name);
     console.log(Email);
     console.log(Password);
-
+    history.push('/auth/profile');
     if (Password !== PasswordCheck) {
       return setPasswordError(true);
     }
@@ -84,6 +93,7 @@ function SignUpForm() {
               placeholder="이메일"
               value={Email}
               onChange={emailHandler}
+              onKeyUp={isPassedLogin}
             />
             <InputWithLabel
               label="비밀번호"
@@ -100,6 +110,7 @@ function SignUpForm() {
               type="password"
               value={PasswordCheck}
               onChange={passwordCheckHandler}
+              onKeyUp={isPassedLogin}
             />
             {PasswordError && <Alert>비밀번호가 일치하지 않습니다.</Alert>}
           </InputWrapper>
@@ -111,7 +122,13 @@ function SignUpForm() {
             </InfoTxt>
           </Info>
         </Wrapper>
-        <Button type="submit">가입</Button>
+        {isActive ? (
+          <Btn type="submit">가입</Btn>
+        ) : (
+          <Btn type="submit" color={color.line01}>
+            가입
+          </Btn>
+        )}
       </form>
     </div>
   );
@@ -135,4 +152,10 @@ const Alert = styled.div`
   color: ${color.red};
   font-size: 0.875rem;
 `;
+
+const Btn = styled(Button)`
+  background-color: ${props => (props.color ? color.line03 : color.primary)};
+  color: ${props => props.color || color.bgWhite};
+`;
+
 export default SignUpForm;

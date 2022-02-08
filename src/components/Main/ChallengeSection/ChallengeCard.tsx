@@ -54,7 +54,7 @@ function ChallengeCard({
         />
       </Wrapper>
       <ArrowBtn>
-        <Icon name="arrow" css={IconStyle} />
+        <Icon name="goMore" css={IconStyle} />
       </ArrowBtn>
     </Card>
   );
