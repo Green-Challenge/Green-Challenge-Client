@@ -102,10 +102,10 @@ export class FetchThunkData<
 
   private rejectedReducer = (
     state: S,
-    action: ReturnType<typeof this.fetch.rejected>,
+    action: PayloadAction<T, string, {arg: string}, SerializedError>,
   ) => {
     state[this.key].loading = false;
-    state[this.key].error = action.error;
+    state[this.key].error = action.payload;
   };
 
   private rejectedReducerById = (
@@ -113,7 +113,7 @@ export class FetchThunkData<
     action: PayloadAction<T, string, {arg: string}, SerializedError>,
   ) => {
     state[this.key][action.meta.arg].loading = false;
-    state[this.key][action.meta.arg].error = action.error;
+    state[this.key][action.meta.arg].error = action.payload;
   };
 
   getFetchThunkReducer(builder: ActionReducerMapBuilder<any>) {

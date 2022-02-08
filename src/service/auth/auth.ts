@@ -1,4 +1,5 @@
 import apiClient from 'service/apiClient';
+import {ErrorType, ThunkApi} from 'service/apiUtilsType';
 import {SignInReq, SignInRes, SignUpReq, SignUpRes} from './type';
 
 const baseEndPoint = '/api/auth';
@@ -13,24 +14,30 @@ export class AuthService {
     }
   };
 
-  public static signUp = async (req: SignUpReq) => {
+  public static signUp = async (
+    req: SignUpReq,
+    {rejectWithValue}: ThunkApi,
+  ) => {
     try {
       const {data} = await apiClient.post<SignUpRes>(`${baseEndPoint}`, req);
       return data;
-    } catch (err) {
-      throw err;
+    } catch (error: any) {
+      return rejectWithValue(error.response.data as ErrorType);
     }
   };
 
-  public static signIn = async (req: SignInReq) => {
+  public static signIn = async (
+    req: SignInReq,
+    {rejectWithValue}: ThunkApi,
+  ) => {
     try {
       const {data} = await apiClient.post<SignInRes>(
         `${baseEndPoint}/signin`,
         req,
       );
       return data;
-    } catch (err) {
-      throw err;
+    } catch (error: any) {
+      return rejectWithValue(error.response.data as ErrorType);
     }
   };
 }
