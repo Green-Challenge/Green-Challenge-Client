@@ -1,7 +1,6 @@
 import {useRef, useState, useEffect} from 'react';
 import styled from 'styled-components';
 import color from 'color';
-import Button from 'components/common/Button';
 import axios from 'axios';
 import Icon from 'components/Icon/Icon';
 
@@ -38,7 +37,6 @@ function ProfileImage() {
         ) : (
           <ImgBtn
             onClick={event => {
-              event.preventDefault();
               fileInputRef.current.click();
             }}>
             <Icon name="camera" />
@@ -70,7 +68,6 @@ function ProfileImage() {
             }
           }}
         />
-        <Button>이미지 전송</Button>
       </form>
     </Div>
   );
