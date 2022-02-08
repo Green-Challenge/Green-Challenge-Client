@@ -1,7 +1,6 @@
 import React from 'react';
 import Icon from 'components/Icon/Icon';
 import {css} from 'styled-components/macro';
-// import styled from 'styled-components';
 
 function OnBoardImage() {
   return (
