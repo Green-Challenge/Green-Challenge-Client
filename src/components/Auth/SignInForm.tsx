@@ -2,30 +2,32 @@ import styled from 'styled-components';
 import color from 'color';
 import InputWithLabel from 'components/Auth/common/InputWithLabel';
 import InfoTxt from 'components/Auth/common/InfoTxt';
-import axios from 'axios';
-import {useState} from 'react';
+import {useRef, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import Button from 'components/common/Button';
+import {SignInReq} from 'service/auth/type';
+import useAuthActions from 'hooks/auth/useAuthAction';
+import useUser from 'hooks/auth/useUser';
 
 function SignInForm() {
-  let history = useHistory();
-
+  const isActing = useRef<boolean>(false);
+  const history = useHistory();
   const [Email, SetEmail] = useState('');
   const [Password, SetPassword] = useState('');
+
+  const {signIn} = useAuthActions();
+  const {data, loading, error} = useUser();
 
   const submitHandler = (e: any) => {
     e.preventDefault();
     // state에 저장한 값 가져오기
-    console.log(Email);
-    console.log(Password);
-    history.push('/auth/signin');
-
-    let body = {
+    isActing.current = true;
+    let body: SignInReq = {
       email: Email,
       password: Password,
     };
 
-    axios.post('/api/auth/signin', body).then(res => console.log(res));
+    signIn(body);
   };
 
   const emailHandler = (e: any) => {
@@ -35,6 +37,19 @@ function SignInForm() {
   const passwordHandler = (e: any) => {
     SetPassword(e.target.value);
   };
+
+  if (data) {
+    history.push({pathname: '/'});
+  }
+
+  if (!data && loading) {
+    return <div>로딩중</div>;
+  }
+
+  if (error && isActing.current) {
+    alert(error.message);
+    isActing.current = false;
+  }
 
   return (
     <div>
@@ -65,13 +80,7 @@ function SignInForm() {
             회원가입
           </SignUp>
         </InfoTxt>
-        <Btn
-          type="submit"
-          onClick={() => {
-            history.push('/');
-          }}>
-          로그인
-        </Btn>
+        <Btn type="submit">로그인</Btn>
       </form>
     </div>
   );
