@@ -7,7 +7,7 @@ interface EarthImageProps {
 function EarthImage({imageSrc}: EarthImageProps) {
   return (
     <Wrapper>
-      <img src="/Icon/earth.svg" alt="지구" />
+      <img src={imageSrc} alt="지구" />
     </Wrapper>
   );
 }
