@@ -10,3 +10,14 @@ export type ChallengeType = {
 };
 
 export type ChallengesRes = ChallengeType[];
+
+export type ChallengeDetailRes = {
+  challengeId: string;
+  challengeName: string;
+  numberOfChallengers: number;
+  rewardToken: number;
+  description: string;
+  hasTag: string[];
+  treeId: string;
+  challengeImg: string;
+};

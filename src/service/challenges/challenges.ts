@@ -1,7 +1,11 @@
 import apiClient from 'service/apiClient';
-import {ChallengesRes} from './type';
+import {ChallengeDetailRes, ChallengesRes} from './type';
 
 const baseEndPoint = '/api/challenge';
+
+// const thunkApi = {
+// 	fulfillWithValue(value, meta) =>
+// }
 
 export class ChallengeService {
   public static getChallenges = async (userId: string) => {
@@ -9,6 +13,19 @@ export class ChallengeService {
       const {data} = await apiClient.get<ChallengesRes>(
         `${baseEndPoint}/list/${userId}`,
       );
+      return data;
+    } catch (err) {
+      throw err;
+    }
+  };
+
+  public static getChallengeDetail = async (challengeId: string) => {
+    try {
+      const {data} = await apiClient.get<ChallengeDetailRes>(
+        `${baseEndPoint}/${challengeId}`,
+      );
+
+      data.challengeId = challengeId;
       return data;
     } catch (err) {
       throw err;

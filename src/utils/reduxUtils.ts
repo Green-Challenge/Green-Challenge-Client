@@ -1,9 +1,19 @@
-import {AsyncThunk, PayloadAction, SerializedError} from '@reduxjs/toolkit';
+import {
+  ActionReducerMapBuilder,
+  AsyncThunk,
+  PayloadAction,
+  SerializedError,
+} from '@reduxjs/toolkit';
+import {isEmptyObj} from './typeCheck';
 
 export interface InitialState<S> {
   loading: boolean;
   data: S | null;
   error: SerializedError | null;
+}
+
+export interface InitialStateById<S> {
+  [key: string]: InitialState<S>;
 }
 
 export function getInitialState<T>(): InitialState<T> {
@@ -14,33 +24,6 @@ export function getInitialState<T>(): InitialState<T> {
   };
 }
 
-export function fetchThunk<T, I extends {[key: string]: InitialState<T>}>(
-  fetch: AsyncThunk<T, string, {}>,
-  key: keyof I,
-  keep: boolean,
-  handler?: (state: I, action: PayloadAction<T>) => void,
-) {
-  return {
-    [fetch.pending.type]: (state: I) => {
-      state[key].loading = true;
-      state[key].data = keep ? state[key].data : null;
-      state[key].error = null;
-    },
-    [fetch.fulfilled.type]: (state: I, action: PayloadAction<T>) => {
-      state[key].loading = false;
-      state[key].data = action.payload;
-      handler && handler(state, action);
-    },
-    [fetch.rejected.type]: (
-      state: I,
-      action: ReturnType<typeof fetch.rejected>,
-    ) => {
-      state[key].loading = false;
-      state[key].error = action.error;
-    },
-  };
-}
-
 type FetchThunkDataConstructor<T, S> = {
   fetch: AsyncThunk<T, string, {}>;
   keep: boolean;
@@ -48,18 +31,77 @@ type FetchThunkDataConstructor<T, S> = {
   handler?: (state: S, action: PayloadAction<T>) => void;
 };
 
-export class FetchThunkData<T, S extends {[key: string]: InitialState<T>}> {
+// export class FetchThunkData<T, S extends {[key: string]: InitialState<T>}> {
+//   private fetch: AsyncThunk<T, string, {}>;
+//   private keep: boolean;
+//   private key: string;
+//   private handler?: (state: S, action: PayloadAction<T>) => void;
+
+//   constructor({fetch, keep, key, handler}: FetchThunkDataConstructor<T, S>) {
+//     this.fetch = fetch;
+//     this.keep = keep;
+//     this.key = key;
+//     this.handler = handler;
+//   }
+
+//   private pendingReducer = (state: S) => {
+//     state[this.key].data = this.keep ? state[this.key].data : null;
+//     state[this.key].loading = true;
+//     state[this.key].error = null;
+//   };
+
+//   private fulfilledReducer = (state: S, action: PayloadAction<T>) => {
+//     state[this.key].loading = false;
+//     state[this.key].data = action.payload;
+//     this.handler && this.handler(state, action);
+//   };
+
+//   private rejectedReducer = (
+//     state: S,
+//     action: ReturnType<typeof this.fetch.rejected>,
+//   ) => {
+//     state[this.key].loading = false;
+//     state[this.key].error = action.error;
+//   };
+
+//   getFetchThunkReducer() {
+//     return {
+//       [this.fetch.pending.type]: this.pendingReducer,
+//       [this.fetch.fulfilled.type]: this.fulfilledReducer,
+//       [this.fetch.rejected.type]: this.rejectedReducer,
+//     };
+//   }
+// }
+
+export class FetchThunkData<
+  T,
+  S extends {[key: string]: InitialState<T>},
+  StateById extends {[key: string]: InitialStateById<T>},
+> {
   private fetch: AsyncThunk<T, string, {}>;
   private keep: boolean;
   private key: string;
-  private handler?: (state: S, action: PayloadAction<T>) => void;
+  private handler?: (state: S | StateById, action: PayloadAction<T>) => void;
 
-  constructor({fetch, keep, key, handler}: FetchThunkDataConstructor<T, S>) {
+  constructor({
+    fetch,
+    keep,
+    key,
+    handler,
+  }: FetchThunkDataConstructor<T, S | StateById>) {
     this.fetch = fetch;
     this.keep = keep;
     this.key = key;
     this.handler = handler;
   }
+
+  private initializePendingById = (state: StateById, arg: string) => {
+    state[this.key][arg] = {
+      data: null,
+      loading: true,
+      error: null,
+    };
+  };
 
   private pendingReducer = (state: S) => {
     state[this.key].data = this.keep ? state[this.key].data : null;
@@ -67,9 +109,35 @@ export class FetchThunkData<T, S extends {[key: string]: InitialState<T>}> {
     state[this.key].error = null;
   };
 
-  private fuflledReducer = (state: S, action: PayloadAction<T>) => {
+  private pendingReducerById = (
+    state: StateById,
+    action: PayloadAction<T, string, {arg: string}>,
+  ) => {
+    if (isEmptyObj(state[this.key])) {
+      this.initializePendingById(state, action.meta.arg);
+    }
+    state[this.key][action.meta.arg] = {
+      data: this.keep
+        ? state[this.key][action.meta.arg] &&
+          state[this.key][action.meta.arg].data
+        : null,
+      loading: true,
+      error: null,
+    };
+  };
+
+  private fulfilledReducer = (state: S, action: PayloadAction<T>) => {
     state[this.key].loading = false;
     state[this.key].data = action.payload;
+    this.handler && this.handler(state, action);
+  };
+
+  private fulfilledReducerById = (
+    state: StateById,
+    action: PayloadAction<T, string, {arg: string}>,
+  ) => {
+    state[this.key][action.meta.arg].loading = false;
+    state[this.key][action.meta.arg].data = action.payload;
     this.handler && this.handler(state, action);
   };
 
@@ -81,11 +149,51 @@ export class FetchThunkData<T, S extends {[key: string]: InitialState<T>}> {
     state[this.key].error = action.error;
   };
 
-  getFetchThunkReducer() {
+  private rejectedReducerById = (
+    state: StateById,
+    action: PayloadAction<T, string, {arg: string}, SerializedError>,
+  ) => {
+    // state[this.key][action.meta.arg].loading = false;
+    // state[this.key][action.meta.arg].error = action.error;
+  };
+
+  getFetchThunkReducer(builder: ActionReducerMapBuilder<any>) {
+    const pending = builder.addCase(
+      this.fetch.pending.type,
+      this.pendingReducer,
+    );
+    const fulfilled = builder.addCase(
+      this.fetch.fulfilled.type,
+      this.fulfilledReducer,
+    );
+    const rejected = builder.addCase(
+      this.fetch.rejected.type,
+      this.rejectedReducer,
+    );
     return {
-      [this.fetch.pending.type]: this.pendingReducer,
-      [this.fetch.fulfilled.type]: this.fuflledReducer,
-      [this.fetch.rejected.type]: this.rejectedReducer,
+      ...pending,
+      ...fulfilled,
+      ...rejected,
+    };
+  }
+
+  getFetchThunkReducerById(builder: ActionReducerMapBuilder<any>) {
+    const pending = builder.addCase(
+      this.fetch.pending.type,
+      this.pendingReducerById,
+    );
+    const fulfilled = builder.addCase(
+      this.fetch.fulfilled.type,
+      this.fulfilledReducerById,
+    );
+    const rejected = builder.addCase(
+      this.fetch.rejected.type,
+      this.rejectedReducerById,
+    );
+    return {
+      ...pending,
+      ...fulfilled,
+      ...rejected,
     };
   }
 }
