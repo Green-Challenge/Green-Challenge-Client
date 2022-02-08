@@ -16,6 +16,6 @@ function EarthSection({imageSrc}: EarthSectionProps) {
 }
 
 const Div = styled.div`
-  margin-bottom: 35px;
+  margin-bottom: 2.188rem;
 `;
 export default EarthSection;
