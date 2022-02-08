@@ -13,15 +13,7 @@ interface ChallengeCircleProps {
 }
 
 function treeNameById(treeId: number) {
-  const treeNames = [
-    '1번째나무',
-    '2번째나무',
-    '3번째나무',
-    '4번째나무',
-    '5번째나무',
-    '6번째나무',
-    '7번째나무',
-  ];
+  const treeNames = ['t1', 't2', 't3', 't4', 't5', 't6', 't7'];
   return treeNames[treeId];
 }
 
@@ -66,8 +58,12 @@ function ChallengeCircle({
               },
             }}>
             {isComplete ? <Icon name="success" css={Success} /> : null}
-            <Icon name="testTree" css={IconStyle} />
-            {/* <img src={`t${treeId}`} alt="test" /> */}
+
+            {treeId === 2 ? (
+              <Icon name="treeSo_3" css={IconStyle} />
+            ) : (
+              <Icon name="treeH_3" css={IconStyle} />
+            )}
           </CircularProgressbarWithChildren>
         </div>
       ) : null}
