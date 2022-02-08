@@ -1,50 +1,29 @@
-import {createSlice, createAsyncThunk, SerializedError} from '@reduxjs/toolkit';
-import * as AuthService from 'service/auth/auth';
+import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+import {AuthService} from 'service/auth/auth';
+import {FetchThunkData, getInitialState} from 'utils/reduxUtils';
 import {User} from './type';
 
 export const signUp = createAsyncThunk('auth/signUp', AuthService.signUp);
+export const me = createAsyncThunk('auth/me', AuthService.me);
+// export const signIn = createAsyncThunk()
 
-interface AuthState {
-  register: {
-    loading: boolean;
-    success: boolean;
-    error: SerializedError | null;
-  };
-  user: User | null;
-}
-
-const initialState: AuthState = {
-  register: {
-    loading: false,
-    success: false,
-    error: null,
-  },
-  user: null,
+const initialState = {
+  user: getInitialState<User>(),
+  register: getInitialState<User>(),
 };
+
+const fetchSignUp = new FetchThunkData({
+  fetch: signUp,
+  keep: false,
+  key: 'register',
+});
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {},
-  extraReducers: {
-    [signUp.pending.type]: state => {
-      state.register = {
-        loading: true,
-        success: false,
-        error: null,
-      };
-    },
-    [signUp.fulfilled.type]: state => {
-      state.register.loading = false;
-      state.register.success = true;
-    },
-    [signUp.rejected.type]: (
-      state,
-      action: ReturnType<typeof signUp.rejected>,
-    ) => {
-      state.register.error = action.error;
-      state.register.loading = false;
-    },
+  extraReducers: builder => {
+    fetchSignUp.getFetchThunkReducer(builder);
   },
 });
 
