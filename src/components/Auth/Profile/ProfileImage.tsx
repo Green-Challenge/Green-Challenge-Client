@@ -2,6 +2,7 @@ import {useRef, useState, useEffect} from 'react';
 import styled from 'styled-components';
 import color from 'color';
 import Button from 'components/common/Button';
+import axios from 'axios';
 
 function ProfileImage() {
   const [image, setImage] = useState<File>();
@@ -47,11 +48,22 @@ function ProfileImage() {
           style={{display: 'none'}}
           ref={fileInputRef}
           accept="image/*"
-          onChange={(event: any) => {
-            const file = event.target.files[0];
-            if (file && file.type.substring(0, 5) === 'image') {
+          onChange={(e: any) => {
+            const file = e.target.files[0];
+            if (file) {
+              const img = new FormData();
+              img.append('file', file);
               setImage(file);
               console.log(file);
+
+              axios
+                .post('api/auth/profile', file)
+                .then(res => {
+                  setImage(res.data);
+                })
+                .catch(err => {
+                  console.error(err);
+                });
             } else {
               setImage(null as any);
             }
@@ -62,10 +74,6 @@ function ProfileImage() {
     </Div>
   );
 }
-
-// const Wrapper = styled.div`
-//   text-align: center;
-// `;
 
 const Div = styled.div`
   padding: 0 0.5rem;
@@ -95,5 +103,4 @@ const Img = styled.img`
   height: 10rem;
   border-radius: 100%;
 `;
-
 export default ProfileImage;
