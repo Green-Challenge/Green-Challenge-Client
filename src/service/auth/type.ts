@@ -8,3 +8,12 @@ export type SignUpRes = {
   userId: number;
   name: string;
 };
+
+export type SignInReq = {
+  email: string;
+  password: string;
+};
+
+export type SignInRes = {
+  userId: number;
+};
