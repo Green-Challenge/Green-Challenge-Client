@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import color from 'color';
 import Button from 'components/common/Button';
 import axios from 'axios';
+import Icon from 'components/Icon/Icon';
 
 function ProfileImage() {
   const [image, setImage] = useState<File>();
@@ -40,7 +41,7 @@ function ProfileImage() {
               event.preventDefault();
               fileInputRef.current.click();
             }}>
-            Add Image
+            <Icon name="camera" />
           </ImgBtn>
         )}
         <input
