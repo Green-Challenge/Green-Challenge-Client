@@ -5,10 +5,12 @@ import OnBoardImage from 'components/Auth/OnBoard/OnBoardImage';
 import {Layout} from 'components/common';
 import styled from 'styled-components';
 import Button from 'components/common/Button';
+import {useIsAuthMain} from 'hooks/auth/useIsAuth';
 import {useHistory} from 'react-router-dom';
 
 function OnBoard() {
-  let history = useHistory();
+  useIsAuthMain();
+  const history = useHistory();
 
   return (
     <Layout>
