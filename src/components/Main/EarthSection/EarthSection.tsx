@@ -9,7 +9,7 @@ interface EarthSectionProps {
 function EarthSection({imageSrc}: EarthSectionProps) {
   return (
     <Div>
-      <EarthImage imageSrc="earth" />
+      <EarthImage imageSrc={imageSrc} />
       <EarthShort amountOfTree={35}></EarthShort>
     </Div>
   );
