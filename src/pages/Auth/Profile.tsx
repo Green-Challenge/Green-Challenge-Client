@@ -30,11 +30,6 @@ function Profile() {
               </div>
               <div className="form-location">
                 <Address />
-
-                {/* <SelectWithLabel value="서울시" label="거주지" name="selectbox">
-                  <option value="1">입력</option>
-                  <option value="2">지역명</option>
-                </SelectWithLabel> */}
               </div>
             </div>
           </>
@@ -46,7 +41,7 @@ function Profile() {
 }
 
 const Wrapper = styled.div`
-  margin: auto 24px;
+  margin: auto 1.5rem;
 `;
 
 const Main = styled(Layout.Main)`

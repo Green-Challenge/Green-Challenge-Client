@@ -273,10 +273,6 @@ const guGunData: ObjType = {
   제주도: ['서귀포시', '제주시', '남제주군', '북제주군'],
 };
 
-// interface AddressProps {
-//   sample: string;
-//   setSample: Dispatch<SetStateAction<string>>;
-// }
 function Address() {
   const [siName, setSiName] = useState('');
 
