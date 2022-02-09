@@ -1,7 +1,6 @@
 import {useRef, useState, useEffect} from 'react';
 import styled from 'styled-components';
 import color from 'color';
-// import axios from 'axios';
 import Icon from 'components/Icon/Icon';
 
 function ProfileImage() {
@@ -36,7 +35,7 @@ function ProfileImage() {
           </ImgBtn>
         ) : (
           <ImgBtn
-            onClick={e => {
+            onClick={event => {
               fileInputRef.current.click();
             }}>
             <Icon name="camera" />
@@ -54,17 +53,8 @@ function ProfileImage() {
               img.append('file', file);
               setImage(file);
               console.log(file);
-
-              // axios
-              //   .post('api/auth/profile', file)
-              //   .then(res => {
-              //     setImage(res.data);
-              //   })
-              //   .catch(err => {
-              //     console.error(err);
-              //   });
-              // } else {
-              // setImage(null as any);
+            } else {
+              setImage(null as any);
             }
           }}
         />
