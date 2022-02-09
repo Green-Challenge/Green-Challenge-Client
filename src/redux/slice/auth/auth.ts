@@ -1,7 +1,7 @@
 import {createSlice, createAsyncThunk, PayloadAction} from '@reduxjs/toolkit';
 import {AuthService} from 'service/auth/auth';
 import {FetchThunkData, getInitialState} from 'utils/reduxUtils';
-import {User} from './type';
+import {IsAuthType, User} from './type';
 
 export const signUp = createAsyncThunk('auth/signUp', AuthService.signUp);
 export const me = createAsyncThunk('auth/me', AuthService.me);
@@ -10,7 +10,10 @@ export const signIn = createAsyncThunk('auth/signIn', AuthService.signIn);
 const initialState = {
   user: getInitialState<User>(),
   register: getInitialState<User>(),
-  isAuth: false,
+  isAuth: {
+    isAuth: false,
+    userId: null,
+  } as IsAuthType,
 };
 
 const fetchSignUp = new FetchThunkData({
@@ -29,8 +32,9 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    meAuth(state, action: PayloadAction<boolean>) {
-      state.isAuth = action.payload;
+    meAuth(state, action: PayloadAction<IsAuthType>) {
+      state.isAuth.isAuth = action.payload.isAuth;
+      state.isAuth.userId = action.payload.userId;
     },
   },
   extraReducers: builder => {
