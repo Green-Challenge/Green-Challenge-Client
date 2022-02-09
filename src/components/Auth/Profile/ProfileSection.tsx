@@ -6,24 +6,33 @@ import styled from 'styled-components';
 import Button from 'components/common/Button';
 import {useState} from 'react';
 
-//interface ProfileSectionProps 정의하기
-
 function ProfileSection() {
-  const [siName, setSiName] = useState('');
-  console.log(siName);
-  console.log(setSiName);
-
   // useEffect(() => {
   //   console.log('profile' + sample);
   // }, [sample]);
 
+  const submit = (e: any) => {
+    e.preventDefault();
+    //axios.post
+    console.log();
+  };
+
+  const [chosenSi, setChosenSi] = useState('');
+  const [chosenGu, setChosenGu] = useState('');
+  const [image, setImage] = useState('');
+
   return (
     <Wrapper>
-      <form>
-        <ProfileImage />
+      <form onSubmit={submit}>
+        <ProfileImage image={image} setImage={setImage} />
         <NickName />
-        <Address />
-        <Button>확인</Button>
+        <Address
+          chosenSi={chosenSi}
+          setChosenSi={setChosenSi}
+          chosenGu={chosenGu}
+          setChosenGu={setChosenGu}
+        />
+        <Button type="submit">확인</Button>
       </form>
     </Wrapper>
   );

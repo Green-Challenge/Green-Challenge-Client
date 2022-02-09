@@ -1,64 +1,53 @@
-import {useRef, useState, useEffect} from 'react';
+import {useRef} from 'react';
 import styled from 'styled-components';
 import color from 'color';
 import Icon from 'components/Icon/Icon';
 
-function ProfileImage() {
-  const [image, setImage] = useState<File>();
-  const [preview, setPreview] = useState<string>();
+interface ProfileImageProps {
+  image: string;
+  setImage: React.Dispatch<React.SetStateAction<string>>;
+}
+function ProfileImage({image, setImage}: ProfileImageProps) {
   const fileInputRef = useRef<any>();
 
-  useEffect(() => {
-    if (image) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setPreview(reader.result as string);
-      };
-      reader.readAsDataURL(image); // base64
-    } else {
-      setPreview(null as any);
-    }
-  }, [image]);
+  const fileConvert = (e: any) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file); // base64
+    reader.addEventListener('load', (event: any) => {
+      const poster64 = event.target.result;
+      setImage(poster64);
+    });
+  };
+  // console.log(image);
   return (
     <Div>
-      <form>
-        {preview ? (
-          <ImgBtn>
-            <Img
-              src={preview}
-              style={{objectFit: 'cover'}}
-              onClick={() => {
-                setImage(null as any);
-              }}
-              alt="img"
-            />
-          </ImgBtn>
-        ) : (
-          <ImgBtn
-            onClick={event => {
-              fileInputRef.current.click();
-            }}>
-            <Icon name="camera" />
-          </ImgBtn>
-        )}
-        <input
-          type="file"
-          style={{display: 'none'}}
-          ref={fileInputRef}
-          accept="image/*"
-          onChange={(e: any) => {
-            const file = e.target.files[0];
-            if (file) {
-              const img = new FormData();
-              img.append('file', file);
-              setImage(file);
-              console.log(file);
-            } else {
+      {image ? (
+        <ImgBtn>
+          <Img
+            src={image}
+            style={{objectFit: 'cover'}}
+            onClick={() => {
               setImage(null as any);
-            }
-          }}
-        />
-      </form>
+            }}
+            alt="img"
+          />
+        </ImgBtn>
+      ) : (
+        <ImgBtn
+          onClick={() => {
+            fileInputRef.current.click();
+          }}>
+          <Icon name="camera" />
+        </ImgBtn>
+      )}
+      <input
+        type="file"
+        style={{display: 'none'}}
+        ref={fileInputRef}
+        accept="image/*"
+        onChange={fileConvert}
+      />
     </Div>
   );
 }
@@ -90,5 +79,6 @@ const Img = styled.img`
   width: 10rem;
   height: 10rem;
   border-radius: 100%;
+  z-index: 50;
 `;
 export default ProfileImage;

@@ -1,5 +1,4 @@
 import React from 'react';
-import {useState} from 'react';
 import styled from 'styled-components';
 import color from 'color';
 
@@ -273,18 +272,30 @@ const guGunData: ObjType = {
   제주도: ['서귀포시', '제주시', '남제주군', '북제주군'],
 };
 
-function Address() {
-  const [siName, setSiName] = useState('');
+interface AddressProps {
+  chosenSi: string | undefined;
+  setChosenSi: React.Dispatch<React.SetStateAction<string>>;
+  chosenGu: string | undefined;
+  setChosenGu: React.Dispatch<React.SetStateAction<string>>;
+}
 
-  const ChangeEvent = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSiName(e.target.value);
+function Address({chosenSi, setChosenSi, chosenGu, setChosenGu}: AddressProps) {
+  const ChangeSi = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setChosenSi(e.target.value);
   };
+
+  const ChangeGu = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setChosenGu(e.target.value);
+  };
+
+  console.log(chosenSi);
+  console.log(chosenGu);
   return (
     <Wrapper>
       <Label htmlFor="address">거주지</Label>
       <SelectWrapper>
         <>
-          <Select onChange={ChangeEvent}>
+          <Select onChange={ChangeSi} value={chosenSi}>
             {siData.map(si => (
               <option key={si} value={si}>
                 {si}
@@ -293,15 +304,16 @@ function Address() {
           </Select>
         </>
         <>
-          <Select>
+          <Select onChange={ChangeGu} value={chosenGu}>
             <option value="" selected disabled hidden>
               시/구/군 선택
             </option>
-            {guGunData[siName]?.map((guGun: string) => (
-              <option key={guGun} value={guGun}>
-                {guGun}
-              </option>
-            ))}
+            {chosenSi &&
+              guGunData[chosenSi]?.map((guGun: string) => (
+                <option key={guGun} value={guGun}>
+                  {guGun}
+                </option>
+              ))}
           </Select>
         </>
       </SelectWrapper>
