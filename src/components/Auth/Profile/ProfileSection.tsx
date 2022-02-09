@@ -1,31 +1,25 @@
-import React from 'react';
-import Address from './Address';
-import NickName from './NickName';
+import React, {useState} from 'react';
 import ProfileImage from './ProfileImage';
+import NickName from './NickName';
+import Address from './Address';
 import styled from 'styled-components';
 import Button from 'components/common/Button';
-import {useState} from 'react';
 
 function ProfileSection() {
-  // useEffect(() => {
-  //   console.log('profile' + sample);
-  // }, [sample]);
-
   const submit = (e: any) => {
     e.preventDefault();
-    //axios.post
-    console.log();
   };
 
   const [chosenSi, setChosenSi] = useState('');
   const [chosenGu, setChosenGu] = useState('');
   const [image, setImage] = useState('');
+  const [nickName, setNickName] = useState('');
 
   return (
     <Wrapper>
       <form onSubmit={submit}>
         <ProfileImage image={image} setImage={setImage} />
-        <NickName />
+        <NickName nickName={nickName} setNickName={setNickName} />
         <Address
           chosenSi={chosenSi}
           setChosenSi={setChosenSi}
