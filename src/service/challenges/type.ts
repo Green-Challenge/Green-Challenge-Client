@@ -21,3 +21,8 @@ export type ChallengeDetailRes = {
   treeId: string;
   challengeImg: string;
 };
+
+export type StartChallengeReq = {
+  userId: number;
+  challengeId: string;
+};
