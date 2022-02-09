@@ -1,13 +1,13 @@
 import apiClient from 'service/apiClient';
 import {ErrorType, ThunkApi} from 'service/apiUtilsType';
-import {SignInReq, SignInRes, SignUpReq, SignUpRes} from './type';
+import {MeRes, SignInReq, SignInRes, SignUpReq, SignUpRes} from './type';
 
 const baseEndPoint = '/api/auth';
 
 export class AuthService {
   public static me = async () => {
     try {
-      const {data} = await apiClient.get(`${baseEndPoint}/me`);
+      const {data} = await apiClient.get<MeRes>(`${baseEndPoint}/me`);
       return data;
     } catch (err) {
       throw err;

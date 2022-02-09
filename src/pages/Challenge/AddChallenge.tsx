@@ -2,20 +2,38 @@ import color from 'color';
 import {Layout} from 'components/common';
 import Button from 'components/common/Button';
 import Header from 'components/common/Header';
+import {useIsAuthPush, useIsAuthSelector} from 'hooks/auth/useIsAuth';
 import {useCallback, useMemo} from 'react';
 import {useHistory, useLocation} from 'react-router-dom';
+import {ChallengeService} from 'service/challenges/challenges';
+import {StartChallengeReq} from 'service/challenges/type';
 import styled from 'styled-components';
 import {AddState} from '.';
 
 function AddChallenge() {
+  useIsAuthPush();
+  const isAuth = useIsAuthSelector();
   const history = useHistory();
   const location = useLocation<AddState>();
   const challengeId = location.state.challengeId;
   const state: AddState = useMemo(() => ({challengeId}), [challengeId]);
 
   const onClick = useCallback(() => {
-    history.push({pathname: '/challenge/challenging', state});
-  }, [history, state]);
+    if (isAuth.userId == null) {
+      return;
+    }
+    const req: StartChallengeReq = {
+      userId: Number(isAuth.userId),
+      challengeId: challengeId,
+    };
+    ChallengeService.startChallenge(req)
+      .then(() => {
+        history.push({pathname: '/challenge/challenging', state});
+      })
+      .catch((error: any) => {
+        console.log(error.response.data);
+      });
+  }, [history, state, challengeId, isAuth.userId]);
 
   return (
     <Layout>
@@ -46,7 +64,7 @@ function AddChallenge() {
 }
 
 const Wrapper = styled.div`
-  margin: auto 24px;
+  margin: auto 1.5rem;
 `;
 const ImageWrapper = styled.div`
   text-align: center;
@@ -57,9 +75,9 @@ const Main = styled(Layout.Main)`
 `;
 const Description = styled.p`
   text-align: center;
-  margin-top: 20px;
+  margin-top: 1.25rem;
   color: ${color.bodyFont01};
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 400;
 `;
 

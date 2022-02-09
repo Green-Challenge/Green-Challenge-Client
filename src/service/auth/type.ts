@@ -17,3 +17,7 @@ export type SignInReq = {
 export type SignInRes = {
   userId: number;
 };
+
+export type MeRes = {
+  userId: number;
+};
