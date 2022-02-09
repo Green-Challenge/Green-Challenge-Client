@@ -1,25 +1,28 @@
 import apiClient from 'service/apiClient';
+import {ErrorType, ThunkApi} from 'service/apiUtilsType';
 import {ChallengeDetailRes, ChallengesRes} from './type';
 
 const baseEndPoint = '/api/challenge';
 
-// const thunkApi = {
-// 	fulfillWithValue(value, meta) =>
-// }
-
 export class ChallengeService {
-  public static getChallenges = async (userId: string) => {
+  public static getChallenges = async (
+    userId: string,
+    {rejectWithValue}: ThunkApi,
+  ) => {
     try {
       const {data} = await apiClient.get<ChallengesRes>(
         `${baseEndPoint}/list/${userId}`,
       );
       return data;
-    } catch (err) {
-      throw err;
+    } catch (err: any) {
+      return rejectWithValue(err.response.data as ErrorType);
     }
   };
 
-  public static getChallengeDetail = async (challengeId: string) => {
+  public static getChallengeDetail = async (
+    challengeId: string,
+    {rejectWithValue}: ThunkApi,
+  ) => {
     try {
       const {data} = await apiClient.get<ChallengeDetailRes>(
         `${baseEndPoint}/${challengeId}`,
@@ -27,8 +30,8 @@ export class ChallengeService {
 
       data.challengeId = challengeId;
       return data;
-    } catch (err) {
-      throw err;
+    } catch (err: any) {
+      return rejectWithValue(err.response.data as ErrorType);
     }
   };
 }
