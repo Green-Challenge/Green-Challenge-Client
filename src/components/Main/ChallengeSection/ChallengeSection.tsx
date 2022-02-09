@@ -3,7 +3,7 @@ import useChallenges from 'hooks/challenge/useChallenges';
 import ChallengeCard from './ChallengeCard';
 
 interface ChallengeSectionProps {
-  userId: string;
+  userId: number;
 }
 
 function ChallengeSection({userId}: ChallengeSectionProps) {
@@ -25,8 +25,8 @@ function ChallengeSection({userId}: ChallengeSectionProps) {
               challengeName={challenge.challengeName}
               rewardToken={challenge.rewardToken}
               numberOfChallengers={challenge.numberOfChallengers}
-              isComplete={challenge.isCompelete}
-              isParticipating={challenge.isParticipating}
+              isComplete={challenge.compelete}
+              isParticipating={challenge.participating}
               treeId={challenge.treeId}
               key={challenge.challengeId}
             />

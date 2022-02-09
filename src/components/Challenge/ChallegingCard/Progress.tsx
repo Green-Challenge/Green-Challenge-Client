@@ -5,21 +5,21 @@ import Current from './Current';
 
 interface ProgressProps {
   progress: number;
-  target: string;
-  currentDistance: string;
+  target: number;
+  currentDistance: number;
 }
 
 function Progress({progress, target, currentDistance}: ProgressProps) {
   return (
     <Wrapper>
-      <Current position={progress}>{currentDistance}</Current>
+      <Current position={progress}>{currentDistance}km</Current>
       <LeafContainer>
         <Leaf name="leaf" />
       </LeafContainer>
       <Background>
         <Percent progress={progress}></Percent>
       </Background>
-      <TargetSpan>{target}</TargetSpan>
+      <TargetSpan>{target}km</TargetSpan>
     </Wrapper>
   );
 }

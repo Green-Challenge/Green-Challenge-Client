@@ -5,14 +5,14 @@ export type ChallengeType = {
   percent: number;
   rewardToken: number;
   numberOfChallengers: number;
-  isCompelete: boolean;
-  isParticipating: boolean;
+  compelete: boolean;
+  participating: boolean;
 };
 
 export type ChallengesRes = ChallengeType[];
 
 export type ChallengeDetailRes = {
-  challengeId: string;
+  challengeId: number;
   challengeName: string;
   numberOfChallengers: number;
   rewardToken: number;
@@ -25,4 +25,31 @@ export type ChallengeDetailRes = {
 export type StartChallengeReq = {
   userId: number;
   challengeId: string;
+};
+
+export type GetChallengingReq = {
+  challengeId: number;
+  userId: number;
+};
+
+export type GetChallengingRes = {
+  current: number;
+  goalDistance: number;
+  leafCount: number;
+};
+
+export type GetTreeGrowthByChallengeId = {
+  treeId: number;
+  treeGrowth: number;
+  numberOfLeaf: number;
+};
+
+export type GetChartReq = {
+  challengeId: number;
+  userId: number;
+};
+
+export type GetChartRes = {
+  lastMonth: {x: string; y: number}[];
+  currentMonth: {x: string; y: number}[];
 };

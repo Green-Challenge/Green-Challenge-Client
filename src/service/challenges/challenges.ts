@@ -1,12 +1,21 @@
 import apiClient from 'service/apiClient';
 import {ErrorType, ThunkApi} from 'service/apiUtilsType';
-import {ChallengeDetailRes, ChallengesRes, StartChallengeReq} from './type';
+import {
+  ChallengeDetailRes,
+  ChallengesRes,
+  GetChallengingReq,
+  GetChallengingRes,
+  GetChartReq,
+  GetChartRes,
+  GetTreeGrowthByChallengeId,
+  StartChallengeReq,
+} from './type';
 
 const baseEndPoint = '/api/challenge';
 
 export class ChallengeService {
   public static getChallenges = async (
-    userId: string,
+    userId: number,
     {rejectWithValue}: ThunkApi,
   ) => {
     try {
@@ -20,7 +29,7 @@ export class ChallengeService {
   };
 
   public static getChallengeDetail = async (
-    challengeId: string,
+    challengeId: number,
     {rejectWithValue}: ThunkApi,
   ) => {
     try {
@@ -40,6 +49,41 @@ export class ChallengeService {
       await apiClient.post<{}>(`${baseEndPoint}`, req);
     } catch (err: any) {
       throw err;
+    }
+  };
+
+  public static getChallenging = async (req: GetChallengingReq) => {
+    try {
+      const {data} = await apiClient.post<GetChallengingRes>(
+        `${baseEndPoint}/challenging/detail`,
+        req,
+      );
+      return data;
+    } catch (err: any) {
+      throw err;
+    }
+  };
+
+  public static getTreeGrowthByChallengeId = async (challengeId: number) => {
+    try {
+      const {data} = await apiClient.get<GetTreeGrowthByChallengeId>(
+        `${baseEndPoint}/tree/${challengeId}`,
+      );
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  public static getChartData = async (req: GetChartReq) => {
+    try {
+      const {data} = await apiClient.post<GetChartRes>(
+        `${baseEndPoint}/chart`,
+        req,
+      );
+      return data;
+    } catch (error) {
+      throw error;
     }
   };
 }

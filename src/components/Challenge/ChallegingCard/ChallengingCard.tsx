@@ -8,9 +8,9 @@ import Progress from './Progress';
 interface ChallengingCardProps {
   progress: number;
   numberOfPersion: number;
-  target: string;
+  target: number;
   imageSrc: string;
-  currentDistance: string;
+  currentDistance: number;
 }
 
 function ChallengingCard({
