@@ -1,3 +1,10 @@
+import {ReactComponent as t1} from './t1.svg';
+import {ReactComponent as t2} from './t2.svg';
+import {ReactComponent as t3} from './t3.svg';
+import {ReactComponent as t4} from './t4.svg';
+import {ReactComponent as t5} from './t5.svg';
+import {ReactComponent as t6} from './t6.svg';
+import {ReactComponent as t7} from './t7.svg';
 import {ReactComponent as arrow} from './arrow.svg';
 import {ReactComponent as camera} from './camera.svg';
 import {ReactComponent as check} from './check.svg';
@@ -50,6 +57,13 @@ import {ReactComponent as treeYj_1} from './treeYj_1.svg';
 import {ReactComponent as treeYj_2} from './treeYj_2.svg';
 import {ReactComponent as treeYj_3} from './treeYj_3.svg';
 
+export {t1};
+export {t2};
+export {t3};
+export {t4};
+export {t5};
+export {t6};
+export {t7};
 export {arrow};
 export {camera};
 export {check};
