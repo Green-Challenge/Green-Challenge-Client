@@ -3,7 +3,7 @@ import useChallenges from 'hooks/challenge/useChallenges';
 import ChallengeCard from './ChallengeCard';
 
 interface ChallengeSectionProps {
-  userId: string;
+  userId: number;
 }
 
 function ChallengeSection({userId}: ChallengeSectionProps) {

@@ -20,7 +20,9 @@ function ChallengeDetail() {
     history.push({pathname: '/challenge/add', state: params});
   }, [history, params]);
 
-  const {data, loading, error} = useChallengeDetail(params.challengeId);
+  const {data, loading, error} = useChallengeDetail(
+    parseInt(params.challengeId),
+  );
 
   if (loading) {
     return <div>로딩중</div>;

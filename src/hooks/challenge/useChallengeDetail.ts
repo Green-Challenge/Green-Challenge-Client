@@ -2,7 +2,7 @@ import {useAppDispatch, useAppSelector} from 'hooks/storeHooks';
 import {useCallback, useEffect} from 'react';
 import {fetchChallengeDetail} from 'redux/slice/challenges/challenges';
 
-export default function useChallengeDetail(challengeId: string) {
+export default function useChallengeDetail(challengeId: number) {
   const challengeDetail = useAppSelector(
     state => state.challenges.challengeDetail[challengeId],
   );

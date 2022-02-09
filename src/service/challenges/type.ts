@@ -12,7 +12,7 @@ export type ChallengeType = {
 export type ChallengesRes = ChallengeType[];
 
 export type ChallengeDetailRes = {
-  challengeId: string;
+  challengeId: number;
   challengeName: string;
   numberOfChallengers: number;
   rewardToken: number;
@@ -25,4 +25,15 @@ export type ChallengeDetailRes = {
 export type StartChallengeReq = {
   userId: number;
   challengeId: string;
+};
+
+export type GetChallengingReq = {
+  challengeId: number;
+  userId: number;
+};
+
+export type GetChallengingRes = {
+  current: number;
+  goalDistance: number;
+  leafCount: number;
 };
