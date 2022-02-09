@@ -4,8 +4,9 @@ import ProfileImage from 'components/Auth/Profile/ProfileImage';
 import {Layout} from 'components/common';
 import Header from 'components/common/Header';
 import InputWithLabel from 'components/Auth/common/InputWithLabel';
-import SelectWithLabel from 'components/Auth/common/SelectWithLabel';
+// import SelectWithLabel from 'components/Auth/common/SelectWithLabel';
 import useRegister from 'hooks/auth/useRegister';
+import SggName from 'components/Auth/Profile/SggName';
 
 function Profile() {
   const {data} = useRegister();
@@ -29,10 +30,12 @@ function Profile() {
                 />
               </div>
               <div className="form-location">
-                <SelectWithLabel value="서울시" label="거주지" name="selectbox">
+                <SggName />
+
+                {/* <SelectWithLabel value="서울시" label="거주지" name="selectbox">
                   <option value="1">입력</option>
                   <option value="2">지역명</option>
-                </SelectWithLabel>
+                </SelectWithLabel> */}
               </div>
             </div>
           </>
