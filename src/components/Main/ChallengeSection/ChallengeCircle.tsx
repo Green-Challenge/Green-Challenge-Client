@@ -1,9 +1,9 @@
 import React from 'react';
+import {css} from 'styled-components/macro';
 import {CircularProgressbarWithChildren} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import styled from 'styled-components';
 import Icon from 'components/Icon/Icon';
-import {css} from 'styled-components/macro';
+import styled from 'styled-components';
 
 interface ChallengeCircleProps {
   treeId: number;
@@ -51,19 +51,14 @@ function ChallengeCircle({
               text: {
                 // fill: 'transparent',
                 fill: '#000',
-                fontSize: '16px',
+                fontSize: '1rem',
               },
               background: {
                 fill: '#F2F2F2',
               },
             }}>
             {isComplete ? <Icon name="success" css={Success} /> : null}
-
-            {treeId === 2 ? (
-              <Icon name="treeSo_3" css={IconStyle} />
-            ) : (
-              <Icon name="treeH_3" css={IconStyle} />
-            )}
+            <Img src={`/Icon/${treeName}.svg`} alt="test" />
           </CircularProgressbarWithChildren>
         </div>
       ) : null}
@@ -81,8 +76,10 @@ const Success = css`
   margin-left: 3.75rem;
   margin-bottom: 3.6rem;
 `;
-const IconStyle = css`
-  cursor: pointer;
+
+const Img = styled.img`
+  width: 5.375rem;
+  height: 5.375rem;
 `;
 
 export default ChallengeCircle;
