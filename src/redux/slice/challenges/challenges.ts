@@ -22,6 +22,10 @@ const challengeDetail: InitialStateById<ChallengeDetailRes> = {};
 const initialState = {
   challenges: getInitialState<ChallengesRes>(),
   challengeDetail,
+  challenging: {
+    isStart: false,
+    challengeId: '',
+  },
 };
 
 const fetchChallengeKeepDataNoHandler = new FetchThunkData({
