@@ -1,7 +1,8 @@
 import color from 'color';
 import {ChallengingCard} from 'components/Challenge/ChallegingCard';
 import CollectionLeafs from 'components/Challenge/CollectionLeafs';
-import {Chart, IntroduceCard} from 'components/Challenge/common';
+import {Chart} from 'components/Challenge/common';
+import TogetherLeafSection from 'components/Challenge/TogetherLeafSection';
 import {Layout} from 'components/common';
 import Header from 'components/common/Header';
 import Section from 'components/common/Section';
@@ -36,7 +37,7 @@ function Challenging() {
         <Layout>
           <Layout.Header>
             <Header isTitle isBig>
-              뚜벅이 출퇴근
+              {challenge.data.challengeName}
             </Header>
           </Layout.Header>
           <Layout.ScrollMain>
@@ -49,16 +50,10 @@ function Challenging() {
               }
               target={challenging.data.goalDistance}
             />
-            <Section title="내가 모은 나뭇잎" info={2}>
-              <CollectionLeafs numberOfLeafs={2} />
+            <Section title="내가 모은 나뭇잎" info={challenging.data.leafCount}>
+              <CollectionLeafs numberOfLeafs={challenging.data.leafCount} />
             </Section>
-            <Section title="함께 모은 나뭇잎" info={20}>
-              <IntroduceCard
-                description="나뭇잎 30장이 더 모이면 청소년 향나무로 성장해요"
-                imageSrc="https://via.placeholder.com/200x168.jpg"
-                isBigPadding
-              />
-            </Section>
+            <TogetherLeafSection challengeId={challengeId} />
             <Section title="나의 탄소 저감량">
               <Chart data={chartData} />
             </Section>
