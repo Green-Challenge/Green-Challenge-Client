@@ -1,7 +1,7 @@
 import color from 'color';
 import {ChallengingCard} from 'components/Challenge/ChallegingCard';
+import ChallengeChart from 'components/Challenge/ChallengeChart';
 import CollectionLeafs from 'components/Challenge/CollectionLeafs';
-import {Chart} from 'components/Challenge/common';
 import TogetherLeafSection from 'components/Challenge/TogetherLeafSection';
 import {Layout} from 'components/common';
 import Header from 'components/common/Header';
@@ -12,7 +12,6 @@ import useChallengeDetail from 'hooks/challenge/useChallengeDetail';
 import useGetChallenging from 'hooks/challenge/useGetChallenging';
 import {useLocation} from 'react-router-dom';
 import styled from 'styled-components';
-import {data as chartData} from './mock/data';
 
 function Challenging() {
   useIsAuthPush();
@@ -54,9 +53,7 @@ function Challenging() {
               <CollectionLeafs numberOfLeafs={challenging.data.leafCount} />
             </Section>
             <TogetherLeafSection challengeId={challengeId} />
-            <Section title="나의 탄소 저감량">
-              <Chart data={chartData} />
-            </Section>
+            <ChallengeChart challengeId={challengeId} />
             <QuestionWrapper>
               <Question name="question" />
               <QuestionSpan>채린지 진행방식이 궁금해요</QuestionSpan>

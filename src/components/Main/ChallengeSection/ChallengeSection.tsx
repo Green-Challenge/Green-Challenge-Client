@@ -25,8 +25,8 @@ function ChallengeSection({userId}: ChallengeSectionProps) {
               challengeName={challenge.challengeName}
               rewardToken={challenge.rewardToken}
               numberOfChallengers={challenge.numberOfChallengers}
-              isComplete={challenge.isCompelete}
-              isParticipating={challenge.isParticipating}
+              isComplete={challenge.compelete}
+              isParticipating={challenge.participating}
               treeId={challenge.treeId}
               key={challenge.challengeId}
             />
