@@ -37,3 +37,9 @@ export type GetChallengingRes = {
   goalDistance: number;
   leafCount: number;
 };
+
+export type GetTreeGrowthByChallengeId = {
+  treeId: number;
+  treeGrowth: number;
+  numberOfLeaf: number;
+};

@@ -5,6 +5,7 @@ import {
   ChallengesRes,
   GetChallengingReq,
   GetChallengingRes,
+  GetTreeGrowthByChallengeId,
   StartChallengeReq,
 } from './type';
 
@@ -58,6 +59,17 @@ export class ChallengeService {
       return data;
     } catch (err: any) {
       throw err;
+    }
+  };
+
+  public static getTreeGrowthByChallengeId = async (challengeId: number) => {
+    try {
+      const {data} = await apiClient.get<GetTreeGrowthByChallengeId>(
+        `${baseEndPoint}/tree/${challengeId}`,
+      );
+      return data;
+    } catch (error) {
+      throw error;
     }
   };
 }
