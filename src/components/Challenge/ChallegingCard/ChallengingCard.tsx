@@ -1,5 +1,7 @@
 import color from 'color';
 import Button from 'components/common/Button';
+import useChallengeStartAction from 'hooks/challenge/useChallengeStartAction';
+import {useAppSelector} from 'hooks/storeHooks';
 import {useRef, useState} from 'react';
 import styled, {css} from 'styled-components';
 import {Distance, getCurrentLocation} from 'utils/getLocation';
@@ -12,6 +14,7 @@ interface ChallengingCardProps {
   target: number;
   imageSrc: string;
   currentDistance: number;
+  challengeId: number;
 }
 
 const TIME_INTERVAL_LOCATION = 1000;
@@ -22,6 +25,7 @@ function ChallengingCard({
   progress,
   target,
   currentDistance,
+  challengeId,
 }: ChallengingCardProps) {
   const timerIdRef = useRef<number>();
   const movedDistance = useRef<Distance>({
@@ -29,10 +33,13 @@ function ChallengingCard({
     longitude: 0,
     distance: 0,
   });
-  const [isStarting, setIsStarting] = useState(false);
+  const {isStart} = useAppSelector(state => state.challenges.challenging);
+  const [isStarting, setIsStarting] = useState(isStart);
+  const {startChallenge, stopChallenge} = useChallengeStartAction();
 
   const onClickStart = () => {
     setIsStarting(true);
+    startChallenge({challengeId});
     timerIdRef.current = window.setInterval(() => {
       getCurrentLocation(movedDistance);
     }, TIME_INTERVAL_LOCATION);
@@ -41,6 +48,7 @@ function ChallengingCard({
   const onClickStop = () => {
     setIsStarting(false);
     window.clearInterval(timerIdRef.current);
+    stopChallenge();
   };
 
   return (

@@ -4,6 +4,7 @@ import ChallengeChart from 'components/Challenge/ChallengeChart';
 import CollectionLeafs from 'components/Challenge/CollectionLeafs';
 import TogetherLeafSection from 'components/Challenge/TogetherLeafSection';
 import {Layout} from 'components/common';
+import BackButton from 'components/common/BackButton';
 import Header from 'components/common/Header';
 import Section from 'components/common/Section';
 import Icon from 'components/Icon/Icon';
@@ -35,12 +36,13 @@ function Challenging() {
       {challenging.data && challenge.data && (
         <Layout>
           <Layout.Header>
-            <Header isTitle isBig>
+            <Header isTitle isBig headerLeftItems={<BackButton path="/" />}>
               {challenge.data.challengeName}
             </Header>
           </Layout.Header>
           <Layout.ScrollMain>
             <ChallengingCard
+              challengeId={challengeId}
               currentDistance={challenging.data.current}
               imageSrc="https://via.placeholder.com/312x320.jpg"
               numberOfPersion={challenge.data.numberOfChallengers}
