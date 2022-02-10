@@ -24,15 +24,20 @@ function SignUpForm() {
   const {signUp} = useAuthActions();
   const {data, loading, error} = useRegister();
 
+  // const isPassedLogin = () => {
+  //   return Email.includes('@') && Password.length > 3
+  //     ? setIsActive(true)
+  //     : setIsActive(false);
+  // };
+
   const isPassedLogin = () => {
-    return Email.includes('@') && Password.length > 3
+    return Password.length > 1 && Password === PasswordCheck && term
       ? setIsActive(true)
       : setIsActive(false);
   };
 
   const submitHandler = async (e: any) => {
     e.preventDefault();
-    // state에 저장한 값 가져오기
     if (Password !== PasswordCheck) {
       return setPasswordError(true);
     }
@@ -133,7 +138,7 @@ function SignUpForm() {
           <Info>
             <InfoTxt>
               개인정보 수집 및 이용에 동의합니다
-              <input type="checkbox" onChange={onChangeTerm} />
+              <input type="checkbox" onChange={onChangeTerm} required />
               {termError && <Alert>약관 동의가 필요합니다.</Alert>}
             </InfoTxt>
           </Info>
@@ -141,9 +146,7 @@ function SignUpForm() {
         {isActive ? (
           <Btn type="submit">가입</Btn>
         ) : (
-          <Btn type="submit" color={color.line01}>
-            가입
-          </Btn>
+          <Btn color={color.line01}>가입</Btn>
         )}
       </form>
     </div>
