@@ -55,7 +55,7 @@ const BoxStyle = css`
   height: 9.625rem;
   position: relative;
   bottom: -10.625rem;
-  background-color: #000;
+  background-color: ${color.bodyFont01};
   border-radius: 0.75rem;
   align-items: center;
 `;
@@ -64,7 +64,6 @@ const Distance = styled.div`
   text-align: center;
   width: 50%;
   border-right: 1px ${color.line01} solid;
-  color: #fff;
 `;
 
 const Info = css`
@@ -80,7 +79,6 @@ const InfoNumber = css`
 
 const Carbon = styled.div`
   width: 50%;
-  color: #fff;
 `;
 
 const EarthStyle = css`
