@@ -78,5 +78,5 @@
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.5.1"
   },
-  "proxy": "http://localhost:8080"
+  "proxy": "http://3.35.37.234:8080"
 }

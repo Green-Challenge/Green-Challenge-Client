@@ -3,7 +3,7 @@ export type ChallengeType = {
   challengeName: string;
   treeId: number;
   percent: number;
-  rewardToken: number;
+  rewordToken: number;
   numberOfChallengers: number;
   compelete: boolean;
   participating: boolean;
@@ -58,4 +58,8 @@ export type AddChallengeRecordReq = {
   challengeId: number;
   userId: number;
   achieved: number;
+};
+
+export type GetTreeRes = {
+  treeName: string;
 };

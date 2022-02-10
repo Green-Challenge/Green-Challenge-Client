@@ -23,7 +23,7 @@ function ChallengeSection({userId}: ChallengeSectionProps) {
               challengeId={challenge.challengeId}
               percentage={challenge.percent}
               challengeName={challenge.challengeName}
-              rewardToken={challenge.rewardToken}
+              rewardToken={challenge.rewordToken}
               numberOfChallengers={challenge.numberOfChallengers}
               isComplete={challenge.compelete}
               isParticipating={challenge.participating}

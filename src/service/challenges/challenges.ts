@@ -9,6 +9,7 @@ import {
   GetChartReq,
   GetChartRes,
   GetTreeGrowthByChallengeId,
+  GetTreeRes,
   StartChallengeReq,
 } from './type';
 
@@ -94,6 +95,15 @@ export class ChallengeService {
         `${baseEndPoint}/challenging/done`,
         req,
       );
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  public static getTreeName = async (treeId: number) => {
+    try {
+      const {data} = await apiClient.get<GetTreeRes>(`/api/tree/${treeId}`);
       return data;
     } catch (error) {
       throw error;
