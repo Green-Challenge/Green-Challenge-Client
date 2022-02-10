@@ -46,7 +46,7 @@ const TreeIcon = styled(Icon)`
 `;
 
 const Earth = styled(Icon)`
-  margin-top: 73px;
+  margin-top: -4.063rem;
 `;
 
 export {InfoSection};
