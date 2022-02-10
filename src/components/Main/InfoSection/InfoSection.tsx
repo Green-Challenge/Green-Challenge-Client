@@ -17,6 +17,8 @@ function InfoSection() {
         <TreeIcon name="treeButton" />
       </TreeButton>
       <ChallengeShort amountOfTree={70} dayOfChallenge={70}></ChallengeShort>
+
+      <Earth name="earthMain" />
     </Wrapper>
   );
 }
@@ -42,6 +44,10 @@ const TreeButton = styled.button`
 
 const TreeIcon = styled(Icon)`
   width: 2.5rem;
+`;
+
+const Earth = styled(Icon)`
+  margin-top: 73px;
 `;
 
 export {InfoSection};

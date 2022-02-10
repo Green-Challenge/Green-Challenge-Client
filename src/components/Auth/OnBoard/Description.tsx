@@ -5,8 +5,8 @@ import color from 'color';
 function Description() {
   return (
     <Desc>
-      <div> 텍스트를 이곳에 입력합니다. </div>
-      <div>한 줄이 될 수도 있고 두 줄이 될 수도 있습니다.</div>
+      <div>이웃들과 함께 친환경 챌린지에 도전하고,</div>
+      <div>나무 캐릭터를 키워 지구에게 선물해 주세요.</div>
     </Desc>
   );
 }
