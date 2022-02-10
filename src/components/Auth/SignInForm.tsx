@@ -70,16 +70,16 @@ function SignInForm() {
             value={Password}
             onChange={passwordHandler}
           />
+          <InfoTxt textAlign>
+            아직 네이버스 계정이 없으신가요?
+            <SignUp
+              onClick={() => {
+                history.push('/auth/signup');
+              }}>
+              회원가입
+            </SignUp>
+          </InfoTxt>
         </Wrapper>
-        <InfoTxt textAlign>
-          아직 네이버스 계정이 없으신가요?
-          <SignUp
-            onClick={() => {
-              history.push('/auth/signup');
-            }}>
-            회원가입
-          </SignUp>
-        </InfoTxt>
         <Btn type="submit">로그인</Btn>
       </form>
     </div>
@@ -99,6 +99,9 @@ const SignUp = styled.span`
 const Btn = styled(Button)`
   background-color: ${props => (props.color ? color.line03 : color.primary)};
   color: ${props => props.color || color.bgWhite};
+  /* position: fixed;
+  bottom: 0; */
+  margin-top: 50px;
 `;
 
 export default SignInForm;

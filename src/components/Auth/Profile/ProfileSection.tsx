@@ -16,28 +16,33 @@ function ProfileSection() {
   const [nickName, setNickName] = useState('');
 
   return (
-    <Wrapper>
+    <>
       <form onSubmit={submit}>
-        <ProfileImage image={image} setImage={setImage} />
-        <NickName nickName={nickName} setNickName={setNickName} />
-        <Address
-          chosenSi={chosenSi}
-          setChosenSi={setChosenSi}
-          chosenGu={chosenGu}
-          setChosenGu={setChosenGu}
-        />
+        <Wrapper>
+          <ProfileImage image={image} setImage={setImage} />
+          <NickName nickName={nickName} setNickName={setNickName} />
+          <Address
+            chosenSi={chosenSi}
+            setChosenSi={setChosenSi}
+            chosenGu={chosenGu}
+            setChosenGu={setChosenGu}
+          />
+        </Wrapper>
         <Btn type="submit">확인</Btn>
       </form>
-    </Wrapper>
+    </>
   );
 }
 
 const Wrapper = styled.div`
-  margin: auto 1.5rem;
+  margin-top: 40px;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 `;
 
 const Btn = styled(Button)`
-  width: 100%;
-  margin: 40px auto;
+  position: fixed;
+  bottom: 0;
+  margin-top: 50px;
 `;
 export default ProfileSection;

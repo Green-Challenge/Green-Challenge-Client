@@ -17,7 +17,6 @@ function InfoSection() {
         <TreeIcon name="treeButton" />
       </TreeButton>
       <ChallengeShort amountOfTree={70} dayOfChallenge={70}></ChallengeShort>
-
       <Earth name="earthMain" />
     </Wrapper>
   );
