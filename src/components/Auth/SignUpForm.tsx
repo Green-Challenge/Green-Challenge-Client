@@ -17,24 +17,17 @@ function SignUpForm() {
   const [Password, SetPassword] = useState('');
   const [PasswordCheck, setPasswordCheck] = useState('');
   const [PasswordError, setPasswordError] = useState(false);
-  const [term, setTerm] = useState(false);
-  const [termError, setTermError] = useState(false);
-  const [isActive, setIsActive] = useState(false);
+  const [check, setCheck] = useState(false);
+  const [checkError, setCheckError] = useState(false);
+  // const [isActive, setIsActive] = useState(false);
 
   const {signUp} = useAuthActions();
   const {data, loading, error} = useRegister();
 
-  // const isPassedLogin = () => {
-  //   return Email.includes('@') && Password.length > 3
-  //     ? setIsActive(true)
-  //     : setIsActive(false);
-  // };
+  const isPassedLogin =
+    Email.includes('@') && Password === PasswordCheck && Password.length > 2;
 
-  const isPassedLogin = () => {
-    return Password.length > 1 && Password === PasswordCheck && term
-      ? setIsActive(true)
-      : setIsActive(false);
-  };
+  const getIsActive = isPassedLogin && check === true;
 
   const submitHandler = async (e: any) => {
     e.preventDefault();
@@ -42,8 +35,8 @@ function SignUpForm() {
       return setPasswordError(true);
     }
 
-    if (!term) {
-      return setTermError(true);
+    if (!check) {
+      return setCheckError(true);
     }
 
     let body: SignUpReq = {
@@ -77,10 +70,8 @@ function SignUpForm() {
     setPasswordCheck(e.target.value);
   };
 
-  const onChangeTerm = (e: any) => {
-    //체크박스 초기화
-    setTermError(false);
-    setTerm(e.target.checked);
+  const isCheckClicked = () => {
+    setCheck(!check);
   };
 
   if (data) {
@@ -138,12 +129,12 @@ function SignUpForm() {
           <Info>
             <InfoTxt>
               개인정보 수집 및 이용에 동의합니다
-              <input type="checkbox" onChange={onChangeTerm} required />
-              {termError && <Alert>약관 동의가 필요합니다.</Alert>}
+              <input type="checkbox" onClick={isCheckClicked} />
+              {checkError && <Alert>약관 동의가 필요합니다.</Alert>}
             </InfoTxt>
           </Info>
         </Wrapper>
-        {isActive ? (
+        {getIsActive ? (
           <Btn type="submit">가입</Btn>
         ) : (
           <Btn color={color.line01}>가입</Btn>
