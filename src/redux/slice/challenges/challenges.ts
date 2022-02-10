@@ -26,6 +26,7 @@ const initialState = {
   challenging: {
     isStart: false,
     challengeId: null as null | number,
+    modalUp: false,
   },
 };
 
@@ -53,6 +54,12 @@ const challengesSlice = createSlice({
       state.challenging.isStart = false;
       state.challenging.challengeId = null;
     },
+    openModal(state) {
+      state.challenging.modalUp = true;
+    },
+    closeModal(state) {
+      state.challenging.modalUp = false;
+    },
   },
   extraReducers: builder => {
     fetchChallengeKeepDataNoHandler.getFetchThunkReducer(builder);
@@ -61,4 +68,5 @@ const challengesSlice = createSlice({
 });
 
 export default challengesSlice.reducer;
-export const {startChallenge, stopChallenge} = challengesSlice.actions;
+export const {startChallenge, stopChallenge, openModal, closeModal} =
+  challengesSlice.actions;

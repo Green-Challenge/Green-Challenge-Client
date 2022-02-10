@@ -2,7 +2,8 @@ import color from 'color';
 import Button from 'components/common/Button';
 import useChallengeStartAction from 'hooks/challenge/useChallengeStartAction';
 import {useAppSelector} from 'hooks/storeHooks';
-import {useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
+import {ChallengeService} from 'service/challenges/challenges';
 import styled, {css} from 'styled-components';
 import {Distance, getCurrentLocation} from 'utils/getLocation';
 import {ChallengeImage} from '../common';
@@ -34,6 +35,7 @@ function ChallengingCard({
     distance: 0,
   });
   const {isStart} = useAppSelector(state => state.challenges.challenging);
+  const {userId} = useAppSelector(state => state.auth.isAuth);
   const [isStarting, setIsStarting] = useState(isStart);
   const {startChallenge, stopChallenge} = useChallengeStartAction();
 
@@ -49,7 +51,22 @@ function ChallengingCard({
     setIsStarting(false);
     window.clearInterval(timerIdRef.current);
     stopChallenge();
+    ChallengeService.addChallengeRecord({
+      achieved: movedDistance.current.distance,
+      challengeId,
+      userId: userId!,
+    }).catch(error => {
+      console.log(error);
+    });
   };
+
+  useEffect(() => {
+    return () => {
+      if (isStarting) {
+        onClickStop();
+      }
+    };
+  });
 
   return (
     <Wrapper>

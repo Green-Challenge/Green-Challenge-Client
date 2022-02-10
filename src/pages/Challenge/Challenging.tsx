@@ -34,34 +34,39 @@ function Challenging() {
   return (
     <>
       {challenging.data && challenge.data && (
-        <Layout>
-          <Layout.Header>
-            <Header isTitle isBig headerLeftItems={<BackButton path="/" />}>
-              {challenge.data.challengeName}
-            </Header>
-          </Layout.Header>
-          <Layout.ScrollMain>
-            <ChallengingCard
-              challengeId={challengeId}
-              currentDistance={challenging.data.current}
-              imageSrc="https://via.placeholder.com/312x320.jpg"
-              numberOfPersion={challenge.data.numberOfChallengers}
-              progress={
-                (challenging.data.current / challenging.data.goalDistance) * 100
-              }
-              target={challenging.data.goalDistance}
-            />
-            <Section title="내가 모은 나뭇잎" info={challenging.data.leafCount}>
-              <CollectionLeafs numberOfLeafs={challenging.data.leafCount} />
-            </Section>
-            <TogetherLeafSection challengeId={challengeId} />
-            <ChallengeChart challengeId={challengeId} />
-            <QuestionWrapper>
-              <Question name="question" />
-              <QuestionSpan>채린지 진행방식이 궁금해요</QuestionSpan>
-            </QuestionWrapper>
-          </Layout.ScrollMain>
-        </Layout>
+        <>
+          <Layout>
+            <Layout.Header>
+              <Header isTitle isBig headerLeftItems={<BackButton path="/" />}>
+                {challenge.data.challengeName}
+              </Header>
+            </Layout.Header>
+            <Layout.ScrollMain>
+              <ChallengingCard
+                challengeId={challengeId}
+                currentDistance={challenging.data.current}
+                imageSrc="https://via.placeholder.com/312x320.jpg"
+                numberOfPersion={challenge.data.numberOfChallengers}
+                progress={
+                  (challenging.data.current / challenging.data.goalDistance) *
+                  100
+                }
+                target={challenging.data.goalDistance}
+              />
+              <Section
+                title="내가 모은 나뭇잎"
+                info={challenging.data.leafCount}>
+                <CollectionLeafs numberOfLeafs={challenging.data.leafCount} />
+              </Section>
+              <TogetherLeafSection challengeId={challengeId} />
+              <ChallengeChart challengeId={challengeId} />
+              <QuestionWrapper>
+                <Question name="question" />
+                <QuestionSpan>채린지 진행방식이 궁금해요</QuestionSpan>
+              </QuestionWrapper>
+            </Layout.ScrollMain>
+          </Layout>
+        </>
       )}
     </>
   );
