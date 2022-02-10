@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {CircularProgressbarWithChildren} from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import {css} from 'styled-components/macro';
 import Icon from 'components/Icon/Icon';
 import styled from 'styled-components';
+import {ChallengeService} from 'service/challenges/challenges';
 
 interface ChallengeCircleProps {
   treeId: number;
@@ -12,9 +13,18 @@ interface ChallengeCircleProps {
   isComplete: boolean;
 }
 
-function treeNameById(treeId: number) {
-  const treeNames = ['t1', 't2', 't3', 't4', 't5', 't6', 't7'];
-  return treeNames[treeId - 1];
+export function treeImgNameByName(treeName: string) {
+  const treeNameMap = {
+    향나무: 't1',
+    바오밥나무: 't2',
+    소나무: 't3',
+    명자나무: 't4',
+    조팝나무: 't5',
+    귤나무: 't6',
+    야자수: 't7',
+  };
+
+  return treeNameMap[treeName as keyof typeof treeNameMap];
 }
 
 function ChallengeCircle({
@@ -23,7 +33,13 @@ function ChallengeCircle({
   percentage,
   isComplete,
 }: ChallengeCircleProps) {
-  const treeName = treeNameById(treeId);
+  const [treeName, setTreeName] = useState('t1');
+
+  useEffect(() => {
+    ChallengeService.getTreeName(treeId).then(res =>
+      setTreeName(treeImgNameByName(res.treeName)),
+    );
+  }, [treeId]);
   return (
     <Wrapper>
       <div style={{width: 86, height: 86}}>

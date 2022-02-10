@@ -28,6 +28,7 @@ function ChallengeCard({
   isParticipating,
 }: ChallengeCardProps) {
   const history = useHistory();
+
   const onClick = () => {
     if (isParticipating === true) {
       return history.push({
