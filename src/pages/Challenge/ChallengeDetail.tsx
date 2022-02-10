@@ -6,17 +6,37 @@ import Header from 'components/common/Header';
 import Section from 'components/common/Section';
 import {useIsAuthPush} from 'hooks/auth/useIsAuth';
 import useChallengeDetail from 'hooks/challenge/useChallengeDetail';
-import {useCallback} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
+import {ChallengeService} from 'service/challenges/challenges';
+import {treeImgNameByName} from 'utils/imageMap';
 
 export interface AddState {
   challengeId: string;
+}
+
+export function getImagUri(challengeName: string) {
+  const challengeImgMap = {
+    '버스 출퇴근': 'challenging_bus',
+    '지하철 출퇴근': 'challenging_subway',
+    '자전거 출퇴근': 'challenging_bike',
+    '뚜벅이 출퇴근': 'challenging_walking',
+    '킥보드 출퇴근': 'challenging_kick',
+    '쓰레기 줍깅': 'challenging_trash',
+    '동식물 사진찍기': 'challenging_animal',
+  };
+  return encodeURI(
+    `/Icon/SVG/${
+      challengeImgMap[challengeName as keyof typeof challengeImgMap]
+    }.svg`,
+  );
 }
 
 function ChallengeDetail() {
   useIsAuthPush();
   const history = useHistory();
   const params = useParams<AddState>();
+  const [treeName, setTreeName] = useState('t1');
 
   const onClick = useCallback(() => {
     history.push({pathname: '/challenge/add', state: params});
@@ -25,6 +45,13 @@ function ChallengeDetail() {
   const {data, loading, error} = useChallengeDetail(
     parseInt(params.challengeId),
   );
+  useEffect(() => {
+    if (data) {
+      ChallengeService.getTreeName(data.treeId).then(res =>
+        setTreeName(res.treeName),
+      );
+    }
+  }, [data]);
 
   if (loading) {
     return <div>로딩중</div>;
@@ -45,20 +72,20 @@ function ChallengeDetail() {
           <>
             <DetailCard
               numberOfPersion={data.numberOfChallengers}
-              imageSrc="https://via.placeholder.com/312x320.jpg"
+              imageSrc={getImagUri(data.challengeName)}
               description={data.description}
               tags={data.hashTag}
             />
             <Section title="리워드 토큰">
               <IntroduceCard
                 description={`${data.rewardToken}N`}
-                imageSrc="https://via.placeholder.com/56x56.jpg"
+                imageSrc={`/Icon/SVG/token_big.svg`}
               />
             </Section>
             <Section title="리워드 나무">
               <IntroduceCard
-                description="향나무"
-                imageSrc="https://via.placeholder.com/100x120.jpg"
+                description={treeName}
+                imageSrc={`/Icon/${treeImgNameByName(treeName)}.svg`}
               />
             </Section>
             <Section title="챌린지 소개">
