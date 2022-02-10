@@ -34,8 +34,6 @@ function ChallengeChart({challengeId}: ChallengeChartProps) {
     return left;
   }, [] as Data[]);
 
-  console.log(chartData);
-
   return (
     <>
       {data && (

@@ -4,6 +4,7 @@ import {Layout} from 'components/common';
 import Button from 'components/common/Button';
 import Header from 'components/common/Header';
 import Section from 'components/common/Section';
+import {useIsAuthPush} from 'hooks/auth/useIsAuth';
 import useChallengeDetail from 'hooks/challenge/useChallengeDetail';
 import {useCallback} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
@@ -13,6 +14,7 @@ export interface AddState {
 }
 
 function ChallengeDetail() {
+  useIsAuthPush();
   const history = useHistory();
   const params = useParams<AddState>();
 

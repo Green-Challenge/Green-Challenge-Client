@@ -1,6 +1,7 @@
 import apiClient from 'service/apiClient';
 import {ErrorType, ThunkApi} from 'service/apiUtilsType';
 import {
+  AddChallengeRecordReq,
   ChallengeDetailRes,
   ChallengesRes,
   GetChallengingReq,
@@ -79,6 +80,18 @@ export class ChallengeService {
     try {
       const {data} = await apiClient.post<GetChartRes>(
         `${baseEndPoint}/chart`,
+        req,
+      );
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  public static addChallengeRecord = async (req: AddChallengeRecordReq) => {
+    try {
+      const {data} = await apiClient.post<{}>(
+        `${baseEndPoint}/challenging/done`,
         req,
       );
       return data;

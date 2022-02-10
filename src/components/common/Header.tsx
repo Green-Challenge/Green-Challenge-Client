@@ -36,18 +36,19 @@ export const wrapperStyle = css`
 `;
 
 Header.Left = styled.div`
-  width: 10%;
+  width: 20%;
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
 `;
 Header.Right = styled.div`
   display: flex;
   justify-content: flex-end;
-  width: 10%;
-  display: flex;
+  width: 20%;
 `;
 const HeaderStyled = styled.h1<HeaderProps>`
   text-align: center;
-  width: 80%;
+  width: 60%;
   ${props =>
     props.isBig
       ? css`

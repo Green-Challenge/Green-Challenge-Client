@@ -53,3 +53,9 @@ export type GetChartRes = {
   lastMonth: {x: string; y: number}[];
   currentMonth: {x: string; y: number}[];
 };
+
+export type AddChallengeRecordReq = {
+  challengeId: number;
+  userId: number;
+  achieved: number;
+};
