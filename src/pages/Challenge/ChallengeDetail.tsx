@@ -13,6 +13,10 @@ export interface AddState {
   challengeId: string;
 }
 
+function challengeImgByName(challengeName: string) {
+  const challengeNameMap = {};
+}
+
 function ChallengeDetail() {
   useIsAuthPush();
   const history = useHistory();
@@ -47,7 +51,7 @@ function ChallengeDetail() {
               numberOfPersion={data.numberOfChallengers}
               imageSrc="https://via.placeholder.com/312x320.jpg"
               description={data.description}
-              tags={data.hasTag}
+              tags={data.hashTag}
             />
             <Section title="리워드 토큰">
               <IntroduceCard

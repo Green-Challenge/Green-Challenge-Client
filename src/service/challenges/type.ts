@@ -17,7 +17,7 @@ export type ChallengeDetailRes = {
   numberOfChallengers: number;
   rewardToken: number;
   description: string;
-  hasTag: string[];
+  hashTag: string[];
   treeId: string;
   challengeImg: string;
 };
