@@ -24,7 +24,7 @@ export type ChallengeDetailRes = {
 
 export type StartChallengeReq = {
   userId: number;
-  challengeId: string;
+  challengeId: number;
 };
 
 export type GetChallengingReq = {

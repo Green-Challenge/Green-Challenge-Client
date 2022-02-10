@@ -38,13 +38,17 @@ function ChallengeDetail() {
   const params = useParams<AddState>();
   const [treeName, setTreeName] = useState('t1');
 
-  const onClick = useCallback(() => {
-    history.push({pathname: '/challenge/add', state: params});
-  }, [history, params]);
-
   const {data, loading, error} = useChallengeDetail(
     parseInt(params.challengeId),
   );
+
+  const onClick = useCallback(() => {
+    history.push({
+      pathname: '/challenge/add',
+      state: {treeId: data!.treeId, challengeId: params.challengeId},
+    });
+  }, [history, params, data]);
+
   useEffect(() => {
     if (data) {
       ChallengeService.getTreeName(data.treeId).then(res =>

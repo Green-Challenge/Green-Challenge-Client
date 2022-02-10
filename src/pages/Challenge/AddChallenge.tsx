@@ -3,20 +3,21 @@ import {Layout} from 'components/common';
 import Button from 'components/common/Button';
 import Header from 'components/common/Header';
 import {useIsAuthPush, useIsAuthSelector} from 'hooks/auth/useIsAuth';
-import {useCallback, useMemo} from 'react';
+import {useCallback, useEffect, useMemo, useState} from 'react';
 import {useHistory, useLocation} from 'react-router-dom';
 import {ChallengeService} from 'service/challenges/challenges';
 import {StartChallengeReq} from 'service/challenges/type';
 import styled from 'styled-components';
-import {AddState} from '.';
+import {treeImgNameByName} from 'utils/imageMap';
 
 function AddChallenge() {
   useIsAuthPush();
   const isAuth = useIsAuthSelector();
   const history = useHistory();
-  const location = useLocation<AddState>();
-  const challengeId = location.state.challengeId;
-  const state: AddState = useMemo(() => ({challengeId}), [challengeId]);
+  const location = useLocation<{challengeId: number; treeId: number}>();
+  const {challengeId, treeId} = location.state;
+  const state = useMemo(() => ({challengeId}), [challengeId]);
+  const [treeName, setTreeName] = useState('향나무');
 
   const onClick = useCallback(() => {
     if (isAuth.userId == null) {
@@ -35,6 +36,12 @@ function AddChallenge() {
       });
   }, [history, state, challengeId, isAuth.userId]);
 
+  useEffect(() => {
+    ChallengeService.getTreeName(treeId)
+      .then(res => setTreeName(res.treeName))
+      .catch(error => console.log(error));
+  }, [treeId]);
+
   return (
     <Layout>
       <Layout.Header>
@@ -46,7 +53,9 @@ function AddChallenge() {
         <Wrapper>
           <ImageWrapper>
             <img
-              src="https://via.placeholder.com/200x300.jpg"
+              src={`/Icon/SVG/challenge_start_${treeImgNameByName(
+                treeName,
+              )}.svg`}
               alt="챌린지 나무"
             />
           </ImageWrapper>
@@ -54,7 +63,7 @@ function AddChallenge() {
             네이버스 이웃들과 함께
             <br /> 나뭇잎 100장을 모아
             <br />
-            지구에게 향나무를 선물해 주세요!
+            지구에게 {treeName}를 선물해 주세요!
           </Description>
         </Wrapper>
         <Button onClick={onClick}>확인</Button>
