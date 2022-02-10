@@ -99,6 +99,9 @@ const SignUp = styled.span`
 const Btn = styled(Button)`
   background-color: ${props => (props.color ? color.line03 : color.primary)};
   color: ${props => props.color || color.bgWhite};
+  /* position: fixed;
+  bottom: 0; */
+  margin-top: 50px;
 `;
 
 export default SignInForm;
