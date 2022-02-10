@@ -4,7 +4,6 @@ import Icon from 'components/Icon/Icon';
 import EarthSection from 'components/Main/EarthSection/EarthSection';
 import {TreeSection, TreeType} from 'components/My/TreeSection';
 import {useIsAuthPush} from 'hooks/auth/useIsAuth';
-import useIsChallenging from 'hooks/challenge/useIsChallenging';
 import {css} from 'styled-components/macro';
 
 const trees: TreeType[] = [
@@ -37,7 +36,6 @@ interface MyTreeProps {
 
 function MyTree({imageSrc}: MyTreeProps) {
   useIsAuthPush();
-  useIsChallenging();
   return (
     <Layout>
       <Layout.Header>

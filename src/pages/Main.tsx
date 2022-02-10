@@ -4,12 +4,10 @@ import Icon from 'components/Icon/Icon';
 import {ChallengeSection} from 'components/Main/ChallengeSection';
 import {InfoSection} from 'components/Main/InfoSection';
 import {useIsAuthPush, useIsAuthSelector} from 'hooks/auth/useIsAuth';
-import useIsChallenging from 'hooks/challenge/useIsChallenging';
 import {css} from 'styled-components/macro';
 
 function Main() {
   useIsAuthPush();
-  useIsChallenging();
   const {userId} = useIsAuthSelector();
   return (
     <Layout>

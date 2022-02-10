@@ -3,7 +3,6 @@ import {Layout} from 'components/common';
 import Button from 'components/common/Button';
 import Header from 'components/common/Header';
 import {useIsAuthPush, useIsAuthSelector} from 'hooks/auth/useIsAuth';
-import useIsChallenging from 'hooks/challenge/useIsChallenging';
 import {useCallback, useMemo} from 'react';
 import {useHistory, useLocation} from 'react-router-dom';
 import {ChallengeService} from 'service/challenges/challenges';
@@ -13,7 +12,6 @@ import {AddState} from '.';
 
 function AddChallenge() {
   useIsAuthPush();
-  useIsChallenging();
   const isAuth = useIsAuthSelector();
   const history = useHistory();
   const location = useLocation<AddState>();
