@@ -1,22 +1,35 @@
 import color from 'color';
 import Icon from 'components/Icon/Icon';
-import React from 'react';
+import {useAppSelector} from 'hooks/storeHooks';
+import React, {useEffect, useState} from 'react';
 import {useHistory} from 'react-router-dom';
+import {ChallengeService} from 'service/challenges/challenges';
 import styled from 'styled-components';
 import ChallengeShort from './ChallengeShort';
 
 function InfoSection() {
+  const [short, setShort] = useState({
+    amountOfTree: 0,
+    dayOfChallenge: 0,
+  });
   const history = useHistory();
   const onClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     history.push({pathname: '/my/tree'});
   };
+  const {userId} = useAppSelector(state => state.auth.isAuth);
+
+  useEffect(() => {
+    ChallengeService.getShort(userId!).then(res => setShort(res));
+  }, [userId]);
 
   return (
     <Wrapper>
       <TreeButton onClick={onClick}>
         <TreeIcon name="treeButton" />
       </TreeButton>
-      <ChallengeShort amountOfTree={70} dayOfChallenge={70}></ChallengeShort>
+      <ChallengeShort
+        amountOfTree={short.amountOfTree}
+        dayOfChallenge={short.dayOfChallenge}></ChallengeShort>
 
       <Earth name="earthMain" />
     </Wrapper>

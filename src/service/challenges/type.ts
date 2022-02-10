@@ -63,3 +63,8 @@ export type AddChallengeRecordReq = {
 export type GetTreeRes = {
   treeName: string;
 };
+
+export type GetShortRes = {
+  dayOfChallenge: number;
+  amountOfTree: number;
+};
