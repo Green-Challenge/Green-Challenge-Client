@@ -13,10 +13,6 @@ export interface AddState {
   challengeId: string;
 }
 
-function challengeImgByName(challengeName: string) {
-  const challengeNameMap = {};
-}
-
 function ChallengeDetail() {
   useIsAuthPush();
   const history = useHistory();
