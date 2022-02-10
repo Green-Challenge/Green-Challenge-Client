@@ -7,7 +7,7 @@ type ObjType = {
 };
 
 const siData = [
-  '시/도 선택',
+  '시/도',
   '서울특별시',
   '인천광역시',
   '대전광역시',
@@ -306,7 +306,7 @@ function Address({chosenSi, setChosenSi, chosenGu, setChosenGu}: AddressProps) {
         <>
           <Select onChange={ChangeGu} value={chosenGu}>
             <option value="" selected disabled hidden>
-              시/구/군 선택
+              시/구/군
             </option>
             {chosenSi &&
               guGunData[chosenSi]?.map((guGun: string) => (

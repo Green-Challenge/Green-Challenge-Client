@@ -14,7 +14,7 @@ interface ChallengeCircleProps {
 
 function treeNameById(treeId: number) {
   const treeNames = ['t1', 't2', 't3', 't4', 't5', 't6', 't7'];
-  return treeNames[treeId];
+  return treeNames[treeId - 1];
 }
 
 function ChallengeCircle({
@@ -61,7 +61,42 @@ function ChallengeCircle({
             <Img src={`/Icon/${treeName}.svg`} alt="tree" />
           </CircularProgressbarWithChildren>
         </div>
-      ) : null}
+      ) : (
+        <div style={{width: 86, height: 86}}>
+          <CircularProgressbarWithChildren
+            counterClockwise
+            value={percentage}
+            text={`${treeName}`}
+            background={true}
+            styles={{
+              root: {},
+              path: {
+                stroke: 'transparent',
+                strokeLinecap: 'round',
+                transition: 'stroke-dashoffset 0.5s ease 0s',
+                transform: 'rotate(1turn)',
+                transformOrigin: 'center center',
+              },
+              trail: {
+                stroke: '#F2F2F2',
+                strokeLinecap: 'round',
+                transform: 'rotate(0.5turn)',
+                transformOrigin: 'center center',
+              },
+              text: {
+                // fill: 'transparent',
+                fill: '#000',
+                fontSize: '1rem',
+              },
+              background: {
+                fill: '#F2F2F2',
+              },
+            }}>
+            {isComplete ? <Icon name="success" css={Success} /> : null}
+            <Img src={`/Icon/${treeName}.svg`} alt="tree" />
+          </CircularProgressbarWithChildren>
+        </div>
+      )}
     </Wrapper>
   );
 }
