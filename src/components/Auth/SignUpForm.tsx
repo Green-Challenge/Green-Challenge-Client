@@ -166,6 +166,8 @@ const Alert = styled.div`
 const Btn = styled(Button)`
   background-color: ${props => (props.color ? color.line03 : color.primary)};
   color: ${props => props.color || color.bgWhite};
+  bottom: 0;
+  position: fixed;
 `;
 
 export default SignUpForm;
