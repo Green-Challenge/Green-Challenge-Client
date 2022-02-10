@@ -26,7 +26,7 @@ function ProfileSection() {
           chosenGu={chosenGu}
           setChosenGu={setChosenGu}
         />
-        <Button type="submit">확인</Button>
+        <Btn type="submit">확인</Btn>
       </form>
     </Wrapper>
   );
@@ -36,4 +36,8 @@ const Wrapper = styled.div`
   margin: auto 1.5rem;
 `;
 
+const Btn = styled(Button)`
+  width: 100%;
+  margin: 40px auto;
+`;
 export default ProfileSection;

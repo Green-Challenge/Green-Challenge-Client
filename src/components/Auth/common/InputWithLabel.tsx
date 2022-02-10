@@ -34,6 +34,9 @@ const Input = styled.input`
   border: 0.031rem solid ${color.line03};
   border-radius: 10px;
   font-size: 0.875rem;
+  ::placeholder {
+    color: ${color.titleFont};
+  }
 `;
 
 export default InputWithLabel;
