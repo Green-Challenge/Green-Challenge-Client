@@ -1,11 +1,12 @@
-// import color from 'color';
+import color from 'color';
 import {Layout} from 'components/common';
 import Button from 'components/common/Button';
 import Header from 'components/common/Header';
 import {useIsAuthPush} from 'hooks/auth/useIsAuth';
 import styled from 'styled-components';
+import {css} from 'styled-components/macro';
 
-//<오늘의 기록> 페이지
+//#오늘의 기록
 function Record() {
   useIsAuthPush();
   return (
@@ -17,18 +18,21 @@ function Record() {
       </Layout.Header>
       <Main>
         <Wrapper>
-          <ImageWrapper>
-            <img
-              src="https://via.placeholder.com/200x300.jpg"
-              alt="챌린지 나무"
-            />
-          </ImageWrapper>
-          {/* <Description>
-            이동거리
-            <br />
-            <br />
-            탄소저감량
-          </Description> */}
+          <div css={BoxStyle}>
+            <Distance>
+              <div css={Info}>이동 거리</div>
+              <div css={InfoNumber}>00m</div>
+            </Distance>
+            <Carbon>
+              <div css={Info}>탄소저감량</div>
+              <div css={InfoNumber}>00kg</div>
+            </Carbon>
+          </div>
+          <img
+            src="/Icon/SVG/earth_Today.svg"
+            alt="지구캐릭터"
+            css={EarthStyle}
+          />
         </Wrapper>
         <Button>확인</Button>
       </Main>
@@ -38,20 +42,50 @@ function Record() {
 
 const Wrapper = styled.div`
   margin: auto 1.5rem;
-`;
-const ImageWrapper = styled.div`
   text-align: center;
 `;
 const Main = styled(Layout.Main)`
   flex-direction: column;
   justify-content: space-between;
 `;
-// const Description = styled.p`
-//   text-align: center;
-//   margin-top: 1.25rem;
-//   color: ${color.bodyFont01};
-//   font-size: 0.875rem;
-//   font-weight: 400;
-// `;
+
+const BoxStyle = css`
+  display: flex;
+  width: 100%;
+  height: 9.625rem;
+  position: relative;
+  bottom: -10.625rem;
+  background-color: #000;
+  border-radius: 0.75rem;
+  align-items: center;
+`;
+
+const Distance = styled.div`
+  text-align: center;
+  width: 50%;
+  border-right: 1px ${color.line01} solid;
+  color: #fff;
+`;
+
+const Info = css`
+  font-size: 14px;
+  color: ${color.line03};
+`;
+
+const InfoNumber = css`
+  font-size: 26px;
+  font-weight: 500;
+  color: ${color.bgSurface};
+`;
+
+const Carbon = styled.div`
+  width: 50%;
+  color: #fff;
+`;
+
+const EarthStyle = css`
+  position: relative;
+  bottom: 9.375rem;
+`;
 
 export {Record};
