@@ -4,10 +4,9 @@ import NickName from './NickName';
 import Address from './Address';
 import styled from 'styled-components';
 import Button from 'components/common/Button';
-import {useHistory} from 'react-router-dom';
+// import {useHistory} from 'react-router-dom';
 
 function ProfileSection() {
-  const history = useHistory();
   const submit = (e: any) => {
     e.preventDefault();
   };
@@ -30,9 +29,9 @@ function ProfileSection() {
           />
         </Wrapper>
         <Btn
-          onClick={() => {
-            history.push('/auth/signin');
-          }}
+          // onClick={() => {
+          //   history.push('/auth/signin');
+          // }}
           type="submit">
           확인
         </Btn>
