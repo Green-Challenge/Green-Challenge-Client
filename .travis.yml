@@ -16,10 +16,10 @@ deploy:
   edge: true
   provider: elasticbeanstalk
   region: ap-northeast-2
-  app: green-challenge
-  env: Greenchallenge-env
+  app: green
+  env: Green-env
   bucket_name: elasticbeanstalk-ap-northeast-2-406959428493
-  bucket_path: green-challenge
+  bucket_path: green
   on: 
     branch: main
   access_key_id: $AWS_ACCESS_KEY
