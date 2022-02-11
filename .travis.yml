@@ -10,7 +10,7 @@ before_install:
   - docker build -t greenchallenge -f Dockerfile.dev .
 
 script:
-  - docker run -e CI=true greenchallenge yarn run test -- --coverage
+  - docker run -e CI=true greenchallenge npm run test -- --coverage
 
 after_sucess:
   - echo "Test suceess"
