@@ -20,7 +20,6 @@ function SignInForm() {
 
   const submitHandler = (e: any) => {
     e.preventDefault();
-    // state에 저장한 값 가져오기
     isActing.current = true;
     let body: SignInReq = {
       email: Email,
