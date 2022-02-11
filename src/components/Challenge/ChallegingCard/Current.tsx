@@ -18,7 +18,7 @@ const Wrapper = styled.div<CurrentProps>`
   left: ${props => `${props.position}%`};
   transform: translate(-50%, -100%);
   top: -10px;
-  width: 44px;
+  min-width: 44px;
   height: 22px;
   background-color: ${color.primary};
   color: ${color.bgWhite};

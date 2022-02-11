@@ -13,6 +13,7 @@ import useChallengeDetail from 'hooks/challenge/useChallengeDetail';
 import useGetChallenging from 'hooks/challenge/useGetChallenging';
 import {useLocation} from 'react-router-dom';
 import styled from 'styled-components';
+import {getImagUri} from 'utils/imageMap';
 
 function Challenging() {
   useIsAuthPush();
@@ -45,7 +46,7 @@ function Challenging() {
               <ChallengingCard
                 challengeId={challengeId}
                 currentDistance={challenging.data.current}
-                imageSrc="https://via.placeholder.com/312x320.jpg"
+                imageSrc={getImagUri(challenge.data.challengeName)}
                 numberOfPersion={challenge.data.numberOfChallengers}
                 progress={
                   (challenging.data.current / challenging.data.goalDistance) *
@@ -58,7 +59,10 @@ function Challenging() {
                 info={challenging.data.leafCount}>
                 <CollectionLeafs numberOfLeafs={challenging.data.leafCount} />
               </Section>
-              <TogetherLeafSection challengeId={challengeId} />
+              <TogetherLeafSection
+                treeId={challenge.data.treeId}
+                challengeId={challengeId}
+              />
               <ChallengeChart challengeId={challengeId} />
               <QuestionWrapper>
                 <Question name="question" />

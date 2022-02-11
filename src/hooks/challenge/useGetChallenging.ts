@@ -34,7 +34,7 @@ const useGetChallenging = (challengeId: number) => {
         setChallengingDetail({
           data: null,
           loading: false,
-          error: null,
+          error: error,
         });
       }
     },

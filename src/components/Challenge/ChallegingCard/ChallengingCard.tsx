@@ -42,6 +42,11 @@ function ChallengingCard({
   const onClickStart = () => {
     setIsStarting(true);
     startChallenge({challengeId});
+    movedDistance.current = {
+      longitude: 0,
+      latitude: 0,
+      distance: 0,
+    };
     timerIdRef.current = window.setInterval(() => {
       getCurrentLocation(movedDistance);
     }, TIME_INTERVAL_LOCATION);
@@ -52,7 +57,8 @@ function ChallengingCard({
     window.clearInterval(timerIdRef.current);
     stopChallenge();
     ChallengeService.addChallengeRecord({
-      achieved: movedDistance.current.distance,
+      // achieved: movedDistance.current.distance,
+      achieved: 1.2,
       challengeId,
       userId: userId!,
     }).catch(error => {
@@ -63,7 +69,9 @@ function ChallengingCard({
   useEffect(() => {
     return () => {
       if (isStarting) {
-        onClickStop();
+        setIsStarting(false);
+        window.clearInterval(timerIdRef.current);
+        stopChallenge();
       }
     };
   });
