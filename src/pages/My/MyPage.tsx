@@ -4,7 +4,6 @@ import {useIsAuthPush} from 'hooks/auth/useIsAuth';
 import Icon from 'components/Icon/Icon';
 import {css} from 'styled-components/macro';
 import MyProfileSection from 'components/MyPage/MyProfileSection';
-// import styled from 'styled-components';
 
 function MyPage() {
   useIsAuthPush();
