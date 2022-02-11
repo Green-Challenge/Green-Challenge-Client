@@ -20,6 +20,7 @@ function SignInForm() {
 
   const submitHandler = (e: any) => {
     e.preventDefault();
+    // state에 저장한 값 가져오기
     isActing.current = true;
     let body: SignInReq = {
       email: Email,
@@ -54,31 +55,33 @@ function SignInForm() {
     <div>
       <form onSubmit={submitHandler}>
         <Wrapper>
-          <InputWithLabel
-            label="이메일"
-            name="email"
-            placeholder="이메일"
-            value={Email}
-            onChange={emailHandler}
-          />
-          <InputWithLabel
-            label="비밀번호"
-            name="password"
-            placeholder="비밀번호"
-            type="password"
-            value={Password}
-            onChange={passwordHandler}
-          />
+          <InputWrapper>
+            <InputWithLabel
+              label="이메일"
+              name="email"
+              placeholder="이메일"
+              value={Email}
+              onChange={emailHandler}
+            />
+            <InputWithLabel
+              label="비밀번호"
+              name="password"
+              placeholder="비밀번호"
+              type="password"
+              value={Password}
+              onChange={passwordHandler}
+            />
+          </InputWrapper>
+          <InfoTxt textAlign>
+            아직 네이버스 계정이 없으신가요?
+            <SignUp
+              onClick={() => {
+                history.push('/auth/signup');
+              }}>
+              회원가입
+            </SignUp>
+          </InfoTxt>
         </Wrapper>
-        <InfoTxt textAlign>
-          아직 네이버스 계정이 없으신가요?
-          <SignUp
-            onClick={() => {
-              history.push('/auth/signup');
-            }}>
-            회원가입
-          </SignUp>
-        </InfoTxt>
         <Btn type="submit">로그인</Btn>
       </form>
     </div>
@@ -86,7 +89,11 @@ function SignInForm() {
 }
 
 const Wrapper = styled.div`
-  margin: auto 1.5rem;
+  margin: 0 1.5rem;
+`;
+
+const InputWrapper = styled.div`
+  height: 22.5rem;
 `;
 
 const SignUp = styled.span`
@@ -98,7 +105,8 @@ const SignUp = styled.span`
 const Btn = styled(Button)`
   background-color: ${props => (props.color ? color.line03 : color.primary)};
   color: ${props => props.color || color.bgWhite};
-  margin-top: 50px;
+  bottom: 0;
+  /* position: fixed; */
 `;
 
 export default SignInForm;

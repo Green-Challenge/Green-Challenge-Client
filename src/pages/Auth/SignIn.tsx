@@ -1,8 +1,8 @@
 import {Layout} from 'components/common';
 import Header from 'components/common/Header';
-import styled from 'styled-components';
 import SignInForm from 'components/Auth/SignInForm';
 import {useIsAuthMain} from 'hooks/auth/useIsAuth';
+import styled from 'styled-components';
 
 function SignIn() {
   useIsAuthMain();
