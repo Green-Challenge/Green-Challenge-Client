@@ -3,6 +3,7 @@ import Button from 'components/common/Button';
 import useChallengeStartAction from 'hooks/challenge/useChallengeStartAction';
 import {useAppSelector} from 'hooks/storeHooks';
 import {useEffect, useRef, useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import {ChallengeService} from 'service/challenges/challenges';
 import styled, {css} from 'styled-components';
 import {Distance, getCurrentLocation} from 'utils/getLocation';
@@ -28,6 +29,7 @@ function ChallengingCard({
   currentDistance,
   challengeId,
 }: ChallengingCardProps) {
+  const history = useHistory();
   const timerIdRef = useRef<number>();
   const movedDistance = useRef<Distance>({
     latitude: 0,
@@ -61,9 +63,16 @@ function ChallengingCard({
       achieved: 1.2,
       challengeId,
       userId: userId!,
-    }).catch(error => {
-      console.log(error);
-    });
+    })
+      .then(() => {
+        history.push({
+          pathname: '/challenge/record',
+          state: {userId, challengeId},
+        });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   useEffect(() => {

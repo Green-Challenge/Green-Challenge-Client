@@ -8,6 +8,8 @@ import {
   GetChallengingRes,
   GetChartReq,
   GetChartRes,
+  GetRecordReq,
+  GetRecordRes,
   GetShortRes,
   GetTreeGrowthByChallengeId,
   GetTreeRes,
@@ -115,6 +117,18 @@ export class ChallengeService {
     try {
       const {data} = await apiClient.get<GetShortRes>(
         `${baseEndPoint}/short/${userId}`,
+      );
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  public static getRecord = async (req: GetRecordReq) => {
+    try {
+      const {data} = await apiClient.post<GetRecordRes>(
+        `${baseEndPoint}/challenging/record`,
+        req,
       );
       return data;
     } catch (error) {
