@@ -58,7 +58,7 @@ function ChallengingCard({
     stopChallenge();
     ChallengeService.addChallengeRecord({
       // achieved: movedDistance.current.distance,
-      achieved: 15,
+      achieved: 1.2,
       challengeId,
       userId: userId!,
     }).catch(error => {
@@ -69,7 +69,9 @@ function ChallengingCard({
   useEffect(() => {
     return () => {
       if (isStarting) {
-        // onClickStop();
+        setIsStarting(false);
+        window.clearInterval(timerIdRef.current);
+        stopChallenge();
       }
     };
   });
