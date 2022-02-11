@@ -52,10 +52,11 @@ interface DescriptionWrapperProps {
   isBigPadding?: boolean;
 }
 const DescriptionWrapper = styled.p<DescriptionWrapperProps>`
-  padding: 10px 14px ${props => (props.isBigPadding ? '32px' : '24px')};
+  padding: 0.625rem 2.8125rem
+    ${props => (props.isBigPadding ? '2rem' : '1.5rem')};
   color: ${color.bodyFont01};
   font-weight: 400;
-  font-size: 14px;
+  font-size: 0.875rem;
 `;
 
 export {IntroduceCard};

@@ -37,6 +37,5 @@ export const getCurrentLocation = (ref: MutableRefObject<Distance>) => {
         longitude,
       };
     }
-    console.log('event');
   });
 };
