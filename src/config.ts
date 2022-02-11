@@ -1,3 +1,3 @@
 export const config = {
-  SERVER: 'http://3.35.37.234:8080',
+  SERVER: process.env.REACT_APP_BASE_URL,
 };

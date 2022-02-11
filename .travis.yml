@@ -1,0 +1,29 @@
+sudo: required
+
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - echo "start creating an image with dockerfile"
+  - docker build -t greenchallenge -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true greenchallenge yarn run test -- --coverage
+
+after_sucess:
+  - echo "Test suceess"
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: ap-northeast-2
+  app: green-challenge
+  env: Greenchallenge-env
+  bucket_name: elasticbeanstalk-ap-northeast-2-406959428493
+  bucket_path: docker
+  on: 
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
