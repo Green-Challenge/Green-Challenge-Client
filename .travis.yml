@@ -19,7 +19,7 @@ deploy:
   app: green-challenge
   env: Greenchallenge-env
   bucket_name: elasticbeanstalk-ap-northeast-2-406959428493
-  bucket_path: docker
+  bucket_path: green-challenge
   on: 
     branch: main
   access_key_id: $AWS_ACCESS_KEY
