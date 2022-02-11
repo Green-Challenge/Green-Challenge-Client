@@ -75,7 +75,7 @@ const TokenBox = styled.div`
   border-radius: 0.75rem;
   margin: 0 auto;
   box-sizing: border-box;
-  padding: 0.375rem 0.938rem;
+  padding-top: 0.37rem;
 `;
 
 const Token = styled.div`
@@ -83,14 +83,14 @@ const Token = styled.div`
   display: flex;
   color: ${color.bodyFont01};
   span {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
   }
-  margin-top: 0.125rem;
+  margin-left: 0.7rem;
 `;
 
 const TokenStyle = css`
-  width: 1.172rem;
-  height: 1.172rem;
+  width: 1.5rem;
+  height: 1.5rem;
   margin-right: 0.375rem;
 `;
 
