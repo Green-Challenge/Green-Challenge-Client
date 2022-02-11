@@ -3,12 +3,19 @@ import {Layout} from 'components/common';
 import Button from 'components/common/Button';
 import Header from 'components/common/Header';
 import {useIsAuthPush} from 'hooks/auth/useIsAuth';
+import {useLocation} from 'react-router-dom';
 import styled from 'styled-components';
 import {css} from 'styled-components/macro';
 
 //#오늘의 기록
 function Record() {
   useIsAuthPush();
+  const {
+    state: {userId, challengeId},
+  } = useLocation<{userId: number; challengeId: number}>();
+
+  console.log(userId, challengeId);
+
   return (
     <Layout>
       <Layout.Header>

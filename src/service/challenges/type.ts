@@ -68,3 +68,13 @@ export type GetShortRes = {
   dayOfChallenge: number;
   amountOfTree: number;
 };
+
+export type GetRecordReq = {
+  challengeId: number;
+  userId: number;
+};
+
+export type GetRecordRes = {
+  distance: string;
+  reducedCarbon: number;
+};
