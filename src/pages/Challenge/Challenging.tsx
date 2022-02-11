@@ -66,7 +66,7 @@ function Challenging() {
               <ChallengeChart challengeId={challengeId} />
               <QuestionWrapper>
                 <Question name="question" />
-                <QuestionSpan>채린지 진행방식이 궁금해요</QuestionSpan>
+                <QuestionSpan>챌린지 진행방식이 궁금해요</QuestionSpan>
               </QuestionWrapper>
             </Layout.ScrollMain>
           </Layout>

@@ -9,7 +9,7 @@ const H3 = styled.div`
   height: 2rem;
   text-align: center;
   font-weight: bold;
-  margin-top: 21.5rem;
+  margin-top: 17.5rem;
   margin-bottom: 0.5rem;
 `;
 export default Headline;

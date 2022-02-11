@@ -20,7 +20,6 @@ function SignInForm() {
 
   const submitHandler = (e: any) => {
     e.preventDefault();
-    // state에 저장한 값 가져오기
     isActing.current = true;
     let body: SignInReq = {
       email: Email,
@@ -99,8 +98,6 @@ const SignUp = styled.span`
 const Btn = styled(Button)`
   background-color: ${props => (props.color ? color.line03 : color.primary)};
   color: ${props => props.color || color.bgWhite};
-  /* position: fixed;
-  bottom: 0; */
   margin-top: 50px;
 `;
 

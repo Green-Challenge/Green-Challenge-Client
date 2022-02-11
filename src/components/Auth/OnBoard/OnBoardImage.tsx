@@ -1,21 +1,12 @@
 import React from 'react';
 import Icon from 'components/Icon/Icon';
-import {css} from 'styled-components/macro';
 
 function OnBoardImage() {
   return (
     <div>
-      <Icon name="onBoard_1" css={IconStyle} />
+      <Icon name="onBoard_1" />
     </div>
   );
 }
-
-const IconStyle = css`
-  width: 24px;
-  cursor: pointer;
-  margin: 24px 0;
-  width: 100%;
-  height: 320px;
-`;
 
 export default OnBoardImage;

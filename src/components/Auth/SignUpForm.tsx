@@ -19,7 +19,6 @@ function SignUpForm() {
   const [PasswordError, setPasswordError] = useState(false);
   const [check, setCheck] = useState(false);
   const [checkError, setCheckError] = useState(false);
-  // const [isActive, setIsActive] = useState(false);
 
   const {signUp} = useAuthActions();
   const {data, loading, error} = useRegister();

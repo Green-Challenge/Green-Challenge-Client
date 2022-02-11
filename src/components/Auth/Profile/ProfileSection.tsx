@@ -4,6 +4,7 @@ import NickName from './NickName';
 import Address from './Address';
 import styled from 'styled-components';
 import Button from 'components/common/Button';
+// import {useHistory} from 'react-router-dom';
 
 function ProfileSection() {
   const submit = (e: any) => {
@@ -27,7 +28,13 @@ function ProfileSection() {
             setChosenGu={setChosenGu}
           />
         </Wrapper>
-        <Btn type="submit">확인</Btn>
+        <Btn
+          // onClick={() => {
+          //   history.push('/auth/signin');
+          // }}
+          type="submit">
+          확인
+        </Btn>
       </form>
     </>
   );

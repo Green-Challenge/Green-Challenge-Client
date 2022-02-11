@@ -63,16 +63,16 @@ const BoxStyle = css`
 const Distance = styled.div`
   text-align: center;
   width: 50%;
-  border-right: 1px ${color.line01} solid;
+  border-right: 0.063rem ${color.line01} solid;
 `;
 
 const Info = css`
-  font-size: 14px;
+  font-size: 0.875rem;
   color: ${color.line03};
 `;
 
 const InfoNumber = css`
-  font-size: 26px;
+  font-size: 1.625rem;
   font-weight: 500;
   color: ${color.bgSurface};
 `;
