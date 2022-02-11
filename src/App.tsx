@@ -18,6 +18,7 @@ const GlobalStyle = createGlobalStyle`
 		line-height: 1.7;
 	}
 `;
+// new
 
 function App() {
   return (
