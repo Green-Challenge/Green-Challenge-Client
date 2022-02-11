@@ -8,8 +8,8 @@ const H3 = styled.div`
   width: 100%;
   height: 2rem;
   text-align: center;
-  font-weight: bold;
   margin-top: 17.5rem;
   margin-bottom: 0.5rem;
+  font-weight: bold;
 `;
 export default Headline;
