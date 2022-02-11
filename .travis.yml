@@ -9,9 +9,6 @@ before_install:
   - echo "start creating an image with dockerfile"
   - docker build -t greenchallenge -f Dockerfile.dev .
 
-script:
-  - docker run -e CI=true greenchallenge npm run test -- --coverage
-
 after_sucess:
   - echo "Test suceess"
 
