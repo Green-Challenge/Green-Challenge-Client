@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import color from 'color';
 import InputWithLabel from 'components/Auth/common/InputWithLabel';
-// import InfoTxt from 'components/Auth/common/InfoTxt';
 import {useRef, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import Button from 'components/common/Button';
@@ -17,6 +16,10 @@ function SignInForm() {
 
   const {signIn} = useAuthActions();
   const {data, loading, error} = useUser();
+
+  const isPassedLogin = Email.includes('@') && Password.length > 2;
+
+  const getIsActive = isPassedLogin;
 
   const submitHandler = (e: any) => {
     e.preventDefault();
@@ -82,7 +85,11 @@ function SignInForm() {
             </SignUp>
           </Info>
         </Wrapper>
-        <Btn type="submit">로그인</Btn>
+        {getIsActive ? (
+          <Btn type="submit">로그인</Btn>
+        ) : (
+          <Btn color={color.line01}>로그인</Btn>
+        )}
       </form>
     </div>
   );
@@ -101,7 +108,6 @@ const Wrapper = styled.div`
 `;
 
 const InputWrapper = styled.div`
-  /* height: 22rem; */
   height: 23rem;
 `;
 
@@ -114,10 +120,9 @@ const SignUp = styled.span`
 const Btn = styled(Button)`
   background-color: ${props => (props.color ? color.line03 : color.primary)};
   color: ${props => props.color || color.bgWhite};
-  position: fixed;
   bottom: 0;
+  position: fixed;
 `;
-
 const SignUpWrapper = styled.span`
   margin-left: 0.5rem;
   font-weight: bold;

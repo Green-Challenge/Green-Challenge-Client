@@ -46,10 +46,10 @@ const Wrapper = styled.div`
   margin-left: 1.5rem;
   margin-right: 1.5rem;
 `;
-
 const Btn = styled(Button)`
   position: fixed;
   bottom: 0;
   margin-top: 3.125rem;
 `;
+
 export default ProfileSection;
