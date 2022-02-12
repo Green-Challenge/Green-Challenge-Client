@@ -1,6 +1,9 @@
 import color from 'color';
 import Icon from 'components/Icon/Icon';
+import {useEffect, useState} from 'react';
+import {ChallengeService} from 'service/challenges/challenges';
 import styled from 'styled-components';
+import {treeImgNameByName} from 'utils/imageMap';
 
 interface TreeCardProps {
   challengeName: string;
@@ -9,22 +12,23 @@ interface TreeCardProps {
   numberOfLeaf: number;
 }
 
-function treeNameById(treeId: number) {
-  const treeNames = ['향나무', '잣나무'];
-  return treeNames[treeId];
-}
-
 function TreeCard({
   challengeName,
   numberOfCompletions,
   numberOfLeaf,
   treeId,
 }: TreeCardProps) {
-  const treeName = treeNameById(treeId);
-  console.log(treeName);
+  const [treeName, setTreeName] = useState('t1');
+
+  useEffect(() => {
+    ChallengeService.getTreeName(treeId).then(res =>
+      setTreeName(treeImgNameByName(res.treeName)),
+    );
+  }, [treeId]);
 
   return (
     <CardDiv>
+      <img src={`/Icon/${treeName}.svg`} alt="나무" />
       <CompeletionsDiv>{numberOfCompletions}</CompeletionsDiv>
       <ChallengeNameSpan>{challengeName}</ChallengeNameSpan>
       <LeafCountDiv>
@@ -42,11 +46,6 @@ const CardDiv = styled.div`
   position: relative;
   border-radius: 0.75rem;
   box-shadow: 0.25rem 0.5rem 1.5rem rgba(173, 173, 173, 0.08);
-  transition: all 0.2s;
-  cursor: pointer;
-  &:hover {
-    box-shadow: 0.5rem 0.75rem 2rem rgba(50, 50, 50, 0.08);
-  }
 `;
 
 const CompeletionsDiv = styled.div`
@@ -66,6 +65,7 @@ const CompeletionsDiv = styled.div`
 
 const ChallengeNameSpan = styled.span`
   color: ${color.bodyFont01};
+  display: block;
   font-size: 0.875rem;
   position: absolute;
   font-weight: 500;

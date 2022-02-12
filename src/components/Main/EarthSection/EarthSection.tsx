@@ -3,14 +3,14 @@ import EarthShort from './EarthShort';
 import styled from 'styled-components';
 
 interface EarthSectionProps {
-  imageSrc: string;
+  amountOfTree: number;
 }
 
-function EarthSection({imageSrc}: EarthSectionProps) {
+function EarthSection({amountOfTree}: EarthSectionProps) {
   return (
     <Div>
       <EarthImage imageSrc="/Icon/earth.svg" />
-      <EarthShort amountOfTree={35}></EarthShort>
+      <EarthShort amountOfTree={amountOfTree}></EarthShort>
     </Div>
   );
 }
