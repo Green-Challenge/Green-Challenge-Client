@@ -5,6 +5,7 @@ import Address from './Address';
 import styled from 'styled-components';
 import Button from 'components/common/Button';
 import {useHistory} from 'react-router-dom';
+// import color from 'color';
 
 function ProfileSection() {
   const history = useHistory();
