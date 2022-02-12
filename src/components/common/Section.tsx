@@ -20,22 +20,22 @@ function Section({title, children, info}: SectionProps) {
 }
 
 const Wrapper = styled.section`
-  margin-top: 32px;
-  padding: 0 24px;
+  margin-top: 2rem;
+  padding: 0 1.5rem;
 `;
 const Title = styled.h3`
   color: ${color.bodyFont01};
   font-weight: 700;
-  font-size: 18px;
-  margin-bottom: 12px;
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
   position: relative;
   display: inline-block;
 `;
 const Info = styled.span`
   position: absolute;
-  right: -6px;
+  right: -0.375rem;
   transform: translateX(100%);
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 500;
   color: ${color.primary};
 `;

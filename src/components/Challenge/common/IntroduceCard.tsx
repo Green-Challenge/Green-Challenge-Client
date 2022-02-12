@@ -38,6 +38,7 @@ const Wrapper = styled.div<WrapperProps>`
       height: 282px;
     `}
   background-color: ${color.bgWhite};
+  box-shadow: 0.25rem 0.5rem 1.5rem rgba(173, 173, 173, 0.12);
   text-align: center;
   padding-top: 30px;
   border-radius: 10px;
