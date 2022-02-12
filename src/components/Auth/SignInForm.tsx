@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import color from 'color';
 import InputWithLabel from 'components/Auth/common/InputWithLabel';
-import InfoTxt from 'components/Auth/common/InfoTxt';
+// import InfoTxt from 'components/Auth/common/InfoTxt';
 import {useRef, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import Button from 'components/common/Button';
@@ -72,15 +72,15 @@ function SignInForm() {
               onChange={passwordHandler}
             />
           </InputWrapper>
-          <InfoTxt textAlign>
+          <Info>
             아직 네이버스 계정이 없으신가요?
             <SignUp
               onClick={() => {
                 history.push('/auth/signup');
               }}>
-              회원가입
+              <SignUpWrapper>회원가입</SignUpWrapper>
             </SignUp>
-          </InfoTxt>
+          </Info>
         </Wrapper>
         <Btn type="submit">로그인</Btn>
       </form>
@@ -88,12 +88,21 @@ function SignInForm() {
   );
 }
 
+const Info = styled.div`
+  display: flex;
+  text-align: center;
+  color: ${color.bodyFont03};
+  margin-left: 1.5rem;
+  font-size: 0.875rem;
+`;
+
 const Wrapper = styled.div`
   margin: 0 1.5rem;
 `;
 
 const InputWrapper = styled.div`
-  height: 22.5rem;
+  /* height: 22rem; */
+  height: 23rem;
 `;
 
 const SignUp = styled.span`
@@ -105,7 +114,14 @@ const SignUp = styled.span`
 const Btn = styled(Button)`
   background-color: ${props => (props.color ? color.line03 : color.primary)};
   color: ${props => props.color || color.bgWhite};
+  position: fixed;
   bottom: 0;
+`;
+
+const SignUpWrapper = styled.span`
+  margin-left: 0.5rem;
+  font-weight: bold;
+  border-bottom: 0.031rem solid ${color.primary};
 `;
 
 export default SignInForm;

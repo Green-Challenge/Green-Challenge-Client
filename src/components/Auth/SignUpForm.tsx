@@ -127,8 +127,10 @@ function SignUpForm() {
           </InputWrapper>
           <Info>
             <InfoTxt>
-              개인정보 수집 및 이용에 동의합니다
-              <input type="checkbox" onClick={isCheckClicked} />
+              <Label htmlFor="label-a">
+                개인정보 수집 및 이용에 동의합니다
+              </Label>
+              <InputCheck type="checkbox" onClick={isCheckClicked} />
               {checkError && <Alert>약관 동의가 필요합니다.</Alert>}
             </InfoTxt>
           </Info>
@@ -143,6 +145,16 @@ function SignUpForm() {
   );
 }
 
+const Label = styled.label`
+  top: 0.188rem;
+  position: relative;
+`;
+
+const InputCheck = styled.input`
+  top: 0.281rem;
+  position: relative;
+`;
+
 const Wrapper = styled.div`
   margin-left: 1.5rem;
   width: calc(100% - 3rem);
@@ -155,6 +167,7 @@ const InputWrapper = styled.div`
 const Info = styled.div`
   display: flex;
   text-align: center;
+  margin-top: -0.313rem;
 `;
 
 const Alert = styled.div`
