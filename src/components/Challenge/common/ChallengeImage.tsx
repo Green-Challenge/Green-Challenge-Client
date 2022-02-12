@@ -17,7 +17,7 @@ function ChallengeImage({imageSrc, numberOfPersion}: ChallengeImageProps) {
 
 const ImageWrapper = styled.div`
   position: relative;
-  border-radius: 10px;
+  border-radius: 0.625rem;
   overflow: hidden;
   img {
     display: block;

@@ -34,18 +34,18 @@ const Wrapper = styled.div<WrapperProps>`
   ${props =>
     props.isSquare &&
     css`
-      width: 312px;
-      height: 282px;
+      width: 19.5rem;
+      height: 17.625rem;
     `}
   background-color: ${color.bgWhite};
   box-shadow: 0.25rem 0.5rem 1.5rem rgba(173, 173, 173, 0.12);
   text-align: center;
-  padding-top: 30px;
-  border-radius: 10px;
+  padding-top: 1.875rem;
+  border-radius: 0.625rem;
   ${props =>
     props.isMarginTop &&
     css`
-      margin-top: 20px;
+      margin-top: 1.25rem;
     `}
 `;
 

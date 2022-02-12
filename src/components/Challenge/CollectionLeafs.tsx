@@ -29,17 +29,17 @@ function CollectionLeafs({numberOfLeafs}: CollectionLeafsProps) {
 
 const Wrapper = styled.div`
   background-color: ${color.bgWhite};
-  border-radius: 10px;
-  height: 136px;
-  padding: 18px 35px;
+  border-radius: 0.625rem;
+  height: 8.5rem;
+  padding: 1.125rem 2.188rem;
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
 `;
 
 const Leaf = styled(Icon)`
-  width: 44px;
-  height: 44px;
+  width: 2.75rem;
+  height: 2.75rem;
 `;
 const LeafContainer = styled.div`
   width: 25%;

@@ -83,11 +83,11 @@ function Chart({data}: ChartProps) {
 
 const divStyle = css`
   background-color: ${color.bgWhite};
-  width: 312px;
-  height: 352px;
+  width: 19.5rem;
+  height: 22rem;
   text-align: center;
-  padding-top: 30px;
-  border-radius: 10px;
+  padding-top: 1.875rem;
+  border-radius: 0.625rem;
 `;
 
 export {Chart};

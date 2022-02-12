@@ -64,14 +64,14 @@ const ImgBtn = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 1.125rem;
   border: none;
   background: ${color.line04};
   color: #000;
   width: 10rem;
   height: 10rem;
-  margin-top: -35px;
-  margin-bottom: 20px;
+  margin-top: -2.188rem;
+  margin-bottom: 1.25rem;
   border-radius: 100%;
 `;
 

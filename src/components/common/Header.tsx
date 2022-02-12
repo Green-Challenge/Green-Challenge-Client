@@ -32,7 +32,7 @@ export const wrapperStyle = css`
   display: flex;
   width: 100%;
   box-sizing: border-box;
-  padding: 0 21px;
+  padding: 0 1.313rem;
 `;
 
 Header.Left = styled.div`
@@ -52,11 +52,11 @@ const HeaderStyled = styled.h1<HeaderProps>`
   ${props =>
     props.isBig
       ? css`
-          font-size: 20px;
+          font-size: 1.25rem;
           font-weight: 700;
         `
       : css`
-          font-size: 16px;
+          font-size: 1rem;
           font-weight: 500;
         `}
   color: ${props => (props.isTitle ? color.titleFont : color.bodyFont01)}

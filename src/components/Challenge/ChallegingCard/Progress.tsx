@@ -25,14 +25,14 @@ function Progress({progress, target, currentDistance}: ProgressProps) {
 }
 
 const Wrapper = styled.div`
-  margin-top: 44px;
+  margin-top: 2.75rem;
   position: relative;
 `;
 const Background = styled.div`
   width: 100%;
-  height: 12px;
+  height: 0.75rem;
   background-color: #ebedf0;
-  border-radius: 10px;
+  border-radius: 0.625rem;
 `;
 interface PercentProps {
   progress: number;
@@ -41,11 +41,11 @@ const Percent = styled.div<PercentProps>`
   height: 100%;
   width: ${props => `${props.progress}%`};
   background-color: ${color.primary};
-  border-radius: 10px;
+  border-radius: 0.625rem;
 `;
 const Leaf = styled(Icon)`
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
 `;
 const LeafContainer = styled.div`
   position: absolute;
@@ -58,8 +58,8 @@ const TargetSpan = styled.span`
   right: 0;
   transform: translateY(100%);
   font-weight: 400;
-  font-size: 12px;
-  bottom: -4px;
+  font-size: 0.75rem;
+  bottom: -0.25rem;
   color: ${color.line01};
 `;
 

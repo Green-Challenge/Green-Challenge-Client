@@ -16,10 +16,10 @@ Layout.Header = styled.header`
   z-index: 1;
   top: 0;
   left: 50%;
-  max-width: 360px;
-  height: 52px;
+  max-width: 22.5rem;
+  height: 3.25rem;
   display: flex;
-  margin-top: 24px;
+  margin-top: 1.5rem;
   justify-content: space-around;
   align-items: center;
   width: 100%;
@@ -29,7 +29,7 @@ Layout.Main = styled.main`
   position: fixed;
   transform: translateX(-50%);
   z-index: 1;
-  top: 76px;
+  top: 4.75rem;
   left: 50%;
   width: 100%;
   display: flex;
@@ -43,7 +43,7 @@ const Wrapper = styled.div`
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 360px;
+  width: 22.5rem;
   background-color: white;
 `;
 

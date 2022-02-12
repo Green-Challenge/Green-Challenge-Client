@@ -55,7 +55,7 @@ function MyTree({imageSrc}: MyTreeProps) {
 }
 
 const IconStyle = css`
-  width: 24px;
+  width: 1.5rem;
   cursor: pointer;
 `;
 

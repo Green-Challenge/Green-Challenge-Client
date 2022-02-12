@@ -82,8 +82,4 @@ const Img = styled.img`
   height: 5.375rem;
 `;
 
-// const ColorStyle = css`
-//   color: 'transparent';
-// `;
-
 export default ChallengeCircle;
