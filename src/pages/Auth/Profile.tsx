@@ -6,7 +6,6 @@ import Header from 'components/common/Header';
 
 function Profile() {
   const {data} = useRegister();
-  console.log(data);
 
   return (
     <Layout>
@@ -14,7 +13,7 @@ function Profile() {
         <Header>프로필</Header>
       </Layout.Header>
       <Main>
-        <ProfileSection />
+        <ProfileSection userId={data!.userId} />
       </Main>
     </Layout>
   );

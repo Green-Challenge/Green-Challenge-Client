@@ -7,6 +7,7 @@ import {useIsAuthPush} from 'hooks/auth/useIsAuth';
 import useTrees from 'hooks/my/useTrees';
 import {useAppSelector} from 'hooks/storeHooks';
 import {useRef} from 'react';
+import {useHistory} from 'react-router-dom';
 import {css} from 'styled-components/macro';
 
 interface MyTreeProps {
@@ -15,9 +16,14 @@ interface MyTreeProps {
 
 function MyTree({imageSrc}: MyTreeProps) {
   useIsAuthPush();
+  const history = useHistory();
   const {userId} = useAppSelector(state => state.auth.isAuth);
   const amountOfTree = useRef(0);
   const {data, loading, error} = useTrees(userId!);
+
+  const onClick = () => {
+    history.push({pathname: '/'});
+  };
 
   if (loading) {
     return <div>로딩중</div>;
@@ -40,7 +46,12 @@ function MyTree({imageSrc}: MyTreeProps) {
       {data && (
         <Layout>
           <Layout.Header>
-            <Header headerRgihtItems={<Icon name="close" css={IconStyle} />}>
+            <Header
+              headerRgihtItems={
+                <div onClick={onClick}>
+                  <Icon name="close" css={IconStyle} />
+                </div>
+              }>
               함께 심은 나무
             </Header>
           </Layout.Header>

@@ -5,3 +5,18 @@ export type GetTogehterTrees = {
   treeId: number;
   numberOfLeaf: number;
 }[];
+
+export type CreateProfileReq = {
+  userId: number;
+  profileImg?: string;
+  nickName: string;
+  siNm: string;
+  sggNm: string;
+};
+
+export type CreateProfileRes = {
+  profileImg?: string;
+  nickName: string;
+  siNm: string;
+  sggNm: string;
+};

@@ -5,16 +5,29 @@ import Address from './Address';
 import styled from 'styled-components';
 import Button from 'components/common/Button';
 import {useHistory} from 'react-router-dom';
+import {MyService} from 'service/my/my';
 
-function ProfileSection() {
+interface ProfileSectionProps {
+  userId: number;
+}
+
+function ProfileSection({userId}: ProfileSectionProps) {
   const history = useHistory();
-  const submit = (e: any) => {
-    e.preventDefault();
-  };
   const [chosenSi, setChosenSi] = useState('');
   const [chosenGu, setChosenGu] = useState('');
   const [image, setImage] = useState('');
   const [nickName, setNickName] = useState('');
+
+  const submit = (e: any) => {
+    e.preventDefault();
+    MyService.createProfile({
+      nickName,
+      userId,
+      sggNm: chosenGu,
+      siNm: chosenSi,
+      profileImg: image,
+    }).then(() => history.push({pathname: '/auth/signin'}));
+  };
 
   return (
     <>

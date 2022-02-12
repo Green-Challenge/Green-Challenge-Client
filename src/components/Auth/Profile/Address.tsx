@@ -288,8 +288,6 @@ function Address({chosenSi, setChosenSi, chosenGu, setChosenGu}: AddressProps) {
     setChosenGu(e.target.value);
   };
 
-  console.log(chosenSi);
-  console.log(chosenGu);
   return (
     <Wrapper>
       <Label htmlFor="address">거주지</Label>
