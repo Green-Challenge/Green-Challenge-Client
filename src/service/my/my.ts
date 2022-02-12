@@ -1,5 +1,5 @@
 import apiClient from 'service/apiClient';
-import {GetTogehterTrees} from './type';
+import {CreateProfileReq, CreateProfileRes, GetTogehterTrees} from './type';
 
 const baseEndPoint = '/api/my';
 
@@ -8,6 +8,18 @@ export class MyService {
     try {
       const {data} = await apiClient.get<GetTogehterTrees>(
         `${baseEndPoint}/trees/${userId}`,
+      );
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  public static createProfile = async (req: CreateProfileReq) => {
+    try {
+      const {data} = await apiClient.post<CreateProfileRes>(
+        `${baseEndPoint}/profile`,
+        req,
       );
       return data;
     } catch (error) {
