@@ -129,6 +129,9 @@ const RoundButton = styled(Button)<RoundButtonProps>`
       ? css`
           background-color: ${color.bgWhite};
           color: ${color.primary};
+          :hover {
+            background-color: ${color.bgSurface};
+          }
         `
       : css`
           background-color: ${color.primary};

@@ -57,6 +57,10 @@ const Btn = styled(Button)`
   width: calc(50% - 1.875rem);
   background-color: ${props => props.color || color.primary};
   color: ${props => (props.color ? color.primary : color.bgWhite)};
+  :hover {
+    background-color: ${props =>
+      props.color ? color.bgSurface : color.mint01};
+  }
   border: 0.063rem solid ${color.primary};
   margin: 2.5rem 0.375rem;
 `;

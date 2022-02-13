@@ -178,6 +178,9 @@ const Btn = styled(Button)`
   color: ${props => props.color || color.bgWhite};
   bottom: 0;
   position: fixed;
+  /* :hover {
+    background-color: ${color.line03};
+  } */
 `;
 
 export default SignUpForm;
