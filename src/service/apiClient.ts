@@ -8,4 +8,7 @@ const apiClient = (baseURL: string, token?: string) => {
   });
 };
 
-export default apiClient(config.SERVER!);
+const apiClientInstance = apiClient(config.SERVER!);
+apiClientInstance.defaults.withCredentials = true;
+
+export default apiClientInstance;
