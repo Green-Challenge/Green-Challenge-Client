@@ -96,11 +96,14 @@ function SignInForm() {
 }
 
 const Info = styled.div`
+  bottom: 6.875rem;
   display: flex;
   text-align: center;
   color: ${color.bodyFont03};
   margin-left: 1.5rem;
   font-size: 0.875rem;
+  position: fixed;
+  z-index: 10;
 `;
 
 const Wrapper = styled.div`
@@ -108,7 +111,8 @@ const Wrapper = styled.div`
 `;
 
 const InputWrapper = styled.div`
-  height: 23rem;
+  /* height: 23rem; */
+  height: 1rem;
 `;
 
 const SignUp = styled.span`

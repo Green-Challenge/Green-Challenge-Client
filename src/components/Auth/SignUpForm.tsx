@@ -104,7 +104,6 @@ function SignUpForm() {
               placeholder="이메일"
               value={Email}
               onChange={emailHandler}
-              onKeyUp={isPassedLogin}
             />
             <InputWithLabel
               label="비밀번호"
@@ -121,7 +120,6 @@ function SignUpForm() {
               type="password"
               value={PasswordCheck}
               onChange={passwordCheckHandler}
-              onKeyUp={isPassedLogin}
             />
             {PasswordError && <Alert>비밀번호가 일치하지 않습니다.</Alert>}
           </InputWrapper>
@@ -167,7 +165,7 @@ const InputWrapper = styled.div`
 const Info = styled.div`
   display: flex;
   text-align: center;
-  margin-top: -0.313rem;
+  margin-top: -0.31rem;
 `;
 
 const Alert = styled.div`
