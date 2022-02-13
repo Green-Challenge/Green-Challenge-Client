@@ -60,7 +60,7 @@ const Div = styled.div`
   align-items: center;
 `;
 
-const ImgBtn = styled.button`
+const ImgBtn = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;

@@ -20,3 +20,11 @@ export type CreateProfileRes = {
   siNm: string;
   sggNm: string;
 };
+
+export type GetProfileRes = {
+  profileImg?: string;
+  nickName: string;
+  siNm: string;
+  sggNm: string;
+  token: number;
+};

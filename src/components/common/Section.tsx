@@ -11,7 +11,7 @@ function Section({title, children, info}: SectionProps) {
   return (
     <Wrapper>
       <Title>
-        {info && <Info>{info}</Info>}
+        {typeof info !== 'undefined' && <Info>{info}</Info>}
         {title}
       </Title>
       {children}

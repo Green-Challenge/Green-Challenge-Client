@@ -42,13 +42,7 @@ function ProfileSection({userId}: ProfileSectionProps) {
             setChosenGu={setChosenGu}
           />
         </Wrapper>
-        <Btn
-          onClick={() => {
-            history.push('/auth/signin');
-          }}
-          type="submit">
-          확인
-        </Btn>
+        <Btn type="submit">확인</Btn>
       </form>
     </>
   );

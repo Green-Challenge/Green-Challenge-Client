@@ -2,25 +2,48 @@ import styled from 'styled-components';
 import color from 'color';
 import Icon from 'components/Icon/Icon';
 import {css} from 'styled-components/macro';
+import useProfile from 'hooks/my/useProfile';
 
-function MyProfileSection() {
+interface MyProfileSectionProps {
+  userId: number;
+}
+
+function MyProfileSection({userId}: MyProfileSectionProps) {
+  console.log(userId);
+
+  const {data, loading, error} = useProfile(userId);
+
+  if (loading) {
+    return <div>로딩중</div>;
+  }
+
+  if (error) {
+    return <div>에러</div>;
+  }
+
   return (
-    <Wrapper>
-      <ImgBtn>
-        <Icon name="participant" css={IconStyle} />
-        {/* <Img src={image} style={{objectFit: 'cover'}} alt="img" /> */}
-      </ImgBtn>
-      <InfoBox>
-        <p css={AddressInfo}>서울시 강남구</p>
-        <p css={NickInfo}>닉네임</p>
-      </InfoBox>
-      <TokenBox>
-        <Token>
-          <Icon name="token" css={TokenStyle} />
-          <span>3,900</span>
-        </Token>
-      </TokenBox>
-    </Wrapper>
+    <>
+      {data && (
+        <Wrapper>
+          <ImgBtn>
+            <Icon name="participant" css={IconStyle} />
+            {/* <Img src={image} style={{objectFit: 'cover'}} alt="img" /> */}
+          </ImgBtn>
+          <InfoBox>
+            <p css={AddressInfo}>
+              {data.siNm} {data.sggNm}
+            </p>
+            <p css={NickInfo}>{data.nickName}</p>
+          </InfoBox>
+          <TokenBox>
+            <Token>
+              <Icon name="token" css={TokenStyle} />
+              <span>{data.token}</span>
+            </Token>
+          </TokenBox>
+        </Wrapper>
+      )}
+    </>
   );
 }
 

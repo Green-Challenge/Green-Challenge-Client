@@ -1,5 +1,10 @@
 import apiClient from 'service/apiClient';
-import {CreateProfileReq, CreateProfileRes, GetTogehterTrees} from './type';
+import {
+  CreateProfileReq,
+  CreateProfileRes,
+  GetProfileRes,
+  GetTogehterTrees,
+} from './type';
 
 const baseEndPoint = '/api/my';
 
@@ -21,6 +26,16 @@ export class MyService {
         `${baseEndPoint}/profile`,
         req,
       );
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  public static getProfile = async (userId: number) => {
+    try {
+      const {data} = await apiClient.get<GetProfileRes>(`
+			${baseEndPoint}/profile/${userId}`);
       return data;
     } catch (error) {
       throw error;
