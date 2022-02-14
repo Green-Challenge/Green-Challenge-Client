@@ -36,8 +36,8 @@ function Chart({data}: ChartProps) {
         xScale={{type: 'linear'}}
         yScale={{
           type: 'linear',
-          min: 'auto',
-          max: 'auto',
+          min: -1000,
+          max: 1000,
           stacked: true,
           reverse: false,
         }}

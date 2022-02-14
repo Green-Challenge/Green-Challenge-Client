@@ -70,8 +70,15 @@ const fillData = (emptyAxis: Axis) => {
 const fullData = (notFullAxis: Axis) => {
   const fullAxis: Axis = [];
   const lastDay = notFullAxis.reduce((prev, cur) => {
-    return Math.max(parseInt(cur.x), prev);
+    return Math.max(parseInt(cur.x.split('.')[1]), prev);
   }, 0);
+  for (let i = 1; i < lastDay; i++) {
+    fullAxis.push({x: String(i), y: 0});
+  }
+  fullAxis.push(
+    ...notFullAxis.map(axis => ({...axis, x: String(axis.x.split('.')[1])})),
+  );
+
   for (let i = lastDay + 1; i <= 31; i++) {
     fullAxis.push({x: String(i), y: 0});
   }

@@ -30,6 +30,10 @@ function Record() {
     return <div>에러</div>;
   }
 
+  if (data) {
+    console.log(data.reducedCarbon * (1 / 1000));
+  }
+
   return (
     <>
       {data && (
@@ -48,7 +52,9 @@ function Record() {
                 </Distance>
                 <Carbon>
                   <div css={Info}>탄소저감량</div>
-                  <div css={InfoNumber}>{data.reducedCarbon.toFixed()}kg</div>
+                  <div css={InfoNumber}>
+                    {(data.reducedCarbon * (1 / 1000)).toFixed(2)}kg
+                  </div>
                 </Carbon>
               </div>
               <img
