@@ -19,7 +19,6 @@ function ProfileImage({image, setImage}: ProfileImageProps) {
       setImage(poster64);
     });
   };
-  // console.log(image);
   return (
     <Div>
       {image ? (

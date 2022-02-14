@@ -49,7 +49,6 @@ export class AuthService {
         req,
       );
       const {data, headers} = response;
-      console.log(headers);
 
       localStorage.setItem('token', headers['x-auth-token']);
       return data;

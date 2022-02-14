@@ -9,8 +9,6 @@ interface MyProfileSectionProps {
 }
 
 function MyProfileSection({userId}: MyProfileSectionProps) {
-  console.log(userId);
-
   const {data, loading, error} = useProfile(userId);
 
   if (loading) {

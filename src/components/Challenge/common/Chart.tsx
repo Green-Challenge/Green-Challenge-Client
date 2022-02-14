@@ -24,8 +24,6 @@ const CustomSymbolShape: FC<CustomSymbolShapeProps> = ({
 };
 
 function Chart({data}: ChartProps) {
-  console.log(data);
-
   return (
     <div css={divStyle}>
       <ResponsiveLine

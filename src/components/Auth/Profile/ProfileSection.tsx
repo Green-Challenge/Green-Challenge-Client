@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import ProfileImage from './ProfileImage';
 import NickName from './NickName';
 import Address from './Address';
@@ -58,5 +58,4 @@ const Btn = styled(Button)`
   bottom: 0;
   margin-top: 3.125rem;
 `;
-
 export default ProfileSection;
