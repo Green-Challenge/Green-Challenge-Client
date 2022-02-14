@@ -1,4 +1,5 @@
 import apiClient from 'service/apiClient';
+import {GetChartRes} from 'service/challenges/type';
 import {
   CreateProfileReq,
   CreateProfileRes,
@@ -36,6 +37,17 @@ export class MyService {
     try {
       const {data} = await apiClient.get<GetProfileRes>(`
 			${baseEndPoint}/profile/${userId}`);
+      return data;
+    } catch (error) {
+      throw error;
+    }
+  };
+
+  public static getChart = async (userId: number) => {
+    try {
+      const {data} = await apiClient.get<GetChartRes>(
+        `${baseEndPoint}/chart/${userId}`,
+      );
       return data;
     } catch (error) {
       throw error;

@@ -42,6 +42,7 @@ function Chart({data}: ChartProps) {
           reverse: false,
         }}
         yFormat=" >-.2f"
+        colors={{scheme: 'paired'}}
         // pointSize={10}
         // pointColor={{theme: 'background'}}
         // pointBorderWidth={2}

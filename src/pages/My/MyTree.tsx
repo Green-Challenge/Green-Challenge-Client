@@ -9,10 +9,13 @@ import {useAppSelector} from 'hooks/storeHooks';
 import {useRef} from 'react';
 import {useHistory} from 'react-router-dom';
 import {css} from 'styled-components/macro';
+import NoTree from './NoTree';
 
 interface MyTreeProps {
   imageSrc: string;
 }
+
+const NO_TREE_MESSAGE = '참여중인 challenge가 없습니다.';
 
 function MyTree({imageSrc}: MyTreeProps) {
   useIsAuthPush();
@@ -29,7 +32,11 @@ function MyTree({imageSrc}: MyTreeProps) {
     return <div>로딩중</div>;
   }
 
-  if (error) {
+  if (error !== null) {
+    const {message, status} = error.response!.data;
+    if (status === 404 && message === NO_TREE_MESSAGE) {
+      return <NoTree />;
+    }
     return <div>에러</div>;
   }
 

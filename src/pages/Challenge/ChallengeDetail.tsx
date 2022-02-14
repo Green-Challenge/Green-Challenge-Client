@@ -1,6 +1,7 @@
 import {IntroduceCard} from 'components/Challenge/common';
 import {DetailCard} from 'components/Challenge/DetailCard';
 import {Layout} from 'components/common';
+import BackButton from 'components/common/BackButton';
 import Button from 'components/common/Button';
 import Header from 'components/common/Header';
 import Section from 'components/common/Section';
@@ -50,7 +51,7 @@ function ChallengeDetail() {
   return (
     <Layout>
       <Layout.Header>
-        <Header isTitle isBig>
+        <Header isTitle isBig headerLeftItems={<BackButton path="/" />}>
           {data && data.challengeName}
         </Header>
       </Layout.Header>

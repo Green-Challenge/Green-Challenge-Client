@@ -1,3 +1,4 @@
+import {AxiosError} from 'axios';
 import {useEffect, useState} from 'react';
 import {MyService} from 'service/my/my';
 import {GetTogehterTrees} from 'service/my/type';
@@ -6,7 +7,7 @@ const useTrees = (userId: number) => {
   const initailState = {
     data: null as GetTogehterTrees | null,
     loading: false,
-    error: null,
+    error: null as AxiosError | null,
   };
 
   const [state, setState] = useState(initailState);
@@ -29,7 +30,7 @@ const useTrees = (userId: number) => {
         setState({
           data: null,
           loading: false,
-          error,
+          error: error,
         });
       });
   }, [userId]);

@@ -28,3 +28,8 @@ export type GetProfileRes = {
   sggNm: string;
   token: number;
 };
+
+export type GetChartRes = {
+  lastMonth: {x: string; y: number}[];
+  currentMonth: {x: string; y: number}[];
+};

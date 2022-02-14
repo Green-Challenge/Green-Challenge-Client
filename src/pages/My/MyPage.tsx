@@ -6,6 +6,7 @@ import MyProfileSection from 'components/MyPage/MyProfileSection';
 import {useHistory} from 'react-router-dom';
 import {useAppSelector} from 'hooks/storeHooks';
 import {css} from 'styled-components/macro';
+import MyChartSection from 'components/MyPage/MyChartSection';
 
 function MyPage() {
   useIsAuthPush();
@@ -36,7 +37,7 @@ function MyPage() {
           </Layout.Header>
           <Layout.ScrollMain>
             <MyProfileSection userId={userId} />
-            <div>ChallengeChart부분</div>
+            <MyChartSection userId={userId} />
           </Layout.ScrollMain>
         </Layout>
       )}
