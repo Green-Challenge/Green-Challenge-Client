@@ -35,8 +35,9 @@ export class MyService {
 
   public static getProfile = async (userId: number) => {
     try {
-      const {data} = await apiClient.get<GetProfileRes>(`
-			${baseEndPoint}/profile/${userId}`);
+      const {data} = await apiClient.get<GetProfileRes>(
+        `${baseEndPoint}/profile/${userId}`,
+      );
       return data;
     } catch (error) {
       throw error;
